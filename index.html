@@ -1279,6 +1279,278 @@ section{padding:104px 0}
   }
 }
 
+
+/* === HERO V3 / FEATURED PRODUCTS DOCK === */
+.hero-v3{
+  min-height:auto;
+  grid-template-columns:minmax(0,1.12fr) minmax(390px,.88fr);
+  gap:52px;
+  align-items:center;
+  padding-top:78px;
+  padding-bottom:72px
+}
+.hero-main{min-width:0}
+.hero-v3 .hero-name{
+  margin:16px 0 14px;
+  white-space:nowrap;
+  font-size:clamp(3.15rem,5.15vw,4.55rem)!important;
+  line-height:1!important;
+  letter-spacing:-.05em!important
+}
+.hero-v3 .role{
+  font-size:clamp(1.05rem,1.6vw,1.28rem);
+  max-width:780px
+}
+.hero-v3 .summary{
+  max-width:780px;
+  margin-top:16px;
+  font-size:.96rem;
+  line-height:1.72
+}
+.hero-v3 .identity-strip{margin-top:18px}
+.hero-kpis{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
+  margin-top:20px
+}
+.hero-kpi{
+  min-height:82px;
+  padding:12px 13px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.018))
+}
+.hero-kpi b{
+  display:block;
+  font-family:"Sora",sans-serif;
+  font-size:1.13rem;
+  line-height:1.1;
+  color:#9ba8ff
+}
+.hero-kpi span{
+  display:block;
+  margin-top:7px;
+  color:#8490a6;
+  font-size:.67rem;
+  line-height:1.4
+}
+.hero-v3 .actions{margin-top:22px}
+.hero-meta{margin-top:18px;font-size:.77rem}
+
+/* product dock */
+.product-dock{
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(125,92,255,.14),transparent 31%),
+    linear-gradient(145deg,rgba(16,23,45,.94),rgba(7,11,25,.93));
+  box-shadow:0 30px 80px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.035);
+  backdrop-filter:blur(18px)
+}
+.product-dock:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,#000,transparent 80%)
+}
+.dock-head{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:15px
+}
+.dock-eyebrow{
+  font-family:"Sora",sans-serif;
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  color:#8fa4ff
+}
+.dock-head h2{
+  margin:5px 0 0;
+  font-family:"Sora",sans-serif;
+  font-size:1.28rem;
+  letter-spacing:-.025em
+}
+.dock-live,.live-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+  border:1px solid rgba(99,232,155,.13);
+  background:rgba(99,232,155,.04);
+  color:#96dfb6
+}
+.dock-live{
+  padding:7px 9px;
+  border-radius:999px;
+  font-size:.61rem;
+  font-weight:800;
+  letter-spacing:.07em
+}
+.dock-live i,.live-badge i{
+  width:6px;height:6px;border-radius:50%;
+  background:#63e89b;
+  box-shadow:0 0 12px rgba(99,232,155,.65)
+}
+.app-card{
+  position:relative;
+  z-index:1;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+  transition:transform .22s,border-color .22s,background .22s
+}
+.app-card + .app-card{margin-top:11px}
+.app-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,139,255,.20);
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025))
+}
+.app-top{
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center
+}
+.app-logo{
+  width:54px;height:54px;
+  display:grid;place-items:center;
+  overflow:hidden;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.035);
+  box-shadow:0 8px 22px rgba(0,0,0,.22)
+}
+.app-logo img{
+  width:100%;height:100%;
+  object-fit:cover
+}
+.app-label{
+  display:block;
+  font-size:.55rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  color:#69758c
+}
+.app-title h3{
+  margin:3px 0 2px;
+  font-family:"Sora",sans-serif;
+  font-size:1rem;
+  line-height:1.25
+}
+.app-domain{
+  display:block;
+  max-width:100%;
+  color:#8396d9;
+  font-size:.65rem;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.live-badge{
+  align-self:start;
+  padding:5px 7px;
+  border-radius:999px;
+  font-size:.55rem;
+  font-weight:800;
+  letter-spacing:.07em
+}
+.app-card p{
+  margin:12px 0 0;
+  color:#8f9bb1;
+  font-size:.75rem;
+  line-height:1.55
+}
+.app-actions{
+  display:flex;
+  gap:8px;
+  margin-top:13px
+}
+.app-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:0 11px;
+  border-radius:9px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.025);
+  color:#cdd6e9;
+  font-size:.68rem;
+  font-weight:700;
+  transition:.2s
+}
+.app-btn:hover{transform:translateY(-1px);color:#fff;border-color:rgba(122,139,255,.22)}
+.primary-app{
+  color:#edf0ff;
+  border-color:rgba(115,128,255,.20);
+  background:linear-gradient(135deg,rgba(102,135,255,.14),rgba(165,108,255,.12))
+}
+.app-fc .app-logo{box-shadow:0 8px 24px rgba(52,177,109,.10)}
+.app-expense .app-logo{box-shadow:0 8px 24px rgba(120,100,255,.12)}
+.dock-footer{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:13px
+}
+.dock-footer span{
+  padding:5px 8px;
+  border-radius:999px;
+  color:#727f98;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05);
+  font-size:.58rem;
+  font-weight:700
+}
+
+@media(max-width:1120px){
+  .hero-v3{
+    grid-template-columns:minmax(0,1fr) minmax(340px,.82fr);
+    gap:34px
+  }
+  .hero-v3 .hero-name{font-size:clamp(2.75rem,4.8vw,3.8rem)!important}
+  .hero-kpis{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero-v3{
+    grid-template-columns:1fr;
+    padding-top:68px
+  }
+  .hero-v3 .hero-name{
+    white-space:normal;
+    font-size:clamp(3rem,10vw,4.2rem)!important
+  }
+  .product-dock{max-width:760px}
+}
+@media(max-width:620px){
+  .hero-v3{padding-top:52px;padding-bottom:58px}
+  .hero-v3 .hero-name{font-size:clamp(2.55rem,12vw,3.4rem)!important}
+  .hero-kpis{grid-template-columns:repeat(2,1fr)}
+  .hero-kpi{min-height:76px}
+  .product-dock{padding:16px;border-radius:21px}
+  .app-top{grid-template-columns:48px minmax(0,1fr)}
+  .app-logo{width:48px;height:48px}
+  .live-badge{display:none}
+  .app-actions{flex-wrap:wrap}
+}
+
 </style>
 </head>
 <body>
@@ -1291,31 +1563,91 @@ section{padding:104px 0}
 </header>
 
 <main>
-<section class="wrap hero" id="home">
-  <div class="reveal">
+<section class="wrap hero hero-v3" id="home">
+  <div class="hero-main reveal">
     <div class="kicker">DATA • ANALYTICS • AI-ASSISTED BUILDING</div>
     <h1 class="hero-name">KEERTHI PRAKASH T</h1>
     <div class="role">Data Analyst • Business Analytics • AI-Assisted Vibe Coder</div>
-    <p class="summary">Entry-level Data Analyst with a B.Tech in Artificial Intelligence & Data Science and hands-on experience in SQL, Python, Advanced Excel, Power BI, PostgreSQL, Power Query, data cleaning, data visualization, KPI reporting, business analytics and reporting automation.</p>
+    <p class="summary">I turn data into business insights, automate reporting workflows, and build practical data-driven products using SQL, Python, Power BI and AI-assisted development.</p>
+
     <div class="identity-strip" aria-label="Professional identity">
       <span class="identity-chip">Data Analyst</span>
       <span class="identity-chip">Business Analytics</span>
       <span class="identity-chip">AI-Assisted Vibe Coder</span>
     </div>
-    <div class="vibe-note">Using AI-assisted development to rapidly prototype, debug, test and deploy practical data-driven applications.</div>
-    <div class="actions"><a class="btn primary" href="#projects">View Projects</a><a class="btn secondary" href="mailto:keerthiprakash.kp33@gmail.com">Email Me</a></div>
-    <div class="meta"><span>Tamil Nadu, India</span><a href="tel:+916381981530">+91-6381981530</a><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
-  </div>
-  <div class="heroCard reveal">
-    <div class="status"><span class="dot"></span>OPEN TO DATA & ANALYTICS OPPORTUNITIES</div>
-    <div class="metrics">
-      <div class="metric"><b>70%+</b><span>Report turnaround reduced</span></div>
-      <div class="metric"><b>2–3 hrs</b><span>Daily reporting work automated</span></div>
-      <div class="metric"><b>20+</b><span>Real users tested on FC Arena</span></div>
-      <div class="metric"><b>2</b><span>End-to-end apps deployed</span></div>
+
+    <div class="hero-kpis" aria-label="Key portfolio metrics">
+      <div class="hero-kpi"><b>70%+</b><span>Reporting turnaround reduced</span></div>
+      <div class="hero-kpi"><b>2–3 hrs</b><span>Daily reporting automated</span></div>
+      <div class="hero-kpi"><b>20+</b><span>FC Arena real-user validation</span></div>
+      <div class="hero-kpi"><b>2</b><span>End-to-end apps deployed</span></div>
     </div>
-    <div class="stack"><div class="kicker">CORE STACK</div><div class="tags"><span class="tag">Vibe Coding</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">PostgreSQL</span><span class="tag">Pandas</span><span class="tag">Next.js</span><span class="tag">Django</span></div></div>
+
+    <div class="actions">
+      <a class="btn primary" href="#projects">Explore Projects</a>
+      <a class="btn secondary" href="mailto:keerthiprakash.kp33@gmail.com">Email Me</a>
+    </div>
+
+    <div class="meta hero-meta">
+      <span>Tamil Nadu, India</span>
+      <a href="tel:+916381981530">+91-6381981530</a>
+      <a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a>
+      <a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
   </div>
+
+  <aside class="product-dock reveal" aria-label="Featured live products">
+    <div class="dock-head">
+      <div>
+        <span class="dock-eyebrow">FEATURED PRODUCTS</span>
+        <h2>Built. Deployed. Live.</h2>
+      </div>
+      <span class="dock-live"><i></i>2 LIVE</span>
+    </div>
+
+    <article class="app-card app-fc">
+      <div class="app-top">
+        <div class="app-logo">
+          <img src="https://raw.githubusercontent.com/keerthiprakash18/fc-arena/main/frontend/web/favicon.png" alt="FC Arena logo">
+        </div>
+        <div class="app-title">
+          <span class="app-label">FOOTBALL ESPORTS PLATFORM</span>
+          <h3>FC Arena</h3>
+          <a class="app-domain" href="https://fcarena.in/" target="_blank" rel="noopener noreferrer">fcarena.in ↗</a>
+        </div>
+        <span class="live-badge"><i></i>LIVE</span>
+      </div>
+      <p>Tournament management for leagues, fixtures, results, standings, statistics and rankings.</p>
+      <div class="app-actions">
+        <a class="app-btn primary-app" href="https://fcarena.in/" target="_blank" rel="noopener noreferrer">Open Live App ↗</a>
+        <a class="app-btn" href="https://github.com/keerthiprakash18/fc-arena" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </article>
+
+    <article class="app-card app-expense">
+      <div class="app-top">
+        <div class="app-logo">
+          <img src="https://raw.githubusercontent.com/keerthiprakash18/smart-expense-tracker-v3/main/frontend/public/favicon.svg" alt="Smart Expense Tracker logo">
+        </div>
+        <div class="app-title">
+          <span class="app-label">PERSONAL FINANCE PLATFORM</span>
+          <h3>Smart Expense Tracker</h3>
+          <a class="app-domain" href="https://smart-expense-tracker-v3.vercel.app/" target="_blank" rel="noopener noreferrer">smart-expense-tracker-v3.vercel.app ↗</a>
+        </div>
+        <span class="live-badge"><i></i>LIVE</span>
+      </div>
+      <p>Finance tracking with budgets, cash-flow analytics, OCR transaction extraction and PWA support.</p>
+      <div class="app-actions">
+        <a class="app-btn primary-app" href="https://smart-expense-tracker-v3.vercel.app/" target="_blank" rel="noopener noreferrer">Open Live App ↗</a>
+        <a class="app-btn" href="https://github.com/keerthiprakash18/smart-expense-tracker-v3" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </article>
+
+    <div class="dock-footer">
+      <span>SQL</span><span>Python</span><span>Power BI</span><span>PostgreSQL</span><span>Next.js</span><span>Django</span>
+    </div>
+  </aside>
 </section>
 
 <div class="marquee"><div class="track"><span>Data Analysis</span><span>Business Analytics</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Advanced Excel</span><span>PostgreSQL</span><span>KPI Reporting</span><span>Automation</span><span>AI-Assisted Development</span><span>Data Analysis</span><span>Business Analytics</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Advanced Excel</span><span>PostgreSQL</span><span>KPI Reporting</span><span>Automation</span><span>AI-Assisted Development</span></div></div>
