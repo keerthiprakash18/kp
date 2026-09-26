@@ -1983,6 +1983,61 @@ a.detail-tile:hover{
   }
 }
 
+
+/* === PORTRAIT VISIBILITY FIX === */
+.intro-row{
+  grid-template-columns:210px minmax(0,1fr)!important;
+  gap:26px!important;
+  align-items:center!important
+}
+.portrait-card{
+  width:210px;
+  border-radius:22px!important;
+  border-color:rgba(150,160,255,.24)!important;
+  box-shadow:
+    0 26px 60px rgba(0,0,0,.30),
+    0 0 0 1px rgba(111,128,255,.05),
+    0 0 36px rgba(103,128,255,.10)!important
+}
+.portrait-frame{
+  aspect-ratio:4/5!important;
+  background:#121827!important
+}
+.portrait-frame img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 16%!important;
+  transform:none!important;
+  filter:brightness(1.04) contrast(1.03)!important
+}
+.portrait-caption{
+  padding:13px 14px 14px!important;
+  background:linear-gradient(180deg,rgba(12,17,32,.88),rgba(8,12,24,.96))!important
+}
+.portrait-name{
+  font-size:.82rem!important;
+  color:#fff!important
+}
+.portrait-role{
+  margin-top:4px!important;
+  font-size:.62rem!important;
+  color:#aab6ca!important
+}
+
+@media(max-width:1120px){
+  .intro-row{grid-template-columns:185px minmax(0,1fr)!important}
+  .portrait-card{width:185px}
+}
+@media(max-width:900px){
+  .intro-row{grid-template-columns:180px minmax(0,1fr)!important}
+  .portrait-card{width:180px}
+}
+@media(max-width:620px){
+  .intro-row{grid-template-columns:1fr!important}
+  .portrait-card{width:min(240px,72vw)!important}
+}
+
 </style>
 </head>
 <body>
