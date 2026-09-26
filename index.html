@@ -615,6 +615,186 @@ main,footer{position:relative;z-index:1}
   .track{animation:none}
 }
 
+
+/* === PREMIUM CONTENT UI SYSTEM === */
+.head{position:relative}
+.head:after{
+  content:"";display:block;width:74px;height:3px;margin-top:18px;border-radius:999px;
+  background:linear-gradient(90deg,var(--blue),var(--purple),transparent);
+  box-shadow:0 0 18px rgba(102,135,255,.22)
+}
+section.wrap:not(.hero){position:relative}
+section.wrap:not(.hero):after{
+  content:"";position:absolute;left:-24px;top:82px;width:1px;height:72px;
+  background:linear-gradient(to bottom,rgba(102,135,255,.5),transparent);
+  opacity:.45
+}
+
+/* about cards */
+.feature-card{position:relative;overflow:hidden;min-height:190px}
+.feature-card:before{
+  content:"";position:absolute;width:130px;height:130px;right:-58px;top:-58px;border-radius:50%;
+  background:radial-gradient(circle,rgba(102,135,255,.14),transparent 68%)
+}
+.feature-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.feature-icon,.skill-icon,.edu-icon{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:13px;
+  font-family:"Syne",sans-serif;font-size:.74rem;font-weight:800;letter-spacing:.02em;
+  color:#eef2ff;background:linear-gradient(135deg,rgba(102,135,255,.24),rgba(165,108,255,.18));
+  border:1px solid rgba(135,137,255,.23);box-shadow:inset 0 1px rgba(255,255,255,.05)
+}
+.feature-no,.skill-no{
+  font-family:"Syne",sans-serif;font-size:.67rem;letter-spacing:.12em;color:#66718a
+}
+
+/* skill cards */
+.skill-card{position:relative;overflow:hidden;min-height:180px;padding:22px}
+.skill-card:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--skill-accent,#6687ff),transparent);
+  opacity:.35;transition:.25s
+}
+.skill-card:hover:after{opacity:.9}
+.skill-card:nth-child(1){--skill-accent:#6687ff}
+.skill-card:nth-child(2){--skill-accent:#8a7cff}
+.skill-card:nth-child(3){--skill-accent:#63e89b}
+.skill-card:nth-child(4){--skill-accent:#f1b85b}
+.skill-card:nth-child(5){--skill-accent:#b66cff}
+.skill-card:nth-child(6){--skill-accent:#57d1ff}
+.skill-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.skill-icon{
+  color:var(--skill-accent);background:rgba(255,255,255,.035);
+  border-color:color-mix(in srgb,var(--skill-accent) 28%,transparent);
+  box-shadow:0 0 24px color-mix(in srgb,var(--skill-accent) 10%,transparent)
+}
+.skill-card h3{font-size:1.03rem;margin-bottom:14px}
+.skilltags span{transition:.2s}
+.skilltags span:hover{
+  color:#fff;transform:translateY(-1px);border-color:rgba(130,145,255,.2);
+  background:rgba(102,135,255,.07)
+}
+
+/* professional experience timeline */
+.timeline-pro{position:relative;border-top:0;padding-left:22px}
+.timeline-pro:before{
+  content:"";position:absolute;left:5px;top:5px;bottom:5px;width:1px;
+  background:linear-gradient(to bottom,var(--blue),rgba(165,108,255,.35),transparent)
+}
+.timeline-pro .job{
+  position:relative;padding:0 0 32px 24px;border-bottom:0;grid-template-columns:190px 1fr
+}
+.timeline-pro .job:before{
+  content:"";position:absolute;left:-21px;top:8px;width:11px;height:11px;border-radius:50%;
+  background:#0a1020;border:2px solid #7e98ff;box-shadow:0 0 0 5px rgba(102,135,255,.08),0 0 18px rgba(102,135,255,.25)
+}
+.timeline-pro .job>div:last-child{
+  padding:22px 24px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.018))
+}
+.date-chip{
+  display:inline-flex;align-items:center;width:max-content;height:max-content;padding:7px 10px;
+  border-radius:999px;border:1px solid rgba(102,135,255,.15);background:rgba(102,135,255,.055);
+  color:#aebaf0;font-size:.74rem;line-height:1.2
+}
+
+/* project visual cards */
+.project{gap:16px}
+.project-preview{
+  position:relative;overflow:hidden;height:146px;margin:-2px 0 20px;border-radius:16px;
+  border:1px solid rgba(255,255,255,.075);
+  background:linear-gradient(145deg,rgba(17,26,52,.78),rgba(7,11,25,.64))
+}
+.project:first-child .project-preview{height:164px}
+.preview-top{
+  height:34px;display:flex;align-items:center;gap:6px;padding:0 12px;
+  border-bottom:1px solid rgba(255,255,255,.055);background:rgba(255,255,255,.018)
+}
+.preview-top i{width:6px;height:6px;border-radius:50%;background:#64718b}
+.preview-top i:nth-child(1){background:#f07178}.preview-top i:nth-child(2){background:#f1b85b}.preview-top i:nth-child(3){background:#63e89b}
+.preview-top em{
+  margin-left:6px;font-style:normal;font-size:.58rem;letter-spacing:.1em;color:#69758e;font-weight:700
+}
+.preview-body{height:calc(100% - 34px);display:grid;grid-template-columns:1fr 1.35fr;gap:18px;padding:16px}
+.preview-stat{
+  display:flex;flex-direction:column;justify-content:center;padding:12px;border-radius:12px;
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.045)
+}
+.preview-stat b{
+  font-family:"Syne",sans-serif;font-size:1.5rem;line-height:1;
+  background:linear-gradient(90deg,#8ca5ff,#c781ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent
+}
+.preview-stat span{margin-top:7px;font-size:.64rem;color:#78859f}
+.mini-chart{display:flex;align-items:end;gap:6px;padding:8px 4px 4px}
+.mini-chart span{
+  flex:1;min-width:4px;border-radius:5px 5px 2px 2px;
+  background:linear-gradient(to top,rgba(102,135,255,.18),rgba(165,108,255,.52));
+  animation:barBreath 3.8s ease-in-out infinite alternate
+}
+.mini-chart span:nth-child(1){height:32%}.mini-chart span:nth-child(2){height:54%}.mini-chart span:nth-child(3){height:42%}
+.mini-chart span:nth-child(4){height:75%}.mini-chart span:nth-child(5){height:61%}.mini-chart span:nth-child(6){height:88%}
+.mini-chart span:nth-child(7){height:70%}
+@keyframes barBreath{to{filter:brightness(1.35);transform:scaleY(.92)}}
+.project.p-arena .preview-stat b{background:linear-gradient(90deg,#63e89b,#75b9ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.project.p-arena .mini-chart span{background:linear-gradient(to top,rgba(99,232,155,.14),rgba(87,209,255,.48))}
+.project.p-finance .preview-stat b{background:linear-gradient(90deg,#f1b85b,#c781ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.project.p-finance .mini-chart span{background:linear-gradient(to top,rgba(241,184,91,.14),rgba(165,108,255,.45))}
+
+/* training / education */
+.academy-card{position:relative;padding-left:74px!important;min-height:145px}
+.academy-card .edu-icon{position:absolute;left:20px;top:20px}
+.academy-card:after{
+  content:"";position:absolute;left:73px;right:20px;bottom:16px;height:1px;
+  background:linear-gradient(90deg,rgba(102,135,255,.18),transparent)
+}
+
+/* certifications */
+.cert{
+  position:relative;overflow:hidden;padding:18px 18px 18px 58px;transition:.22s
+}
+.cert:before{
+  content:"✓";position:absolute;left:17px;top:17px;width:28px;height:28px;display:grid;place-items:center;
+  border-radius:9px;background:linear-gradient(135deg,rgba(102,135,255,.16),rgba(165,108,255,.12));
+  border:1px solid rgba(120,135,255,.15);color:#9eb0ff;font-weight:800;font-size:.75rem
+}
+.cert:after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--blue),var(--purple));opacity:.35
+}
+.cert:hover{transform:translateY(-2px);background:rgba(255,255,255,.045);border-color:rgba(130,125,255,.22)}
+.cert b{font-family:"Syne",sans-serif;font-size:.86rem}
+
+/* publication */
+.publication{position:relative;overflow:hidden;padding-top:58px}
+.publication:before{
+  content:"RESEARCH • PUBLISHED 2026";position:absolute;left:30px;top:25px;
+  font-family:"Syne",sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;color:#8599e8
+}
+.publication:after{
+  content:"";position:absolute;right:-110px;top:-120px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(165,108,255,.16),transparent 67%)
+}
+
+/* contact + general interactions */
+.links a{position:relative;padding-right:34px;transition:.22s}
+.links a:after{content:"↗";position:absolute;right:13px;top:50%;transform:translateY(-50%);color:#8298ff}
+.links a:hover{transform:translateX(3px);background:rgba(102,135,255,.065);border-color:rgba(102,135,255,.18)}
+.btn,.navcta,.project,.glass,.cert,.links a{will-change:transform}
+
+@media(max-width:800px){
+  section.wrap:not(.hero):after{display:none}
+  .timeline-pro{padding-left:17px}
+  .timeline-pro .job{grid-template-columns:1fr;gap:10px;padding-left:20px}
+  .timeline-pro .job:before{left:-17px}
+}
+@media(max-width:620px){
+  .project-preview,.project:first-child .project-preview{height:130px}
+  .preview-body{gap:10px;padding:12px}
+  .preview-stat b{font-size:1.2rem}
+  .academy-card{padding-left:20px!important;padding-top:72px!important}
+  .academy-card .edu-icon{top:18px}
+  .academy-card:after{left:20px}
+}
+
 </style>
 </head>
 <body>
@@ -653,42 +833,46 @@ main,footer{position:relative;z-index:1}
 <section class="wrap" id="about">
   <div class="head reveal"><div class="kicker">01 / ABOUT</div><h2 class="title">Turning business data into clear decisions.</h2></div>
   <p class="lead reveal">I focus on transforming structured data into actionable insights, automating repetitive reporting workflows and building practical data-driven applications. My work combines analytics, business understanding and AI-assisted product development to solve operational problems with measurable outcomes.</p>
-  <div class="aboutgrid"><div class="glass reveal"><h3>Analytics-first</h3><p>Data cleaning, KPI tracking, dashboards, interpretation and business insight generation.</p></div><div class="glass reveal"><h3>Automation-minded</h3><p>Reducing repetitive work through Python, data pipelines, NLP and AI-assisted reporting.</p></div><div class="glass reveal"><h3>Product-capable</h3><p>Building, testing and deploying end-to-end applications with modern full-stack workflows.</p></div></div>
+  <div class="aboutgrid">
+    <div class="glass feature-card reveal"><div class="feature-top"><span class="feature-icon">DA</span><span class="feature-no">01</span></div><h3>Analytics-first</h3><p>Data cleaning, KPI tracking, dashboards, interpretation and business insight generation.</p></div>
+    <div class="glass feature-card reveal"><div class="feature-top"><span class="feature-icon">AI</span><span class="feature-no">02</span></div><h3>Automation-minded</h3><p>Reducing repetitive work through Python, data pipelines, NLP and AI-assisted reporting.</p></div>
+    <div class="glass feature-card reveal"><div class="feature-top"><span class="feature-icon">&lt;/&gt;</span><span class="feature-no">03</span></div><h3>Product-capable</h3><p>Building, testing and deploying end-to-end applications with modern full-stack workflows.</p></div>
+  </div>
 </section>
 
 <section class="wrap" id="skills">
   <div class="head reveal"><div class="kicker">02 / SKILLS</div><h2 class="title">Technical toolkit</h2></div>
   <div class="skills">
-    <div class="glass reveal"><h3>Data Analytics</h3><div class="skilltags"><span>Data Analysis</span><span>Business Analytics</span><span>Data Cleaning</span><span>Visualization</span><span>Statistical Analysis</span><span>KPI Tracking</span></div></div>
-    <div class="glass reveal"><h3>SQL & Databases</h3><div class="skilltags"><span>SQL</span><span>Querying</span><span>Data Extraction</span><span>PostgreSQL</span><span>Relational Databases</span></div></div>
-    <div class="glass reveal"><h3>Python</h3><div class="skilltags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Data Processing</span><span>Automation</span></div></div>
-    <div class="glass reveal"><h3>Excel & BI</h3><div class="skilltags"><span>Advanced Excel</span><span>Pivot Tables</span><span>VLOOKUP</span><span>Power Query</span><span>Power BI</span><span>MIS Reporting</span></div></div>
-    <div class="glass reveal"><h3>AI-Assisted Development</h3><div class="skilltags"><span>Vibe Coding</span><span>Prompt-Driven Development</span><span>Rapid Prototyping</span><span>AI Debugging</span><span>Testing</span></div></div>
-    <div class="glass reveal"><h3>Full Stack & Deployment</h3><div class="skilltags"><span>React</span><span>Next.js</span><span>NestJS</span><span>Django REST</span><span>Prisma</span><span>Redis</span><span>JWT</span><span>Docker</span><span>Vercel</span><span>Railway</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DA</span><span class="skill-no">01</span></div><h3>Data Analytics</h3><div class="skilltags"><span>Data Analysis</span><span>Business Analytics</span><span>Data Cleaning</span><span>Visualization</span><span>Statistical Analysis</span><span>KPI Tracking</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DB</span><span class="skill-no">02</span></div><h3>SQL & Databases</h3><div class="skilltags"><span>SQL</span><span>Querying</span><span>Data Extraction</span><span>PostgreSQL</span><span>Relational Databases</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">PY</span><span class="skill-no">03</span></div><h3>Python</h3><div class="skilltags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Data Processing</span><span>Automation</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">BI</span><span class="skill-no">04</span></div><h3>Excel & BI</h3><div class="skilltags"><span>Advanced Excel</span><span>Pivot Tables</span><span>VLOOKUP</span><span>Power Query</span><span>Power BI</span><span>MIS Reporting</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">AI</span><span class="skill-no">05</span></div><h3>AI-Assisted Development</h3><div class="skilltags"><span>Vibe Coding</span><span>Prompt-Driven Development</span><span>Rapid Prototyping</span><span>AI Debugging</span><span>Testing</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DEV</span><span class="skill-no">06</span></div><h3>Full Stack & Deployment</h3><div class="skilltags"><span>React</span><span>Next.js</span><span>NestJS</span><span>Django REST</span><span>Prisma</span><span>Redis</span><span>JWT</span><span>Docker</span><span>Vercel</span><span>Railway</span></div></div>
   </div>
 </section>
 
 <section class="wrap" id="experience">
   <div class="head reveal"><div class="kicker">03 / EXPERIENCE</div><h2 class="title">Applied learning & internships</h2></div>
-  <div class="timeline">
-    <article class="job reveal"><div class="date">Aug 2025 – Sep 2025</div><div><h3>Data Science Intern</h3><div class="company">Corizo EdTech Pvt Ltd</div><ul><li>Worked on data analytics case studies using structured datasets and business-focused problem solving.</li><li>Created and analyzed Excel-based reports for analytical exercises and business scenarios.</li><li>Applied data interpretation to identify patterns and derive meaningful insights.</li><li>Developed practical understanding of reporting and business analytics workflows.</li></ul></div></article>
-    <article class="job reveal"><div class="date">Aug 2024 – Sep 2024</div><div><h3>Networking Intern</h3><div class="company">Kaashiv InfoTech, Chennai</div><ul><li>Completed practical training in networking fundamentals, troubleshooting and technical documentation.</li><li>Applied structured technical problem-solving techniques during training activities.</li></ul></div></article>
+  <div class="timeline timeline-pro">
+    <article class="job reveal"><div class="date"><span class="date-chip">Aug 2025 – Sep 2025</span></div><div><h3>Data Science Intern</h3><div class="company">Corizo EdTech Pvt Ltd</div><ul><li>Worked on data analytics case studies using structured datasets and business-focused problem solving.</li><li>Created and analyzed Excel-based reports for analytical exercises and business scenarios.</li><li>Applied data interpretation to identify patterns and derive meaningful insights.</li><li>Developed practical understanding of reporting and business analytics workflows.</li></ul></div></article>
+    <article class="job reveal"><div class="date"><span class="date-chip">Aug 2024 – Sep 2024</span></div><div><h3>Networking Intern</h3><div class="company">Kaashiv InfoTech, Chennai</div><ul><li>Completed practical training in networking fundamentals, troubleshooting and technical documentation.</li><li>Applied structured technical problem-solving techniques during training activities.</li></ul></div></article>
   </div>
 </section>
 
 <section class="wrap" id="projects">
   <div class="head reveal"><div class="kicker">04 / SELECTED WORK</div><h2 class="title">Data, automation & products built for real use.</h2></div>
   <div class="projects">
-    <article class="project reveal"><div><div class="num">PROJECT 01</div><h3>Smart Daily Report Automation System Using AI</h3><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">NLP</span><span class="tag">OpenAI API</span><span class="tag">Excel</span><span class="tag">Databases</span></div><div class="impact">Reduced report turnaround time by 70%+ and automated approximately 2–3 hours of repetitive reporting work per day.</div></div><ul><li>Built pipelines for Excel, CSV and database sources.</li><li>Used Python, Pandas and NumPy for preparation, transformation and analysis.</li><li>Integrated NLP summarization, KPI tracking and anomaly detection.</li><li>Added OpenAI API powered intelligent summarization and automated report generation.</li><li>Designed email and dashboard reporting workflows.</li><li>Published research in IJFMR, Volume 8, Issue 2, March–April 2026, Paper ID 72819.</li></ul></article>
-    <article class="project reveal"><div><div class="num">PROJECT 02</div><h3>FC ARENA — Football Esports Tournament Platform</h3><div class="tags"><span class="tag">Next.js</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Redis</span><span class="tag">JWT</span></div><div class="impact">Independently built and deployed a tournament management platform validated with 20+ real users.</div></div><ul><li>Developed leagues, tournaments, registrations, teams, groups, fixtures, results, standings, statistics and rankings.</li><li>Engineered Round-Robin and Home & Away fixture generation.</li><li>Built knockout progression, automated standings and player statistics.</li><li>Implemented result validation, duplicate-count prevention and role-based administration.</li><li>Deployed frontend on Vercel and backend services on VPS infrastructure.</li></ul></article>
-    <article class="project reveal"><div><div class="num">PROJECT 03</div><h3>Smart Expense Tracker — Personal Finance Application</h3><div class="tags"><span class="tag">React</span><span class="tag">Django REST</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">OCR</span><span class="tag">PWA</span></div><div class="impact">End-to-end finance platform with OCR extraction, analytics and cloud deployment.</div></div><ul><li>Built income, expense, bills, budgets, balances, borrow/lend and savings-goal features.</li><li>Developed Django REST APIs with JWT authentication.</li><li>Implemented OCR receipt processing for merchant, amount, date, category, payment method and tax fields.</li><li>Built cash-flow and category analytics, CSV export and PWA functionality.</li><li>Deployed frontend through Vercel and backend infrastructure through Railway.</li></ul></article>
+    <article class="project p-ai reveal"><div><div class="project-preview"><div class="preview-top"><i></i><i></i><i></i><em>AI REPORT PIPELINE</em></div><div class="preview-body"><div class="preview-stat"><b>70%+</b><span>REPORT TURNAROUND</span></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="num">PROJECT 01</div><h3>Smart Daily Report Automation System Using AI</h3><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">NLP</span><span class="tag">OpenAI API</span><span class="tag">Excel</span><span class="tag">Databases</span></div><div class="impact">Reduced report turnaround time by 70%+ and automated approximately 2–3 hours of repetitive reporting work per day.</div></div><ul><li>Built pipelines for Excel, CSV and database sources.</li><li>Used Python, Pandas and NumPy for preparation, transformation and analysis.</li><li>Integrated NLP summarization, KPI tracking and anomaly detection.</li><li>Added OpenAI API powered intelligent summarization and automated report generation.</li><li>Designed email and dashboard reporting workflows.</li><li>Published research in IJFMR, Volume 8, Issue 2, March–April 2026, Paper ID 72819.</li></ul></article>
+    <article class="project p-arena reveal"><div><div class="project-preview"><div class="preview-top"><i></i><i></i><i></i><em>LIVE TOURNAMENT ENGINE</em></div><div class="preview-body"><div class="preview-stat"><b>20+</b><span>REAL USERS TESTED</span></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="num">PROJECT 02</div><h3>FC ARENA — Football Esports Tournament Platform</h3><div class="tags"><span class="tag">Next.js</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Redis</span><span class="tag">JWT</span></div><div class="impact">Independently built and deployed a tournament management platform validated with 20+ real users.</div></div><ul><li>Developed leagues, tournaments, registrations, teams, groups, fixtures, results, standings, statistics and rankings.</li><li>Engineered Round-Robin and Home & Away fixture generation.</li><li>Built knockout progression, automated standings and player statistics.</li><li>Implemented result validation, duplicate-count prevention and role-based administration.</li><li>Deployed frontend on Vercel and backend services on VPS infrastructure.</li></ul></article>
+    <article class="project p-finance reveal"><div><div class="project-preview"><div class="preview-top"><i></i><i></i><i></i><em>FINANCE ANALYTICS</em></div><div class="preview-body"><div class="preview-stat"><b>OCR</b><span>SMART EXTRACTION</span></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="num">PROJECT 03</div><h3>Smart Expense Tracker — Personal Finance Application</h3><div class="tags"><span class="tag">React</span><span class="tag">Django REST</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">OCR</span><span class="tag">PWA</span></div><div class="impact">End-to-end finance platform with OCR extraction, analytics and cloud deployment.</div></div><ul><li>Built income, expense, bills, budgets, balances, borrow/lend and savings-goal features.</li><li>Developed Django REST APIs with JWT authentication.</li><li>Implemented OCR receipt processing for merchant, amount, date, category, payment method and tax fields.</li><li>Built cash-flow and category analytics, CSV export and PWA functionality.</li><li>Deployed frontend through Vercel and backend infrastructure through Railway.</li></ul></article>
   </div>
 </section>
 
 <section class="wrap" id="education">
   <div class="twocol">
-    <div><div class="head reveal"><div class="kicker">05 / TRAINING</div><h2 class="title">Professional training</h2></div><div class="glass reveal"><h3>Data Analytics Program — AccioJob</h3><p>6-Month Program | Ongoing. Advanced Excel, SQL, Python, Pandas, NumPy, Power Query, Statistics, Data Visualization and Business Reporting.</p></div><div class="glass reveal" style="margin-top:14px"><h3>PwC Business Analytics Program</h3><p>2026 | Ongoing. Business analytics and data-driven decision-making.</p></div></div>
-    <div><div class="head reveal"><div class="kicker">06 / EDUCATION</div><h2 class="title">Academic foundation</h2></div><div class="glass reveal"><h3>B.Tech — Artificial Intelligence & Data Science</h3><div class="company">CARE College of Engineering, Chennai</div><p>2022 – 2026</p><div class="tag" style="display:inline-block;margin-top:10px">CGPA: 7.29 / 10</div></div></div>
+    <div><div class="head reveal"><div class="kicker">05 / TRAINING</div><h2 class="title">Professional training</h2></div><div class="glass academy-card reveal"><span class="edu-icon">DA</span><h3>Data Analytics Program — AccioJob</h3><p>6-Month Program | Ongoing. Advanced Excel, SQL, Python, Pandas, NumPy, Power Query, Statistics, Data Visualization and Business Reporting.</p></div><div class="glass academy-card reveal" style="margin-top:14px"><span class="edu-icon">BA</span><h3>PwC Business Analytics Program</h3><p>2026 | Ongoing. Business analytics and data-driven decision-making.</p></div></div>
+    <div><div class="head reveal"><div class="kicker">06 / EDUCATION</div><h2 class="title">Academic foundation</h2></div><div class="glass academy-card reveal"><span class="edu-icon">AI</span><h3>B.Tech — Artificial Intelligence & Data Science</h3><div class="company">CARE College of Engineering, Chennai</div><p>2022 – 2026</p><div class="tag" style="display:inline-block;margin-top:10px">CGPA: 7.29 / 10</div></div></div>
   </div>
 </section>
 
