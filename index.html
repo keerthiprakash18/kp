@@ -1870,13 +1870,41 @@ a.detail-tile:hover{
   .detail-wide{grid-column:span 1}
 }
 
+
+/* === NAV PROFILE PHOTO === */
+.profile-mark{
+  overflow:hidden;
+  padding:0;
+  background:#0a1020;
+  border:1px solid rgba(145,155,255,.30);
+  box-shadow:
+    0 0 0 3px rgba(103,128,255,.07),
+    0 10px 30px rgba(83,97,220,.22)
+}
+.profile-mark:after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:17px;
+  border:1px solid rgba(176,108,255,.14);
+  pointer-events:none
+}
+.profile-mark img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center 23%;
+  border-radius:inherit
+}
+
 </style>
 </head>
 <body>
 <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
 <header>
-  <a class="brand" href="#home"><span class="mark">KP</span><span>KEERTHI PRAKASH</span></a>
+  <a class="brand" href="#home"><span class="mark profile-mark"><img src="assets/profile.webp" alt="Keerthi Prakash profile photo"></span><span>KEERTHI PRAKASH</span></a>
   <button class="menu" id="menu" aria-label="Open menu">☰</button>
   <nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a class="navcta" href="#contact">Contact</a></nav>
 </header>
