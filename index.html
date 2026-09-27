@@ -2038,6 +2038,23 @@ a.detail-tile:hover{
   .portrait-card{width:min(240px,72vw)!important}
 }
 
+
+/* === PROFILE ASSET FINAL FIX === */
+.portrait-frame{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(118,147,255,.10),transparent 45%),
+    #111827!important
+}
+.portrait-frame img{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 18%!important
+}
+
 </style>
 </head>
 <body>
@@ -2062,7 +2079,7 @@ a.detail-tile:hover{
       <div class="intro-row">
         <div class="portrait-card">
           <div class="portrait-frame">
-            <img src="assets/profile.webp" alt="Keerthi Prakash professional portrait">
+            <img src="assets/profile-small.webp?v=20260927" alt="Keerthi Prakash professional portrait" width="280" height="350" decoding="async">
           </div>
           <div class="portrait-caption">
             <span class="portrait-name">Keerthi Prakash T</span>
