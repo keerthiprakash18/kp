@@ -3,7 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Keerthi Prakash T — Data Analyst, Business Analytics, SQL, Python, Power BI and reporting automation portfolio.">
+<meta name="description" content="Keerthi Prakash T — Data Analyst, Business Analytics and AI-Assisted Developer. Explore production projects, analytics case studies, SQL/Python/Power BI skills and live apps.">
+<meta name="theme-color" content="#070a13">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keerthi Prakash T | Data Analyst & AI-Assisted Developer">
+<meta property="og:description" content="Data Analyst portfolio featuring live products, analytics case studies, SQL/Python/Power BI and AI-assisted development.">
+<meta property="og:url" content="https://keerthiprakashportfolio.vercel.app/">
+<meta property="og:image" content="https://keerthiprakashportfolio.vercel.app/assets/profile-small.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keerthi Prakash T | Data Analyst">
+<meta name="twitter:description" content="Data • Analytics • AI-Assisted Products">
+<meta name="twitter:image" content="https://keerthiprakashportfolio.vercel.app/assets/profile-small.webp">
+<link rel="canonical" href="https://keerthiprakashportfolio.vercel.app/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%236687ff'/><stop offset='1' stop-color='%23a56cff'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='40' text-anchor='middle' font-size='25' font-family='Arial' font-weight='700' fill='white'>KP</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Keerthi Prakash T","url":"https://keerthiprakashportfolio.vercel.app/","jobTitle":"Data Analyst","sameAs":["https://github.com/keerthiprakash18","https://www.linkedin.com/in/keerthiprakasht"],"knowsAbout":["SQL","Python","Power BI","Business Analytics","PostgreSQL","AI-Assisted Development"]}
+
+/* === recruiter upgrade interactions === */
+(function(){
+  // Data Lab
+  const lab=document.querySelector(".data-lab");
+  const run=document.getElementById("runQuery");
+  if(lab&&run){
+    document.querySelectorAll(".lab-row i").forEach(function(bar){
+      bar.style.setProperty("--bar",Math.max(.08,Number(bar.dataset.value||0)/100));
+    });
+    run.addEventListener("click",function(){
+      lab.classList.remove("ran");
+      run.textContent="Running...";
+      document.getElementById("queryTime").textContent="executing";
+      setTimeout(function(){
+        lab.classList.add("ran");
+        run.textContent="✓ Query Complete";
+        document.getElementById("queryTime").textContent="42 ms";
+        document.getElementById("labInsight").textContent="Housing is the largest September expense category, accounting for roughly 39% of the selected spend. Food is the next major driver; optimizing these two categories would have the greatest impact on monthly cash flow.";
+      },420);
+    });
+  }
+
+  // Proof counters animate once
+  const counters=document.querySelectorAll(".hero-kpi b");
+  const cObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      const el=e.target, raw=el.textContent.trim();
+      const m=raw.match(/([0-9]+)(.*)/);
+      if(!m)return;
+      const target=Number(m[1]),suffix=m[2],start=performance.now(),dur=800;
+      function tick(now){
+        const p=Math.min(1,(now-start)/dur);
+        el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;
+        if(p<1)requestAnimationFrame(tick);else el.textContent=raw;
+      }
+      requestAnimationFrame(tick);cObs.unobserve(el);
+    });
+  },{threshold:.6});
+  counters.forEach(function(x){cObs.observe(x)});
+
+  // Command palette Ctrl/Cmd + K
+  const back=document.getElementById("commandBackdrop");
+  const input=document.getElementById("commandInput");
+  const links=Array.from(document.querySelectorAll("#commandList a"));
+  function openCmd(){back.hidden=false;setTimeout(function(){input.focus()},20)}
+  function closeCmd(){back.hidden=true;input.value="";links.forEach(function(a){a.hidden=false})}
+  document.addEventListener("keydown",function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();back.hidden?openCmd():closeCmd()}
+    if(e.key==="Escape"&&!back.hidden)closeCmd();
+  });
+  back.addEventListener("click",function(e){if(e.target===back)closeCmd()});
+  input.addEventListener("input",function(){
+    const q=input.value.toLowerCase();
+    links.forEach(function(a){a.hidden=!a.dataset.cmd.includes(q)&&!a.textContent.toLowerCase().includes(q)});
+  });
+  links.forEach(function(a){a.addEventListener("click",closeCmd)});
+
+  // Lazy-load all non-hero images where safe
+  document.querySelectorAll("img").forEach(function(img){
+    if(!img.closest(".hero-v4")){img.loading="lazy";img.decoding="async"}
+  });
+})();
+
+</script>
 <title>Keerthi Prakash T | Data Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2282,6 +2361,26 @@ a.detail-tile:hover{
   .tilt-ready,.magnetic,[data-depth]{transform:none!important;transition:none!important}
 }
 
+
+/* === RECRUITER GRADE UPGRADE === */
+.nav-resume{color:#d9e0ff!important;border:1px solid rgba(132,148,255,.15);background:rgba(105,126,255,.05)}
+.resume-btn{border:1px solid rgba(142,151,255,.18);background:linear-gradient(135deg,rgba(105,128,255,.07),rgba(176,108,255,.08));color:#eef1ff}
+.availability-strip{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:18px;padding:9px 11px;width:max-content;max-width:100%;border:1px solid rgba(99,232,155,.12);border-radius:11px;background:rgba(99,232,155,.028);font-size:.68rem;color:#93a0b5}
+.availability-strip b{font-family:"Sora",sans-serif;font-size:.61rem;letter-spacing:.08em;color:#9ce8ba}.availability-dot{width:7px;height:7px;border-radius:50%;background:#63e89b;box-shadow:0 0 12px rgba(99,232,155,.75)}
+
+.case-grid{display:grid;gap:13px}.case-card{border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));overflow:hidden}.case-card summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 1fr auto;gap:13px;align-items:center;padding:18px 20px}.case-card summary::-webkit-details-marker{display:none}.case-card summary b{display:block;font-family:"Sora",sans-serif;font-size:1rem}.case-card summary small{display:block;margin-top:3px;color:#8995aa;font-size:.72rem}.case-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;font:800 .72rem "Sora";border:1px solid rgba(255,255,255,.08)}.fc-case{color:#f3ca78;background:rgba(216,171,74,.07)}.expense-case{color:#8ee6ac;background:rgba(81,190,120,.06)}.ai-case{color:#b9a3ff;background:rgba(158,112,255,.07)}.case-open{font-size:1.2rem;color:#8190aa;transition:.2s}.case-card[open] .case-open{transform:rotate(45deg);color:#b8c4ff}.case-body{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border-top:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.045)}.case-column{padding:18px;background:#0c1120}.case-column span{font:800 .57rem "Sora";letter-spacing:.1em;color:#8296ef}.case-column p{margin:8px 0 0;color:#a9b4c8;font-size:.79rem;line-height:1.65}.case-column a{color:#9eafff}
+
+.data-lab{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(128,143,255,.15);border-radius:24px;overflow:hidden;background:#090e1c;box-shadow:0 26px 70px rgba(0,0,0,.24)}.sql-panel,.insight-panel{padding:22px}.sql-panel{border-right:1px solid rgba(255,255,255,.07);background:linear-gradient(145deg,#0d1426,#090e1a)}.lab-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;font:700 .65rem "Sora";letter-spacing:.06em;color:#7d8ba5}.lab-status{color:#6de39d}.sql-panel pre{margin:0;min-height:210px;padding:18px;border:1px solid rgba(255,255,255,.06);border-radius:14px;background:#070b14;overflow:auto;color:#d7dfef;font:500 .82rem/1.85 ui-monospace,SFMono-Regular,Consolas,monospace}.sql-key{color:#9e8cff}.sql-fn{color:#68d7ff}.sql-str{color:#79dfa7}.lab-run{margin-top:14px;min-height:42px;padding:0 16px;border:0;border-radius:10px;background:linear-gradient(135deg,#6687ff,#9c64ff);color:#fff;font-weight:800;cursor:pointer}.lab-note{margin-top:8px;font-size:.62rem;color:#64718a}.insight-panel{background:radial-gradient(circle at 100% 0,rgba(157,96,255,.09),transparent 35%),#0b1020}.lab-bars{display:grid;gap:13px;margin-top:22px}.lab-row{display:grid;grid-template-columns:70px 1fr 58px;align-items:center;gap:10px;font-size:.72rem;color:#a9b5c8}.lab-row i{display:block;height:9px;border-radius:999px;background:linear-gradient(90deg,#6687ff,#a56cff);transform-origin:left;transform:scaleX(0);transition:transform .7s cubic-bezier(.2,.8,.2,1)}.lab-row b{font-size:.68rem;text-align:right;color:#dce3f3}.data-lab.ran .lab-row i{transform:scaleX(var(--bar,1))}.insight-callout{margin-top:24px;padding:15px;border:1px solid rgba(99,232,155,.10);border-radius:13px;background:rgba(99,232,155,.025)}.insight-callout span{font:800 .56rem "Sora";letter-spacing:.1em;color:#79dca1}.insight-callout p{margin:7px 0 0;color:#b5c1d4;font-size:.8rem;line-height:1.65}
+
+.workflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}.flow-step{padding:18px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018))}.flow-step span{font:800 .58rem "Sora";letter-spacing:.08em;color:#8398f0}.flow-step b{display:block;margin-top:11px;font:700 .89rem "Sora"}.flow-step p{margin:7px 0 0;color:#909db2;font-size:.72rem;line-height:1.55}.flow-arrow{display:grid;place-items:center;color:#64728e;font-size:1.2rem}
+
+.contact-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+
+.command-hint{position:fixed;right:18px;bottom:18px;z-index:15;padding:8px 10px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(8,12,24,.72);backdrop-filter:blur(12px);color:#77839a;font-size:.62rem;pointer-events:none}.command-hint kbd,.command-search kbd{font:700 .58rem "Sora";padding:3px 5px;border:1px solid rgba(255,255,255,.09);border-radius:5px;background:rgba(255,255,255,.04);color:#aeb9cc}.command-backdrop{position:fixed;inset:0;z-index:100;background:rgba(2,5,12,.68);backdrop-filter:blur(8px);display:grid;place-items:start center;padding-top:min(18vh,150px)}.command-backdrop[hidden]{display:none}.command-box{width:min(620px,calc(100% - 28px));border:1px solid rgba(135,148,255,.18);border-radius:18px;background:#0b1020;box-shadow:0 35px 100px rgba(0,0,0,.5);overflow:hidden}.command-search{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07)}.command-search input{border:0;outline:0;background:none;color:#fff;font:600 .9rem "Manrope";width:100%}.command-list{padding:7px}.command-list a{display:grid;grid-template-columns:28px 1fr;gap:3px 10px;padding:11px;border-radius:10px;color:#dfe5f1;font-size:.8rem}.command-list a:hover{background:rgba(102,135,255,.07)}.command-list a>span{grid-row:1/3;color:#697894;font:700 .58rem "Sora"}.command-list small{color:#707d94;font-size:.65rem}
+
+@media(max-width:1000px){.case-body{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.flow-arrow{display:none}.data-lab{grid-template-columns:1fr}.sql-panel{border-right:0;border-bottom:1px solid rgba(255,255,255,.07)}}
+@media(max-width:700px){.case-body{grid-template-columns:1fr}.workflow{grid-template-columns:1fr}.availability-strip{width:100%}.command-hint{display:none}.sql-panel,.insight-panel{padding:16px}.sql-panel pre{font-size:.72rem}.case-card summary{padding:15px}.nav-resume{display:none}}
+
 </style>
 </head>
 <body>
@@ -2291,7 +2390,7 @@ a.detail-tile:hover{
 <header>
   <a class="brand" href="#home"><span class="mark">KP</span><span>KEERTHI PRAKASH</span></a>
   <button class="menu" id="menu" aria-label="Open menu">☰</button>
-  <nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a class="navcta" href="#contact">Contact</a></nav>
+  <nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a href="#data-lab">Data Lab</a><a class="nav-resume" href="resume.html" target="_blank">Resume</a><a class="navcta" href="#contact">Contact</a></nav>
 </header>
 
 <main>
@@ -2333,6 +2432,7 @@ a.detail-tile:hover{
         </div>
       </div>
 
+      <div class="availability-strip"><span class="availability-dot"></span><b>OPEN TO OPPORTUNITIES</b><span>Data Analyst • Business Analyst • BI / Reporting • Graduate Roles</span></div>
       <div class="identity-strip" aria-label="Professional identity">
         <span class="identity-chip">Data Analyst</span>
         <span class="identity-chip">Business Analytics</span>
@@ -2349,6 +2449,7 @@ a.detail-tile:hover{
       <div class="actions">
         <a class="btn primary" href="#projects">Explore Projects</a>
         <a class="btn secondary" href="mailto:keerthiprakash.kp33@gmail.com">Email Me</a>
+        <a class="btn resume-btn" href="resume.html" target="_blank" rel="noopener">Resume ↗</a>
       </div>
 
       <div class="hero-details" aria-label="Contact and profile details">
@@ -2480,22 +2581,111 @@ a.detail-tile:hover{
   </div>
 </section>
 
+<section class="wrap" id="case-studies">
+  <div class="head reveal"><div class="kicker">05 / CASE STUDIES</div><h2 class="title">From problem → system → measurable proof.</h2><p class="lead">A recruiter-friendly view of how I define problems, design logic, validate edge cases and ship usable products.</p></div>
+  <div class="case-grid">
+    <details class="case-card reveal" open>
+      <summary><span class="case-icon fc-case">FC</span><div><b>FC Arena</b><small>Tournament platform • 20+ real-user validation</small></div><span class="case-open">+</span></summary>
+      <div class="case-body">
+        <div class="case-column"><span>PROBLEM</span><p>Community tournaments needed a reliable way to manage registrations, teams, fixtures, results, standings and player statistics without manual spreadsheet errors.</p></div>
+        <div class="case-column"><span>MY ROLE</span><p>Product logic, full-stack implementation, fixture algorithms, result validation, testing, deployment and real-user feedback iteration.</p></div>
+        <div class="case-column"><span>SOLUTION</span><p>Built round-robin/Home & Away generation, knockout progression, duplicate prevention, automated standings, role-based admin controls and live production workflows.</p></div>
+        <div class="case-column"><span>PROOF</span><p>Production deployment at <a href="https://fcarena.in/" target="_blank">fcarena.in ↗</a> with 20+ users validating login, fixtures, results and standings.</p></div>
+      </div>
+    </details>
+    <details class="case-card reveal">
+      <summary><span class="case-icon expense-case">₹</span><div><b>Smart Expense Tracker</b><small>Finance platform • OCR + analytics + PWA</small></div><span class="case-open">+</span></summary>
+      <div class="case-body">
+        <div class="case-column"><span>PROBLEM</span><p>Personal finance data is fragmented across receipts, bills and manual entries, making cash-flow analysis and budget control harder.</p></div>
+        <div class="case-column"><span>MY ROLE</span><p>End-to-end application design, REST APIs, authentication, OCR workflow, analytics, frontend integration and cloud deployment.</p></div>
+        <div class="case-column"><span>SOLUTION</span><p>Built income/expense tracking, budgets, balances, borrow/lend, savings goals, OCR extraction, category analytics, CSV export and PWA support.</p></div>
+        <div class="case-column"><span>PROOF</span><p>Live production application on <a href="https://smart-expense-tracker-v3.vercel.app/" target="_blank">Vercel ↗</a> with source available on GitHub.</p></div>
+      </div>
+    </details>
+    <details class="case-card reveal">
+      <summary><span class="case-icon ai-case">AI</span><div><b>AI Report Automation</b><small>70%+ faster reporting • 2–3 hrs/day automated</small></div><span class="case-open">+</span></summary>
+      <div class="case-body">
+        <div class="case-column"><span>PROBLEM</span><p>Daily operational reporting required repetitive compilation, transformation and manual narrative preparation.</p></div>
+        <div class="case-column"><span>MY ROLE</span><p>Data pipeline design, Python processing, NLP summarization, KPI logic, anomaly detection and reporting automation.</p></div>
+        <div class="case-column"><span>SOLUTION</span><p>Automated Excel/CSV/database ingestion, transformation, KPI generation, insight summaries and output delivery.</p></div>
+        <div class="case-column"><span>PROOF</span><p>Reduced reporting turnaround by 70%+ and replaced roughly 2–3 hours of repetitive reporting per day; research published in IJFMR.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="wrap" id="data-lab">
+  <div class="head reveal"><div class="kicker">06 / INTERACTIVE DATA LAB</div><h2 class="title">Run SQL. Turn rows into insight.</h2><p class="lead">A small interactive demo of the workflow I use: query → aggregate → visualize → explain.</p></div>
+  <div class="data-lab reveal">
+    <div class="sql-panel">
+      <div class="lab-top"><span>analytics.sql</span><span class="lab-status">READY</span></div>
+      <pre id="sqlCode"><code><span class="sql-key">SELECT</span> category,
+       <span class="sql-fn">SUM</span>(amount) <span class="sql-key">AS</span> total
+<span class="sql-key">FROM</span> expenses
+<span class="sql-key">WHERE</span> month = <span class="sql-str">'September'</span>
+<span class="sql-key">GROUP BY</span> category
+<span class="sql-key">ORDER BY</span> total <span class="sql-key">DESC</span>;</code></pre>
+      <button class="lab-run magnetic" id="runQuery">▶ Run Query</button>
+      <div class="lab-note">Demo dataset • no external API required</div>
+    </div>
+    <div class="insight-panel">
+      <div class="lab-top"><span>Business Insight</span><span id="queryTime">waiting</span></div>
+      <div class="lab-bars" id="labBars">
+        <div class="lab-row"><span>Housing</span><i data-value="84"></i><b>₹24.8k</b></div>
+        <div class="lab-row"><span>Food</span><i data-value="61"></i><b>₹18.1k</b></div>
+        <div class="lab-row"><span>Travel</span><i data-value="39"></i><b>₹11.6k</b></div>
+        <div class="lab-row"><span>Utilities</span><i data-value="28"></i><b>₹8.4k</b></div>
+      </div>
+      <div class="insight-callout"><span>INSIGHT</span><p id="labInsight">Run the query to generate an analyst-style interpretation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="vibe-workflow">
+  <div class="head reveal"><div class="kicker">07 / AI-ASSISTED WORKFLOW</div><h2 class="title">Vibe coding, with engineering discipline.</h2><p class="lead">AI accelerates implementation; I define the product logic, validate behavior and own the deployment.</p></div>
+  <div class="workflow reveal">
+    <div class="flow-step"><span>01</span><b>Define</b><p>Problem, users, constraints and success metrics.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span>02</span><b>Prompt & Architect</b><p>Break features into UI, API, data and validation layers.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span>03</span><b>Build</b><p>Use AI-assisted coding to prototype and implement faster.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span>04</span><b>Debug & Test</b><p>Verify edge cases, logic, permissions and real workflows.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span>05</span><b>Deploy & Iterate</b><p>Ship, observe user feedback and improve the product.</p></div>
+  </div>
+</section>
+
 <section class="wrap" id="education">
   <div class="twocol">
-    <div><div class="head reveal"><div class="kicker">05 / TRAINING</div><h2 class="title">Professional training</h2></div><div class="glass academy-card reveal"><span class="edu-icon">DA</span><h3>Data Analytics Program — AccioJob</h3><p>6-Month Program | Ongoing. Advanced Excel, SQL, Python, Pandas, NumPy, Power Query, Statistics, Data Visualization and Business Reporting.</p></div><div class="glass academy-card reveal" style="margin-top:14px"><span class="edu-icon">BA</span><h3>PwC Business Analytics Program</h3><p>2026 | Ongoing. Business analytics and data-driven decision-making.</p></div></div>
-    <div><div class="head reveal"><div class="kicker">06 / EDUCATION</div><h2 class="title">Academic foundation</h2></div><div class="glass academy-card reveal"><span class="edu-icon">AI</span><h3>B.Tech — Artificial Intelligence & Data Science</h3><div class="company">CARE College of Engineering, Chennai</div><p>2022 – 2026</p><div class="tag" style="display:inline-block;margin-top:10px">CGPA: 7.29 / 10</div></div></div>
+    <div><div class="head reveal"><div class="kicker">08 / TRAINING</div><h2 class="title">Professional training</h2></div><div class="glass academy-card reveal"><span class="edu-icon">DA</span><h3>Data Analytics Program — AccioJob</h3><p>6-Month Program | Ongoing. Advanced Excel, SQL, Python, Pandas, NumPy, Power Query, Statistics, Data Visualization and Business Reporting.</p></div><div class="glass academy-card reveal" style="margin-top:14px"><span class="edu-icon">BA</span><h3>PwC Business Analytics Program</h3><p>2026 | Ongoing. Business analytics and data-driven decision-making.</p></div></div>
+    <div><div class="head reveal"><div class="kicker">09 / EDUCATION</div><h2 class="title">Academic foundation</h2></div><div class="glass academy-card reveal"><span class="edu-icon">AI</span><h3>B.Tech — Artificial Intelligence & Data Science</h3><div class="company">CARE College of Engineering, Chennai</div><p>2022 – 2026</p><div class="tag" style="display:inline-block;margin-top:10px">CGPA: 7.29 / 10</div></div></div>
   </div>
 </section>
 
 <section class="wrap" id="certifications">
-  <div class="head reveal"><div class="kicker">07 / CERTIFICATIONS</div><h2 class="title">Continuous professional development</h2></div>
+  <div class="head reveal"><div class="kicker">10 / CERTIFICATIONS</div><h2 class="title">Continuous professional development</h2></div>
   <div class="certs"><div class="cert reveal"><b>Business Analytics with Excel</b><span>SkillUp, Simplilearn | Jun 2023</span></div><div class="cert reveal"><b>Data Science Training Certificate</b><span>Corizo EdTech Pvt Ltd | Aug 2025</span></div><div class="cert reveal"><b>Data Science Internship Certificate</b><span>Corizo EdTech Pvt Ltd | Sep 2025</span></div><div class="cert reveal"><b>Engineering Networking Internship</b><span>Kaashiv InfoTech | Sep 2024</span></div><div class="cert reveal"><b>Data Analytics Program</b><span>AccioJob | Ongoing</span></div><div class="cert reveal"><b>PwC Business Analytics Program</b><span>2026 | Ongoing</span></div></div>
 </section>
 
-<section class="wrap" id="publication"><div class="kicker reveal">08 / PUBLICATION</div><div class="publication reveal" style="margin-top:24px"><h3>Smart Daily Report Automation System Using AI</h3><div class="company">International Journal for Multidisciplinary Research (IJFMR)</div><p>Research focused on AI-assisted reporting automation, Python-based data processing, NLP summarization, KPI tracking, anomaly detection and automated business reporting.</p><div class="tags"><span class="tag">Volume 8, Issue 2 | March–April 2026</span><span class="tag">Paper ID: 72819</span></div></div></section>
+<section class="wrap" id="publication"><div class="kicker reveal">11 / PUBLICATION</div><div class="publication reveal" style="margin-top:24px"><h3>Smart Daily Report Automation System Using AI</h3><div class="company">International Journal for Multidisciplinary Research (IJFMR)</div><p>Research focused on AI-assisted reporting automation, Python-based data processing, NLP summarization, KPI tracking, anomaly detection and automated business reporting.</p><div class="tags"><span class="tag">Volume 8, Issue 2 | March–April 2026</span><span class="tag">Paper ID: 72819</span></div></div></section>
 
-<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">09 / CONTACT</div><h2>Let’s build something measurable.</h2><p>Open to Data Analyst, Business Analytics, BI, reporting automation and analytics-focused opportunities.</p></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
+<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">12 / CONTACT</div><h2>Let’s turn data into decisions — or ideas into products.</h2><p>Open to Data Analyst, Business Analyst, BI/reporting and analytics-focused graduate opportunities.</p><div class="contact-actions"><a class="btn primary" href="mailto:keerthiprakash.kp33@gmail.com">Start a Conversation</a><a class="btn secondary" href="resume.html" target="_blank">View Resume ↗</a></div></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
 </main>
+<div class="command-hint">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> for quick navigation</div>
+<div class="command-backdrop" id="commandBackdrop" hidden>
+  <div class="command-box" role="dialog" aria-modal="true" aria-label="Quick navigation">
+    <div class="command-search"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Go to projects, resume, GitHub..."><kbd>ESC</kbd></div>
+    <div class="command-list" id="commandList">
+      <a href="#projects" data-cmd="projects work case studies"><span>01</span>Projects<small>Selected work & live products</small></a>
+      <a href="#data-lab" data-cmd="sql data lab analytics"><span>02</span>Interactive Data Lab<small>SQL → visualization → insight</small></a>
+      <a href="#skills" data-cmd="skills sql python power bi"><span>03</span>Skills<small>Analytics toolkit</small></a>
+      <a href="resume.html" target="_blank" data-cmd="resume cv download"><span>04</span>Resume<small>Recruiter-ready resume</small></a>
+      <a href="https://github.com/keerthiprakash18" target="_blank" data-cmd="github code repositories"><span>05</span>GitHub<small>Source repositories</small></a>
+      <a href="mailto:keerthiprakash.kp33@gmail.com" data-cmd="email contact hire"><span>06</span>Email Me<small>keerthiprakash.kp33@gmail.com</small></a>
+    </div>
+  </div>
+</div>
 
 <footer class="wrap"><span>© <span id="yr"></span> Keerthi Prakash T</span><span>Data • Analytics • AI-Assisted Vibe Coding</span></footer>
 <script>
