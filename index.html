@@ -4676,56 +4676,50 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
 @keyframes kpOrbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes kpOrbitRev{to{transform:translate(-50%,-50%) rotate(-360deg)}}
 
+/* Character: pinned bottom-centre of the left panel. Stacking inside the zone:
+   aura 1 -> orbits 2 -> character 10 -> greeting / status UI 20 */
 .kp-character-wrap{
-  position:relative;
-  z-index:3;
-  width:min(88%,360px);
-  margin-bottom:46px;
-  transform-origin:50% 90%;
+  position:absolute;
+  left:50%;
+  bottom:35px;
+  z-index:10;
+  width:min(85%,380px);
+  margin:0;
+  transform:translateX(-50%);
+  transform-origin:50% 100%;
   animation:kpFloat 3.7s ease-in-out infinite;
 }
 .kp-character{
   display:block;
   width:100%;
   height:auto;
-  max-height:470px;
+  max-height:480px;
   object-fit:contain;
-  filter:drop-shadow(0 22px 30px rgba(60,75,106,.20));
+  object-position:center bottom;
+  opacity:1;
+  visibility:visible;
+  filter:drop-shadow(0 24px 30px rgba(60,75,110,.20));
+  transition:filter .45s ease;
+  animation:kpCharBreathe 2.8s ease-in-out infinite paused;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,#000 0,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);
+  mask-composite:intersect;
   user-select:none;
 }
-@keyframes kpFloat{50%{transform:translateY(-8px)}}
-
-.kp-mouth-sync{
-  position:absolute;
-  left:52%;
-  top:31%;
-  width:18px;
-  height:6px;
-  transform:translate(-50%,-50%);
-  border-radius:0 0 999px 999px;
-  background:rgba(144,76,77,.0);
-  border-bottom:2px solid rgba(138,74,78,.0);
-  opacity:0;
-}
-.kp-character-zone.is-speaking .kp-mouth-sync{
-  opacity:.9;
-  background:rgba(145,75,81,.16);
-  border:2px solid rgba(139,75,80,.62);
-  border-radius:50%;
-  animation:kpMouth .22s ease-in-out infinite alternate;
-}
-@keyframes kpMouth{
-  from{width:13px;height:7px}
-  to{width:18px;height:14px}
+@keyframes kpFloat{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-8px)}
 }
 
 .kp-speech-dots{
   position:absolute;
   right:8%;
-  top:31%;
+  top:47%;
   display:flex;
   gap:4px;
   opacity:0;
+  transition:opacity .3s ease;
 }
 .kp-character-zone.is-speaking .kp-speech-dots{opacity:1}
 .kp-speech-dots i{
@@ -4932,7 +4926,6 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
     border-radius:26px;
   }
   .kp-character-zone{min-height:300px}
-  .kp-character-wrap{width:min(68%,270px);margin-bottom:34px}
   .kp-character-greeting{top:10px;left:10px}
   .kp-welcome-card{text-align:center;padding:14px 4px}
   .kp-welcome-badge{margin:auto}
@@ -4942,7 +4935,6 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
 }
 @media(max-width:520px){
   .kp-character-zone{min-height:255px}
-  .kp-character-wrap{width:min(72%,230px);margin-bottom:32px}
   .kp-character-greeting{font-size:.57rem;padding:7px 9px}
   .kp-welcome-card h1{font-size:clamp(2.25rem,11vw,3.2rem)}
   .kp-voice-card{grid-template-columns:auto 1fr}.kp-mini-wave{display:none}
@@ -5047,21 +5039,6 @@ nav a.pastel-active{
 
 
 /* === INTRO CHARACTER VISIBILITY + PROFESSIONAL TYPE === */
-.kp-character-wrap{
-  width:min(90%,380px)!important;
-  margin-bottom:42px!important;
-}
-.kp-character{
-  display:block!important;
-  opacity:1!important;
-  visibility:visible!important;
-  width:100%!important;
-  max-height:480px!important;
-  object-fit:contain!important;
-  object-position:center bottom!important;
-  position:relative!important;
-  z-index:4!important;
-}
 .kp-welcome-card h1{
   max-width:700px!important;
   margin:16px 0 14px!important;
@@ -5090,7 +5067,6 @@ nav a.pastel-active{
   line-height:1.5!important;
 }
 @media(max-width:900px){
-  .kp-character-wrap{width:min(70%,280px)!important}
   .kp-welcome-card h1{
     font-size:clamp(2.3rem,9vw,3.5rem)!important;
     letter-spacing:-.04em!important;
@@ -5116,43 +5092,11 @@ nav a.pastel-active{
   isolation:isolate!important;
   overflow:hidden!important;
 }
-.kp-character-zone::after{
-  content:""!important;
-  position:absolute!important;
-  z-index:12!important;
-  left:50%!important;
-  bottom:34px!important;
-  width:min(88%,390px)!important;
-  height:480px!important;
-  transform:translateX(-50%) translateY(0) scale(1)!important;
-  transform-origin:50% 100%!important;
-  background-image:url("https://raw.githubusercontent.com/keerthiprakash18/kp-portfolio/3035fdb2a7398e8e50017f50b415e81a4e72befd/assets/kp-character-final.webp")!important;
-  background-repeat:no-repeat!important;
-  background-position:center bottom!important;
-  background-size:contain!important;
-  filter:drop-shadow(0 24px 30px rgba(58,75,108,.22))!important;
-  pointer-events:none!important;
-  opacity:1!important;
-  visibility:visible!important;
-  animation:kpCharacterHardFloat 3.8s ease-in-out infinite!important;
-}
-.kp-character-zone.is-speaking::after{
-  animation:kpCharacterSpeaking .72s ease-in-out infinite!important;
-  filter:drop-shadow(0 26px 34px rgba(76,92,170,.28))!important;
-}
-@keyframes kpCharacterHardFloat{
-  0%,100%{transform:translateX(-50%) translateY(0) scale(1)}
-  50%{transform:translateX(-50%) translateY(-7px) scale(1.008)}
-}
-@keyframes kpCharacterSpeaking{
-  0%,100%{transform:translateX(-50%) translateY(0) scale(1)}
-  50%{transform:translateX(-50%) translateY(-4px) scale(1.012)}
-}
-.kp-character-wrap{
-  display:none!important;
-}
-.kp-aura,.kp-orbit{
+.kp-aura{
   z-index:1!important;
+}
+.kp-orbit{
+  z-index:2!important;
 }
 .kp-aura{
   opacity:.48!important;
@@ -5162,7 +5106,43 @@ nav a.pastel-active{
 }
 .kp-character-greeting,
 .kp-character-voice{
-  z-index:30!important;
+  z-index:20!important;
+}
+/* Speaking: soft glow + slow breathing around the character (no lip-sync overlay).
+   The breathing animations stay attached but paused while idle, so when the voice stops the
+   pose is held and only opacity/filter fade out - nothing snaps. */
+.kp-character-wrap::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:44%;
+  z-index:-1;
+  width:92%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(128,148,255,.46) 0%,rgba(178,158,255,.24) 46%,rgba(255,255,255,0) 72%);
+  filter:blur(14px);
+  transform:translate(-50%,-50%) scale(.9);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .45s ease;
+  animation:kpGlowBreathe 2.8s ease-in-out infinite paused;
+}
+.kp-character-zone.is-speaking .kp-character-wrap::before{
+  opacity:1;
+  animation-play-state:running;
+}
+.kp-character-zone.is-speaking .kp-character{
+  animation-play-state:running;
+  filter:drop-shadow(0 24px 30px rgba(60,75,110,.20)) drop-shadow(0 0 16px rgba(120,140,255,.32));
+}
+@keyframes kpCharBreathe{
+  0%,100%{scale:1}
+  50%{scale:1.012}
+}
+@keyframes kpGlowBreathe{
+  0%,100%{transform:translate(-50%,-50%) scale(.9)}
+  50%{transform:translate(-50%,-50%) scale(1.04)}
 }
 .kp-welcome-card h1{
   font-size:clamp(2.45rem,4.15vw,4rem)!important;
@@ -5173,22 +5153,18 @@ nav a.pastel-active{
   .ai-intro{padding:10px!important}
   .kp-intro-shell{margin:0 auto 24px!important}
   .kp-character-zone{min-height:330px!important}
-  .kp-character-zone::after{
-    width:min(72%,285px)!important;
-    height:285px!important;
-    bottom:24px!important;
-  }
+  .kp-character-wrap{bottom:24px;width:min(72%,214px)}
+  .kp-character{max-height:285px}
 }
 @media(max-width:520px){
   .kp-character-zone{min-height:290px!important}
-  .kp-character-zone::after{
-    width:min(76%,245px)!important;
-    height:250px!important;
-    bottom:22px!important;
-  }
+  .kp-character-wrap{bottom:22px;width:min(70%,188px)}
+  .kp-character{max-height:250px}
 }
 @media(prefers-reduced-motion:reduce){
-  .kp-character-zone::after{animation:none!important}
+  .kp-character,
+  .kp-character-wrap::before,
+  .kp-speech-dots i{animation:none!important}
 }
 
 </style>
@@ -5214,14 +5190,10 @@ window.addEventListener("error",function(){
 
       <div class="kp-character-wrap">
         <img
-          src="assets/kp-character-final.webp?v=20260930-1722"
-          alt=""
+          src="assets/keerthi-anime-character.png"
           class="kp-character"
-          fetchpriority="high"
-          decoding="async"
-          onerror="this.onerror=null;this.src='assets/profile-small.webp?v=20260930-1722';"
-        >
-        <div class="kp-mouth-sync" aria-hidden="true"></div>
+          alt="Keerthi Prakash anime character"
+        />
         <div class="kp-speech-dots" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
 
