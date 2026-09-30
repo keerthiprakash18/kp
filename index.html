@@ -4592,6 +4592,368 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   .intro-copy h1{font-size:clamp(2.35rem,11vw,3.25rem)!important}
 }
 
+
+/* === FINAL CLEAN CHARACTER ENTRANCE — NO FULL IMAGE === */
+.kp-character-intro{
+  padding:24px!important;
+  background:
+    radial-gradient(circle at 14% 18%,rgba(178,208,255,.58),transparent 31%),
+    radial-gradient(circle at 86% 18%,rgba(221,198,255,.46),transparent 30%),
+    radial-gradient(circle at 78% 86%,rgba(255,220,194,.40),transparent 28%),
+    linear-gradient(135deg,#edf6ff 0%,#f8f4ff 48%,#fff8f1 100%)!important;
+}
+.kp-character-intro::before{
+  display:block!important;
+  inset:0!important;
+  transform:none!important;
+  opacity:.22!important;
+  background-image:radial-gradient(circle,rgba(83,103,142,.11) 1px,transparent 1px)!important;
+  background-size:30px 30px!important;
+  animation:none!important;
+  mask-image:linear-gradient(to bottom,#000,transparent 96%)!important;
+}
+.kp-character-intro::after{
+  display:block!important;
+  width:620px!important;
+  height:620px!important;
+  background:radial-gradient(circle,rgba(125,149,196,.10),transparent 68%)!important;
+  filter:blur(34px)!important;
+}
+
+.kp-intro-shell{
+  position:relative;
+  z-index:2;
+  width:min(1120px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:minmax(330px,.82fr) minmax(0,1.18fr);
+  gap:34px;
+  align-items:stretch;
+  padding:26px;
+  border-radius:34px;
+  border:1px solid rgba(102,120,153,.13);
+  background:rgba(255,255,255,.56);
+  box-shadow:0 32px 90px rgba(70,87,118,.14),inset 0 1px rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+}
+
+.kp-character-zone{
+  position:relative;
+  min-height:560px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:28px;
+  background:
+    linear-gradient(180deg,rgba(225,238,255,.72),rgba(245,241,255,.66) 52%,rgba(255,242,229,.72));
+  border:1px solid rgba(110,130,166,.10);
+}
+.kp-aura,.kp-orbit{position:absolute;border-radius:50%;pointer-events:none}
+.kp-aura.aura-blue{
+  width:320px;height:320px;left:12%;top:12%;
+  background:linear-gradient(145deg,rgba(159,198,255,.56),rgba(190,176,255,.42));
+  filter:blur(2px);
+}
+.kp-aura.aura-peach{
+  width:180px;height:180px;right:2%;bottom:11%;
+  background:linear-gradient(145deg,rgba(255,208,179,.48),rgba(255,235,198,.42));
+  filter:blur(2px);
+}
+.kp-orbit{
+  left:50%;top:43%;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(94,117,157,.12);
+}
+.kp-orbit.orbit-a{width:330px;height:330px;animation:kpOrbit 18s linear infinite}
+.kp-orbit.orbit-b{width:268px;height:268px;border-style:dashed;animation:kpOrbitRev 14s linear infinite}
+.kp-orbit:before,.kp-orbit:after{
+  content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#7f96bc;
+  box-shadow:0 0 10px rgba(91,116,161,.28)
+}
+.kp-orbit.orbit-a:before{left:27px;top:61px}.kp-orbit.orbit-a:after{right:36px;bottom:41px;background:#9b83ad}
+.kp-orbit.orbit-b:before{right:22px;top:72px;width:5px;height:5px}.kp-orbit.orbit-b:after{left:42px;bottom:28px;width:5px;height:5px;background:#7ca798}
+@keyframes kpOrbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes kpOrbitRev{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+
+.kp-character-wrap{
+  position:relative;
+  z-index:3;
+  width:min(88%,360px);
+  margin-bottom:46px;
+  transform-origin:50% 90%;
+  animation:kpFloat 3.7s ease-in-out infinite;
+}
+.kp-character{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:470px;
+  object-fit:contain;
+  filter:drop-shadow(0 22px 30px rgba(60,75,106,.20));
+  user-select:none;
+}
+@keyframes kpFloat{50%{transform:translateY(-8px)}}
+
+.kp-mouth-sync{
+  position:absolute;
+  left:52%;
+  top:31%;
+  width:18px;
+  height:6px;
+  transform:translate(-50%,-50%);
+  border-radius:0 0 999px 999px;
+  background:rgba(144,76,77,.0);
+  border-bottom:2px solid rgba(138,74,78,.0);
+  opacity:0;
+}
+.kp-character-zone.is-speaking .kp-mouth-sync{
+  opacity:.9;
+  background:rgba(145,75,81,.16);
+  border:2px solid rgba(139,75,80,.62);
+  border-radius:50%;
+  animation:kpMouth .22s ease-in-out infinite alternate;
+}
+@keyframes kpMouth{
+  from{width:13px;height:7px}
+  to{width:18px;height:14px}
+}
+
+.kp-speech-dots{
+  position:absolute;
+  right:8%;
+  top:31%;
+  display:flex;
+  gap:4px;
+  opacity:0;
+}
+.kp-character-zone.is-speaking .kp-speech-dots{opacity:1}
+.kp-speech-dots i{
+  width:7px;height:7px;border-radius:50%;background:#6f86c9;
+  box-shadow:0 0 9px rgba(91,112,177,.30);
+  animation:kpDot .65s ease-in-out infinite;
+}
+.kp-speech-dots i:nth-child(2){animation-delay:.12s}.kp-speech-dots i:nth-child(3){animation-delay:.24s}
+@keyframes kpDot{50%{transform:translateY(-6px);opacity:.45}}
+
+.kp-character-greeting{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:5;
+  padding:9px 12px;
+  border-radius:14px 14px 14px 4px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(105,123,154,.11);
+  color:#45566f;
+  font:800 .68rem "Sora",sans-serif;
+  box-shadow:0 8px 22px rgba(70,85,113,.08);
+  backdrop-filter:blur(10px);
+}
+.kp-character-voice{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(100,120,153,.10);
+  color:#68778d;
+  font:800 8px "Sora",sans-serif;
+  letter-spacing:.08em;
+  backdrop-filter:blur(10px);
+}
+.kp-character-voice .voice-wave{
+  position:static!important;
+  transform:none!important;
+  height:18px!important;
+  opacity:.72;
+}
+
+.kp-welcome-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:18px 12px;
+}
+.kp-welcome-badge{
+  width:max-content;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  color:#5d7168;
+  background:#edf7f3;
+  border:1px solid #dcebe5;
+  font:800 .62rem "Sora",sans-serif;
+  letter-spacing:.06em;
+}
+.kp-welcome-badge span{width:7px;height:7px;border-radius:50%;background:#79aa98;box-shadow:0 0 8px rgba(121,170,152,.30)}
+.kp-welcome-card h1{
+  margin:17px 0 12px;
+  color:#24324a;
+  font-family:"Sora",sans-serif;
+  font-size:clamp(2.5rem,4.6vw,4.5rem);
+  line-height:.98;
+  letter-spacing:-.055em;
+}
+.kp-welcome-card h1 span{
+  background:linear-gradient(90deg,#2e67f5 0%,#645bf5 52%,#a35fd3 100%);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.kp-welcome-card>p{
+  max-width:620px;
+  margin:0;
+  color:#68778b;
+  font-size:.95rem;
+  line-height:1.68;
+}
+.kp-type-line{
+  margin-top:12px;
+  min-height:1.45em;
+  color:#465972;
+  font:700 .78rem "Sora",sans-serif;
+}
+
+.kp-voice-card{
+  width:100%;
+  margin-top:18px;
+  min-height:74px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:10px 14px;
+  border-radius:18px!important;
+  border:1px solid rgba(108,128,163,.12)!important;
+  background:rgba(255,255,255,.84)!important;
+  color:#31425b!important;
+  box-shadow:0 10px 24px rgba(73,89,119,.07)!important;
+  cursor:pointer;
+  text-align:left;
+}
+.kp-play-icon{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:50%;
+  color:#fff;background:linear-gradient(135deg,#4075ff,#785df2);
+  box-shadow:0 8px 18px rgba(72,88,205,.20);
+}
+.kp-voice-copy b{display:block;color:#27364f;font:800 .75rem "Sora",sans-serif}
+.kp-voice-copy small{display:block;margin-top:4px;color:#7a889a;font-size:.62rem}
+.kp-mini-wave{display:flex;align-items:center;gap:3px;height:28px}
+.kp-mini-wave i{width:3px;height:8px;border-radius:99px;background:#6c84d7;animation:kpMiniWave .7s ease-in-out infinite alternate}
+.kp-mini-wave i:nth-child(2){animation-delay:.08s}.kp-mini-wave i:nth-child(3){animation-delay:.16s}.kp-mini-wave i:nth-child(4){animation-delay:.24s}.kp-mini-wave i:nth-child(5){animation-delay:.32s}
+@keyframes kpMiniWave{to{height:24px}}
+
+.kp-quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.kp-quick-grid button{
+  min-height:108px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  padding:12px 8px;
+  border-radius:18px;
+  border:1px solid rgba(106,125,160,.10);
+  background:#fff;
+  box-shadow:0 9px 22px rgba(71,87,117,.06);
+  cursor:pointer;
+  transition:.18s ease;
+}
+.kp-quick-grid button:nth-child(1){background:linear-gradient(145deg,#fff8eb,#fffdf8)}
+.kp-quick-grid button:nth-child(2){background:linear-gradient(145deg,#eef8ff,#f9fcff)}
+.kp-quick-grid button:nth-child(3){background:linear-gradient(145deg,#f7efff,#fdf9ff)}
+.kp-quick-grid button:nth-child(4){background:linear-gradient(145deg,#eef5ff,#fbfdff)}
+.kp-quick-grid button:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(71,87,117,.10);border-color:rgba(100,121,161,.19)}
+.kp-q-icon{font-size:1.05rem;color:#6478c5}
+.kp-quick-grid b{color:#26364f;font:800 .72rem "Sora",sans-serif}
+.kp-quick-grid small{color:#78869a;font-size:.59rem}
+
+.kp-feature-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:14px;
+}
+.kp-feature-strip span{
+  padding:6px 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(108,126,158,.08);
+  color:#6b798d;
+  font-size:.56rem;
+  font-weight:800;
+}
+.kp-enter-row{
+  display:flex;
+  gap:9px;
+  margin-top:18px;
+}
+.kp-enter-row .intro-enter{
+  flex:1;
+  min-height:52px!important;
+  border:0!important;
+  border-radius:16px!important;
+  color:#fff!important;
+  background:linear-gradient(90deg,#2c61f2,#5a58f2 50%,#9660e7)!important;
+  box-shadow:0 14px 28px rgba(73,82,194,.19)!important;
+  font:800 .78rem "Sora",sans-serif;
+}
+.kp-enter-row .intro-skip{
+  min-width:100px;
+  min-height:52px!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  border:1px solid #dee6ef!important;
+  color:#69798e!important;
+  box-shadow:0 5px 14px rgba(66,82,112,.05)!important;
+}
+
+@media(max-width:900px){
+  .kp-character-intro{padding:10px!important}
+  .kp-intro-shell{
+    grid-template-columns:1fr;
+    width:min(680px,100%);
+    gap:8px;
+    padding:16px;
+    border-radius:26px;
+  }
+  .kp-character-zone{min-height:300px}
+  .kp-character-wrap{width:min(68%,270px);margin-bottom:34px}
+  .kp-character-greeting{top:10px;left:10px}
+  .kp-welcome-card{text-align:center;padding:14px 4px}
+  .kp-welcome-badge{margin:auto}
+  .kp-welcome-card>p{margin-left:auto;margin-right:auto}
+  .kp-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kp-feature-strip{justify-content:center}
+}
+@media(max-width:520px){
+  .kp-character-zone{min-height:255px}
+  .kp-character-wrap{width:min(72%,230px);margin-bottom:32px}
+  .kp-character-greeting{font-size:.57rem;padding:7px 9px}
+  .kp-welcome-card h1{font-size:clamp(2.25rem,11vw,3.2rem)}
+  .kp-voice-card{grid-template-columns:auto 1fr}.kp-mini-wave{display:none}
+  .kp-quick-grid button{min-height:92px}
+  .kp-enter-row{display:grid;grid-template-columns:1fr}
+  .kp-enter-row .intro-skip{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .kp-character-wrap,.kp-orbit,.kp-mini-wave i{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -4604,91 +4966,95 @@ window.addEventListener("error",function(){
 </script>
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<div id="aiIntro" class="ai-intro anime-approved-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
-  <div class="anime-intro-shell">
-    <div class="anime-art-wrap">
-      <img
-        src="assets/profile-small.webp?v=20260927" data-anime-chunked="1"
-        alt="Anime-style interactive welcome artwork for Keerthi Prakash portfolio"
-        class="anime-approved-art anime-loading"
-        fetchpriority="high"
-        decoding="async"
-      >
-      <div class="anime-art-glass"></div>
-      <div class="anime-live-badge"><span></span> KEERTHI PORTFOLIO • INTERACTIVE</div>
-    </div>
+<div id="aiIntro" class="ai-intro kp-character-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
+  <div class="kp-intro-shell">
 
-    <div class="anime-control-dock">
-      <div class="anime-greeting-copy">
-        <strong>Hi there 👋</strong>
-        <span id="introType">Welcome to Keerthi’s portfolio. I’m here to show you around.</span>
+    <section class="kp-character-zone" id="hrRobot" aria-hidden="true">
+      <div class="kp-orbit orbit-a"></div>
+      <div class="kp-orbit orbit-b"></div>
+      <div class="kp-aura aura-blue"></div>
+      <div class="kp-aura aura-peach"></div>
+
+      <div class="kp-character-wrap">
+        <img
+          src="assets/kp-anime-character.webp"
+          alt=""
+          class="kp-character"
+          fetchpriority="high"
+          decoding="async"
+        >
+        <div class="kp-mouth-sync" aria-hidden="true"></div>
+        <div class="kp-speech-dots" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
 
-      <div class="anime-actions">
-        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button>
-        <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
-        <button class="intro-skip" id="introSkip" type="button">Skip</button>
-      </div>
+      <div class="kp-character-greeting">👋 Hi! Nice to meet you.</div>
 
-      <div class="anime-quick-nav">
-        <button type="button" data-intro-go="about">About</button>
-        <button type="button" data-intro-go="projects">Projects</button>
-        <button type="button" data-intro-go="skills">Skills</button>
-        <button type="button" data-intro-action="resume">Resume</button>
-      </div>
-
-      <div class="anime-voice-status">
+      <div class="kp-character-voice">
         <div class="voice-wave" id="voiceWave" aria-hidden="true">
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
         <span id="voiceState">WELCOME GUIDE READY</span>
       </div>
-    </div>
+    </section>
+
+    <section class="kp-welcome-card">
+      <div class="kp-welcome-badge"><span></span> KP PORTFOLIO GUIDE</div>
+
+      <h1>Welcome to <span>Keerthi Prakash’s</span> Portfolio</h1>
+      <p>
+        Explore my data analytics work, AI-assisted development, real products,
+        experience and skills — I’ll guide you around.
+      </p>
+
+      <div class="kp-type-line" id="introType">Hi! Welcome — I’m Keerthi’s assistant. It’s nice to meet you.</div>
+
+      <button class="kp-voice-card intro-voice" id="introVoice" type="button" aria-pressed="false">
+        <span class="kp-play-icon">▶</span>
+        <span class="kp-voice-copy">
+          <b>Want to hear a quick welcome?</b>
+          <small>Tap to hear a natural voice greeting</small>
+        </span>
+        <span class="kp-mini-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="kp-quick-grid">
+        <button type="button" data-intro-go="about">
+          <span class="kp-q-icon">◉</span>
+          <b>About Me</b>
+          <small>Know my journey</small>
+        </button>
+        <button type="button" data-intro-go="projects">
+          <span class="kp-q-icon">▣</span>
+          <b>View Projects</b>
+          <small>See what I’ve built</small>
+        </button>
+        <button type="button" data-intro-go="skills">
+          <span class="kp-q-icon">▥</span>
+          <b>My Skills</b>
+          <small>Tools & expertise</small>
+        </button>
+        <button type="button" data-intro-action="resume">
+          <span class="kp-q-icon">▤</span>
+          <b>Open Resume</b>
+          <small>Download / View</small>
+        </button>
+      </div>
+
+      <div class="kp-feature-strip">
+        <span>Data Analytics</span>
+        <span>AI-Assisted Development</span>
+        <span>Full-Stack Projects</span>
+        <span>Real-World Products</span>
+      </div>
+
+      <div class="kp-enter-row">
+        <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
+        <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
+      </div>
+    </section>
+
   </div>
 </div>
-
-<script>
-/* === ANIME ARTWORK CHUNK LOADER === */
-(function(){
-  const img=document.querySelector(".anime-approved-art[data-anime-chunked]");
-  if(!img) return;
-
-  const parts=[
-    "assets/kp-anime55-parts/00.txt",
-    "assets/kp-anime55-parts/01.txt",
-    "assets/kp-anime55-parts/02.txt",
-    "assets/kp-anime55-parts/03.txt",
-    "assets/kp-anime55-parts/04.txt",
-    "assets/kp-anime55-parts/05.txt",
-    "assets/kp-anime55-parts/06.txt",
-    "assets/kp-anime55-parts/07a.txt",
-    "assets/kp-anime55-parts/07b.txt",
-    "assets/kp-anime55-parts/07c.txt",
-    "assets/kp-anime55-parts/07d.txt",
-    "assets/kp-anime55-parts/08.txt"
-  ];
-
-  Promise.all(parts.map(function(path){
-    return fetch(path,{cache:"force-cache"}).then(function(r){
-      if(!r.ok) throw new Error("Failed to load "+path);
-      return r.text();
-    }).then(function(s){ return s.trim(); });
-  })).then(function(chunks){
-    const b64=chunks.join("");
-    if(b64.length!==68160) throw new Error("Anime artwork is incomplete");
-    img.onload=function(){
-      img.classList.remove("anime-loading","anime-fallback");
-      img.classList.add("anime-loaded");
-    };
-    img.src="data:image/webp;base64,"+b64;
-  }).catch(function(err){
-    console.warn("Anime artwork fallback used",err);
-    img.classList.remove("anime-loading");
-    img.classList.add("anime-fallback");
-    img.src="assets/profile-small.webp?v=20260927";
-  });
-})();
-</script>
 
 <div id="hrAssistantWidget" class="hr-assistant-widget" aria-live="polite">
   <button id="hrAssistantFab" class="hr-assistant-fab" type="button" aria-label="Open Keerthi assistant">
@@ -4733,7 +5099,7 @@ window.addEventListener("error",function(){
 </div>
 
 <script>
-/* KEERTHI WELCOME INTRO — female voice + gesture fallback */
+/* KEERTHI WELCOME INTRO — character + natural female voice */
 (function(){
   try{
     const intro=document.getElementById("aiIntro");
@@ -4741,7 +5107,7 @@ window.addEventListener("error",function(){
     const skip=document.getElementById("introSkip");
     const voiceBtn=document.getElementById("introVoice");
     const type=document.getElementById("introType");
-    const robot=null;
+    const character=document.getElementById("hrRobot");
     const wave=document.getElementById("voiceWave");
     const voiceState=document.getElementById("voiceState");
     if(!intro)return;
@@ -4752,24 +5118,36 @@ window.addEventListener("error",function(){
     document.body.classList.add("intro-lock");
 
     const typed="Hi! Welcome — I’m Keerthi’s assistant. It’s nice to meet you.";
-    const greeting="Hi there. Welcome to Keerthi Prakash's portfolio. I'm here to show you around. You can explore his projects, skills, experience, and resume. Take your time, and enter whenever you're ready.";
+    const greeting="Hi there. Welcome to Keerthi Prakash's portfolio. It's nice to meet you. You can explore his projects, skills, experience, data work, and resume. Take your time, and enter whenever you're ready.";
     let i=0,closed=false,muted=false,greeted=false,speaking=false;
     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if(reduced)type.textContent=typed;
+    if(reduced) type.textContent=typed;
     else{
+      type.textContent="";
       const timer=setInterval(function(){
         type.textContent=typed.slice(0,++i);
         if(i>=typed.length)clearInterval(timer)
-      },32)
+      },30);
     }
 
     function setSpeaking(on){
       speaking=on;
-      document.querySelector(".anime-approved-art")?.classList.toggle("is-speaking",on);
+      character&&character.classList.toggle("is-speaking",on);
       wave&&wave.classList.toggle("is-speaking",on);
       if(voiceState)voiceState.textContent=on?"WELCOME GUIDE SPEAKING":"WELCOME GUIDE READY";
-      if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute":"🔊 Hear Welcome"
+      if(voiceBtn){
+        voiceBtn.classList.toggle("is-speaking",on);
+        const b=voiceBtn.querySelector("b");
+        const s=voiceBtn.querySelector("small");
+        if(on){
+          if(b)b.textContent="Speaking...";
+          if(s)s.textContent="Tap again to mute";
+        }else{
+          if(b)b.textContent="Want to hear a quick welcome?";
+          if(s)s.textContent="Tap to hear a natural voice greeting";
+        }
+      }
     }
 
     function chooseFemaleVoice(){
@@ -4786,75 +5164,82 @@ window.addEventListener("error",function(){
       return voices.find(x=>/en-IN/i.test(x.lang))||
              voices.find(x=>/en-GB/i.test(x.lang))||
              voices.find(x=>/en-US/i.test(x.lang))||
-             voices.find(x=>/^en/i.test(x.lang))||voices[0]||null
+             voices.find(x=>/^en/i.test(x.lang))||
+             voices[0]||null;
     }
 
-    function speakWelcome(){
+    function speakText(text){
       if(closed||muted||!("speechSynthesis" in window))return;
       speechSynthesis.cancel();
-      const u=new SpeechSynthesisUtterance(greeting);
+      const u=new SpeechSynthesisUtterance(text);
       const v=chooseFemaleVoice();
       if(v)u.voice=v;
       u.lang=v?.lang||"en-GB";
-      u.rate=.91;
+      u.rate=.92;
       u.pitch=1.02;
       u.volume=.84;
       u.onstart=function(){greeted=true;setSpeaking(true)};
       u.onend=function(){setSpeaking(false)};
       u.onerror=function(){setSpeaking(false)};
-      speechSynthesis.speak(u)
+      speechSynthesis.speak(u);
     }
-    window.KPHRIntroSpeak=function(text){
-      if(!("speechSynthesis" in window)||muted)return;
-      speechSynthesis.cancel();
-      const u=new SpeechSynthesisUtterance(text),v=chooseFemaleVoice();
-      if(v)u.voice=v;u.lang=v?.lang||"en-GB";u.rate=.92;u.pitch=1.02;u.volume=.84;
-      u.onstart=()=>setSpeaking(true);u.onend=()=>setSpeaking(false);u.onerror=()=>setSpeaking(false);
-      speechSynthesis.speak(u)
-    };
+
+    function speakWelcome(){speakText(greeting)}
+    window.KPHRIntroSpeak=speakText;
 
     function closeIntro(){
-      if(closed)return;closed=true;
+      if(closed)return;
+      closed=true;
       if("speechSynthesis" in window)speechSynthesis.cancel();
-      setSpeaking(false);sessionStorage.setItem("kp_ai_intro_seen","1");
-      intro.classList.add("is-leaving");document.body.classList.remove("intro-lock");
-      setTimeout(()=>intro.remove(),720)
+      setSpeaking(false);
+      sessionStorage.setItem("kp_ai_intro_seen","1");
+      intro.classList.add("is-leaving");
+      document.body.classList.remove("intro-lock");
+      setTimeout(()=>intro.remove(),650);
     }
 
     enter.addEventListener("click",closeIntro);
     skip.addEventListener("click",closeIntro);
-    voiceBtn&&voiceBtn.addEventListener("click",function(){
+
+    voiceBtn&&voiceBtn.addEventListener("click",function(e){
+      e.stopPropagation();
       if("speechSynthesis" in window&&speechSynthesis.speaking){
-        muted=true;speechSynthesis.cancel();setSpeaking(false);voiceBtn.textContent="🔊 Hear Welcome"
+        muted=true;
+        speechSynthesis.cancel();
+        setSpeaking(false);
       }else{
-        muted=false;speakWelcome()
+        muted=false;
+        speakWelcome();
       }
     });
 
-    // Try once automatically. If the browser blocks it, the first visitor gesture starts the greeting.
-    setTimeout(speakWelcome,900);
+    // Try once; if blocked, first non-exit visitor gesture can start the greeting.
+    setTimeout(speakWelcome,850);
     function firstGesture(e){
       if(closed||greeted||speaking)return;
-      const isExit=e.target.closest("#introEnter,#introSkip");
-      if(!isExit)speakWelcome()
+      if(e.target.closest("#introEnter,#introSkip"))return;
+      speakWelcome();
     }
     intro.addEventListener("pointerdown",firstGesture,{passive:true});
-    intro.addEventListener("keydown",function(e){if(!greeted&&!speaking&&e.key!=="Escape")speakWelcome()});
 
     document.querySelectorAll("[data-intro-go]").forEach(function(b){
       b.addEventListener("click",function(){
-        const target=b.dataset.introGo;closeIntro();
-        setTimeout(()=>document.getElementById(target)?.scrollIntoView({behavior:"smooth",block:"start"}),820)
-      })
-    });
-    document.querySelectorAll("[data-intro-action='resume']").forEach(function(b){
-      b.addEventListener("click",function(){window.open("resume.html","_blank")})
+        const target=b.dataset.introGo;
+        closeIntro();
+        setTimeout(()=>document.getElementById(target)?.scrollIntoView({behavior:"smooth",block:"start"}),760);
+      });
     });
 
-    setTimeout(()=>{if(!closed)enter.focus({preventScroll:true})},850)
+    document.querySelectorAll("[data-intro-action='resume']").forEach(function(b){
+      b.addEventListener("click",function(){
+        window.open("resume.html","_blank");
+      });
+    });
+
+    setTimeout(()=>{if(!closed)enter.focus({preventScroll:true})},800);
   }catch(e){
     document.body.classList.remove("intro-lock");
-    document.getElementById("aiIntro")?.remove()
+    document.getElementById("aiIntro")?.remove();
   }
 })();</script>
 
