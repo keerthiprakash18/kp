@@ -3598,6 +3598,149 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
 }
 @media(prefers-reduced-motion:reduce){.hr-robot,.hr-arm.right,.hr-orbit,.hr-assistant-fab:after{animation:none!important}}
 
+
+/* === CLEAN WELCOME ENTRANCE V3 === */
+.ai-intro{
+  background:
+    radial-gradient(circle at 16% 18%,rgba(83,107,147,.10),transparent 30%),
+    radial-gradient(circle at 84% 74%,rgba(120,101,143,.075),transparent 34%),
+    linear-gradient(135deg,#07101a 0%,#0a1420 48%,#08111b 100%)!important;
+}
+.ai-intro::before{
+  opacity:.55!important;
+  background-size:68px 68px!important;
+  background-image:
+    linear-gradient(rgba(145,161,184,.016) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(145,161,184,.016) 1px,transparent 1px)!important;
+}
+.intro-shell{
+  width:min(980px,calc(100% - 44px))!important;
+  grid-template-columns:340px minmax(0,1fr)!important;
+  gap:58px!important;
+  padding:34px 38px!important;
+  border:1px solid rgba(170,185,205,.075);
+  border-radius:32px;
+  background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(255,255,255,.012));
+  box-shadow:0 32px 90px rgba(0,0,0,.26),inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter:blur(10px);
+}
+.intro-hr-stage{min-height:410px!important}
+.hr-orbit.orbit-one{width:286px!important;height:286px!important;border-color:rgba(145,163,191,.085)!important}
+.hr-orbit.orbit-two{width:232px!important;height:232px!important;border-color:rgba(155,137,174,.075)!important}
+.hr-robot{
+  width:210px!important;height:278px!important;
+  filter:drop-shadow(0 24px 35px rgba(0,0,0,.26))!important
+}
+.hr-head{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.065),transparent 28%),
+    linear-gradient(145deg,#192638,#0c1725 72%)!important;
+  border-color:rgba(210,220,232,.11)!important
+}
+.hr-face{background:#07111c!important}
+.hr-eye{
+  background:linear-gradient(90deg,#9badc6,#ac98b7)!important;
+  box-shadow:0 0 7px rgba(147,168,198,.28)!important
+}
+.hr-body{
+  background:linear-gradient(150deg,#192638,#0d1826 72%)!important;
+  overflow:visible!important
+}
+.hr-shirt,.hr-tie{display:none!important}
+.assistant-chest-panel{
+  position:absolute;left:50%;top:17px;width:72px;height:55px;transform:translateX(-50%);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(134,156,190,.10),transparent 60%),
+    rgba(255,255,255,.02);
+  border:1px solid rgba(161,178,203,.09);
+  box-shadow:inset 0 1px rgba(255,255,255,.035)
+}
+.assistant-chest-panel:before{
+  content:"KP";
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  color:#cbd5e2;font:800 16px/1 "Sora",sans-serif;letter-spacing:.04em
+}
+.hr-badge{
+  right:13px!important;top:auto!important;bottom:13px!important;
+  color:#91b8aa!important;background:rgba(77,118,103,.04)!important;
+  border-color:rgba(134,177,160,.10)!important;font-size:7px!important
+}
+.hr-core{left:13px!important;bottom:13px!important}
+.intro-hr-stage .voice-wave{bottom:18px!important}
+.intro-hr-stage .voice-state{
+  bottom:-10px!important;color:#758397!important;letter-spacing:.12em!important
+}
+.intro-copy{
+  max-width:570px;
+  animation:introCopyIn .65s ease .35s forwards!important
+}
+.intro-mini{
+  color:#9db6ad!important;
+  border-color:rgba(112,158,143,.10)!important;
+  background:rgba(82,119,106,.026)!important
+}
+.intro-copy h1{
+  margin:16px 0 14px!important;
+  font-size:clamp(2.65rem,5vw,4.5rem)!important;
+  line-height:1.01!important;
+  letter-spacing:-.052em!important
+}
+.intro-copy h1 span{
+  background:linear-gradient(90deg,#c1cbd9,#b8a9c4)!important;
+  -webkit-background-clip:text!important;color:transparent!important
+}
+.intro-copy p{
+  max-width:540px!important;color:#9eabbc!important;font-size:.96rem!important;line-height:1.7!important
+}
+.intro-type{
+  margin-top:14px!important;min-height:1.55em!important;color:#c7d0dc!important;font-size:.82rem!important
+}
+.intro-welcome-tools{margin-top:18px}
+.intro-greeting-bubble{
+  display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 11px;border-radius:11px;
+  color:#aab6c5;background:rgba(255,255,255,.018);border:1px solid rgba(161,177,199,.07);
+  font-size:.7rem
+}
+.greeting-dot{
+  width:6px;height:6px;border-radius:50%;background:#8fb9aa;
+  box-shadow:0 0 8px rgba(143,185,170,.36)
+}
+.intro-welcome-quick{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.intro-welcome-quick button{
+  padding:8px 11px;border-radius:999px;border:1px solid rgba(160,176,199,.085);
+  background:rgba(255,255,255,.016);color:#919fb2;cursor:pointer;
+  font:700 .63rem "Manrope",sans-serif;transition:.18s ease
+}
+.intro-welcome-quick button:hover{
+  color:#e7edf4;background:rgba(255,255,255,.032);border-color:rgba(160,176,199,.16);transform:translateY(-1px)
+}
+.intro-actions{margin-top:22px!important;gap:9px!important}
+.intro-enter{
+  min-height:48px!important;border-radius:13px!important;
+  background:linear-gradient(135deg,#5b708f,#746681)!important;
+  box-shadow:0 13px 30px rgba(17,26,40,.30),inset 0 1px rgba(255,255,255,.10)!important
+}
+.intro-voice,.intro-skip{
+  min-height:48px!important;border-radius:13px!important;color:#a5b0bf!important;
+  background:rgba(255,255,255,.018)!important;border-color:rgba(169,184,204,.075)!important
+}
+.intro-voice:hover,.intro-skip:hover{color:#eef2f7!important;background:rgba(255,255,255,.032)!important}
+@media(max-width:760px){
+  .intro-shell{
+    grid-template-columns:1fr!important;
+    gap:4px!important;padding:22px 18px 24px!important;border-radius:24px!important;text-align:center
+  }
+  .intro-hr-stage{min-height:270px!important}
+  .hr-robot{transform:scale(.77)}
+  .hr-orbit.orbit-one{width:218px!important;height:218px!important}
+  .hr-orbit.orbit-two{width:180px!important;height:180px!important}
+  .intro-copy h1{font-size:clamp(2.25rem,10.5vw,3.35rem)!important}
+  .intro-copy p{font-size:.87rem!important}
+  .intro-greeting-bubble{margin:auto}
+  .intro-welcome-quick,.intro-actions{justify-content:center}
+}
+
 </style>
 </head>
 <body>
@@ -3629,9 +3772,8 @@ window.addEventListener("error",function(){
         </div>
         <div class="hr-neck"></div>
         <div class="hr-body">
-          <div class="hr-shirt"></div>
-          <div class="hr-tie"></div>
-          <div class="hr-badge">KP</div>
+          <div class="assistant-chest-panel"></div>
+          <div class="hr-badge">ASSIST</div>
           <div class="hr-core">KP <span>AI</span></div>
         </div>
         <div class="hr-arm left"></div>
@@ -3643,26 +3785,24 @@ window.addEventListener("error",function(){
       <div class="voice-state" id="voiceState">KEERTHI ASSISTANT READY</div>
     </div>
         <div class="intro-copy">
-      <span class="intro-mini">KEERTHI ASSISTANT ONLINE</span>
-      <h1>Welcome to <span>Keerthi's Portfolio.</span></h1>
-      <p>Hi! I’m Keerthi’s portfolio assistant. Ask me about his profile, skills, projects, experience, education or resume — I’ll answer and guide you to the right section.</p>
+      <span class="intro-mini">KP PORTFOLIO ASSISTANT</span>
+      <h1>Hi, welcome to <span>Keerthi's Portfolio.</span></h1>
+      <p>I’m Keerthi’s personal portfolio assistant. I’ll introduce his work and help you explore the most relevant sections.</p>
       <span class="intro-type" id="introType"></span>
-      <div class="intro-hr-ask">
-        <div class="intro-ask-row">
-          <input id="introHrInput" type="text" autocomplete="off" placeholder="Ask me anything about Keerthi...">
-          <button id="introHrMic" class="intro-mic" type="button" aria-label="Ask by voice">🎙</button>
-          <button id="introHrSend" class="intro-send" type="button">ASK HR →</button>
+      <div class="intro-welcome-tools">
+        <div class="intro-greeting-bubble" id="introGreetingBubble">
+          <span class="greeting-dot"></span>
+          <span>Nice to meet you. I can show you around.</span>
         </div>
-        <div class="intro-quick">
-          <button type="button" data-hrq="Tell me about Keerthi">About Keerthi</button>
-          <button type="button" data-hrq="Show me his projects">Projects</button>
-          <button type="button" data-hrq="What are his strongest skills?">Top skills</button>
-          <button type="button" data-hrq="Tell me about FC Arena">FC Arena</button>
+        <div class="intro-welcome-quick">
+          <button type="button" data-intro-go="about">About Keerthi</button>
+          <button type="button" data-intro-go="projects">View Projects</button>
+          <button type="button" data-intro-action="resume">View Resume</button>
         </div>
       </div>
       <div class="intro-actions">
         <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
-        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Play Voice</button>
+        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button>
         <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
       </div>
     </div>
@@ -3712,7 +3852,7 @@ window.addEventListener("error",function(){
 </div>
 
 <script>
-/* KEERTHI HR INTRO — isolated and fail-safe */
+/* KEERTHI WELCOME INTRO — female voice + gesture fallback */
 (function(){
   try{
     const intro=document.getElementById("aiIntro");
@@ -3723,58 +3863,118 @@ window.addEventListener("error",function(){
     const robot=document.getElementById("hrRobot");
     const wave=document.getElementById("voiceWave");
     const voiceState=document.getElementById("voiceState");
-    if(!intro) return;
+    if(!intro)return;
 
     const force=new URLSearchParams(location.search).get("intro")==="1";
     const seen=sessionStorage.getItem("kp_ai_intro_seen")==="1";
-    if(seen&&!force){intro.remove();return;}
-
+    if(seen&&!force){intro.remove();return}
     document.body.classList.add("intro-lock");
-    const message="Hi, I’m Keerthi’s assistant. Welcome to his portfolio — ask me anything about his profile.";
-    const spokenText="Welcome to Keerthi Prakash’s portfolio. I’m Keerthi’s personal portfolio assistant. You can ask me about his profile, skills, projects, experience, education or resume, and I’ll guide you to the relevant section.";
-    let i=0,muted=false,closed=false;
+
+    const typed="Hi! Welcome — I’m Keerthi’s assistant. It’s nice to meet you.";
+    const greeting="Hi, welcome to Keerthi Prakash's portfolio. I'm Keerthi's personal assistant. It's nice to meet you. You can explore his profile, projects, skills, experience, and resume. Click Enter Portfolio whenever you're ready.";
+    let i=0,closed=false,muted=false,greeted=false,speaking=false;
     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if(reduced) type.textContent=message;
+
+    if(reduced)type.textContent=typed;
     else{
-      const typer=setInterval(function(){type.textContent=message.slice(0,++i);if(i>=message.length)clearInterval(typer)},31);
+      const timer=setInterval(function(){
+        type.textContent=typed.slice(0,++i);
+        if(i>=typed.length)clearInterval(timer)
+      },32)
     }
 
     function setSpeaking(on){
+      speaking=on;
       robot&&robot.classList.toggle("is-speaking",on);
       wave&&wave.classList.toggle("is-speaking",on);
-      voiceState&&voiceState.classList.toggle("speaking",on);
       if(voiceState)voiceState.textContent=on?"KEERTHI ASSISTANT SPEAKING":"KEERTHI ASSISTANT READY";
-      if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute Voice":"🔊 Play Voice";
+      if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute":"🔊 Hear Welcome"
     }
-    function chooseVoice(){
+
+    function chooseFemaleVoice(){
       if(!("speechSynthesis" in window))return null;
-      const v=speechSynthesis.getVoices();
-      return v.find(x=>/en-IN/i.test(x.lang))||v.find(x=>/en-GB/i.test(x.lang))||v.find(x=>/en-US/i.test(x.lang))||v.find(x=>/^en/i.test(x.lang))||v[0];
+      const voices=speechSynthesis.getVoices();
+      const preferred=[
+        /Sonia/i,/Samantha/i,/Zira/i,/Neerja/i,/Heera/i,/Veena/i,/Karen/i,/Moira/i,
+        /Female/i,/Jenny/i,/Aria/i,/Natasha/i,/Libby/i,/Susan/i,/Hazel/i
+      ];
+      for(const rx of preferred){
+        const v=voices.find(x=>rx.test(x.name)&&/^en/i.test(x.lang));
+        if(v)return v;
+      }
+      return voices.find(x=>/en-IN/i.test(x.lang))||
+             voices.find(x=>/en-GB/i.test(x.lang))||
+             voices.find(x=>/en-US/i.test(x.lang))||
+             voices.find(x=>/^en/i.test(x.lang))||voices[0]||null
     }
-    function speak(text){
+
+    function speakWelcome(){
+      if(closed||muted||!("speechSynthesis" in window))return;
+      speechSynthesis.cancel();
+      const u=new SpeechSynthesisUtterance(greeting);
+      const v=chooseFemaleVoice();
+      if(v)u.voice=v;
+      u.lang=v?.lang||"en-GB";
+      u.rate=.96;
+      u.pitch=1.08;
+      u.volume=.78;
+      u.onstart=function(){greeted=true;setSpeaking(true)};
+      u.onend=function(){setSpeaking(false)};
+      u.onerror=function(){setSpeaking(false)};
+      speechSynthesis.speak(u)
+    }
+    window.KPHRIntroSpeak=function(text){
       if(!("speechSynthesis" in window)||muted)return;
       speechSynthesis.cancel();
-      const u=new SpeechSynthesisUtterance(text||spokenText),v=chooseVoice();
-      if(v)u.voice=v;u.lang=v?.lang||"en-IN";u.rate=.94;u.pitch=.98;u.volume=.82;
+      const u=new SpeechSynthesisUtterance(text),v=chooseFemaleVoice();
+      if(v)u.voice=v;u.lang=v?.lang||"en-GB";u.rate=.97;u.pitch=1.07;u.volume=.78;
       u.onstart=()=>setSpeaking(true);u.onend=()=>setSpeaking(false);u.onerror=()=>setSpeaking(false);
-      speechSynthesis.speak(u);
-    }
-    window.KPHRIntroSpeak=speak;
+      speechSynthesis.speak(u)
+    };
 
     function closeIntro(){
       if(closed)return;closed=true;
       if("speechSynthesis" in window)speechSynthesis.cancel();
       setSpeaking(false);sessionStorage.setItem("kp_ai_intro_seen","1");
       intro.classList.add("is-leaving");document.body.classList.remove("intro-lock");
-      setTimeout(()=>intro.remove(),720);
+      setTimeout(()=>intro.remove(),720)
     }
-    enter.addEventListener("click",closeIntro);skip.addEventListener("click",closeIntro);
+
+    enter.addEventListener("click",closeIntro);
+    skip.addEventListener("click",closeIntro);
     voiceBtn&&voiceBtn.addEventListener("click",function(){
-      if("speechSynthesis" in window&&speechSynthesis.speaking){muted=true;speechSynthesis.cancel();setSpeaking(false);voiceBtn.textContent="🔊 Play Voice"}
-      else{muted=false;speak(spokenText)}
+      if("speechSynthesis" in window&&speechSynthesis.speaking){
+        muted=true;speechSynthesis.cancel();setSpeaking(false);voiceBtn.textContent="🔊 Hear Welcome"
+      }else{
+        muted=false;speakWelcome()
+      }
     });
-    setTimeout(()=>{if(!closed)enter.focus({preventScroll:true})},900);
-  }catch(e){document.body.classList.remove("intro-lock");document.getElementById("aiIntro")?.remove()}
+
+    // Try once automatically. If the browser blocks it, the first visitor gesture starts the greeting.
+    setTimeout(speakWelcome,900);
+    function firstGesture(e){
+      if(closed||greeted||speaking)return;
+      const isExit=e.target.closest("#introEnter,#introSkip");
+      if(!isExit)speakWelcome()
+    }
+    intro.addEventListener("pointerdown",firstGesture,{passive:true});
+    intro.addEventListener("keydown",function(e){if(!greeted&&!speaking&&e.key!=="Escape")speakWelcome()});
+
+    document.querySelectorAll("[data-intro-go]").forEach(function(b){
+      b.addEventListener("click",function(){
+        const target=b.dataset.introGo;closeIntro();
+        setTimeout(()=>document.getElementById(target)?.scrollIntoView({behavior:"smooth",block:"start"}),820)
+      })
+    });
+    document.querySelectorAll("[data-intro-action='resume']").forEach(function(b){
+      b.addEventListener("click",function(){window.open("resume.html","_blank")})
+    });
+
+    setTimeout(()=>{if(!closed)enter.focus({preventScroll:true})},850)
+  }catch(e){
+    document.body.classList.remove("intro-lock");
+    document.getElementById("aiIntro")?.remove()
+  }
 })();</script>
 
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
