@@ -4345,6 +4345,253 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   object-position:center 18%;
 }
 
+
+/* === TRUE INTERACTIVE CHARACTER ENTRANCE === */
+.intro-art-stage,.intro-art-frame,.intro-art-badge,.intro-art-shade{display:none!important}
+.ai-intro{
+  background:
+    radial-gradient(circle at 14% 18%,rgba(188,214,255,.58),transparent 30%),
+    radial-gradient(circle at 86% 20%,rgba(221,198,255,.44),transparent 30%),
+    radial-gradient(circle at 76% 86%,rgba(255,221,193,.38),transparent 28%),
+    linear-gradient(135deg,#edf6ff 0%,#f8f4ff 48%,#fff8f1 100%)!important;
+}
+.ai-intro::before{
+  opacity:.22!important;
+  background-image:
+    radial-gradient(circle,rgba(82,104,145,.10) 1px,transparent 1px)!important;
+  background-size:32px 32px!important;
+  transform:none!important;
+  inset:0!important;
+  animation:none!important;
+  mask-image:linear-gradient(to bottom,#000,transparent 96%)!important
+}
+.intro-shell{
+  width:min(1180px,calc(100% - 48px))!important;
+  grid-template-columns:440px minmax(0,1fr)!important;
+  gap:44px!important;
+  padding:28px 30px!important;
+  border-radius:34px!important;
+  background:rgba(255,255,255,.58)!important;
+  border:1px solid rgba(112,128,160,.13)!important;
+  box-shadow:0 34px 90px rgba(72,88,120,.15),inset 0 1px rgba(255,255,255,.94)!important;
+  backdrop-filter:blur(18px)!important
+}
+.intro-character-stage{
+  position:relative;
+  min-height:520px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:visible;
+  isolation:isolate
+}
+.kp-anime-character{
+  position:relative;
+  z-index:3;
+  width:min(92%,390px);
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 24px 28px rgba(61,76,108,.18));
+  animation:characterFloat 4s ease-in-out infinite;
+  transform-origin:50% 90%
+}
+@keyframes characterFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-8px) rotate(.4deg)}
+}
+.character-aura{
+  position:absolute;border-radius:50%;filter:blur(4px);z-index:0
+}
+.aura-a{
+  width:330px;height:330px;left:35px;top:42px;
+  background:linear-gradient(145deg,rgba(167,200,255,.62),rgba(198,185,255,.50))
+}
+.aura-b{
+  width:170px;height:170px;right:4px;bottom:65px;
+  background:linear-gradient(145deg,rgba(255,216,192,.52),rgba(255,239,205,.46))
+}
+.character-desk-glow{
+  position:absolute;left:50%;bottom:24px;width:310px;height:48px;transform:translateX(-50%);
+  border-radius:50%;background:rgba(72,90,126,.12);filter:blur(18px);z-index:0
+}
+.intro-character-stage.is-speaking .kp-anime-character{
+  animation:characterTalkBounce .9s ease-in-out infinite
+}
+@keyframes characterTalkBounce{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-5px) scale(1.006)}
+}
+.talk-pulse{
+  position:absolute;
+  z-index:5;
+  left:66%;
+  top:37%;
+  display:flex;
+  gap:4px;
+  align-items:center;
+  opacity:0;
+  transition:opacity .2s ease
+}
+.intro-character-stage.is-speaking .talk-pulse{opacity:1}
+.talk-pulse span{
+  width:7px;height:7px;border-radius:50%;
+  background:#6d82ff;
+  box-shadow:0 0 10px rgba(109,130,255,.42);
+  animation:talkDot .65s ease-in-out infinite
+}
+.talk-pulse span:nth-child(2){animation-delay:.12s}
+.talk-pulse span:nth-child(3){animation-delay:.24s}
+@keyframes talkDot{50%{transform:translateY(-6px);opacity:.45}}
+.intro-character-stage .voice-wave{
+  position:absolute!important;
+  left:50%!important;
+  bottom:14px!important;
+  transform:translateX(-50%)!important;
+  padding:7px 10px!important;
+  border-radius:12px!important;
+  background:rgba(255,255,255,.78)!important;
+  border:1px solid rgba(84,104,142,.10)!important;
+  backdrop-filter:blur(10px)!important;
+  box-shadow:0 7px 18px rgba(68,84,114,.08)
+}
+.intro-character-stage .voice-state{
+  position:absolute!important;
+  left:50%!important;
+  bottom:-7px!important;
+  transform:translateX(-50%)!important;
+  color:#68778c!important;
+  font-size:8px!important;
+  letter-spacing:.11em!important
+}
+.intro-copy{
+  padding:6px 4px!important;
+  color:#233047!important
+}
+.intro-copy h1{
+  font-size:clamp(3rem,5vw,4.8rem)!important;
+  line-height:.98!important;
+  color:#233047!important;
+  letter-spacing:-.055em!important
+}
+.intro-copy h1 span{
+  background:linear-gradient(90deg,#2f65ff 0%,#6d5df7 48%,#b15dc7 100%)!important;
+  -webkit-background-clip:text!important;
+  color:transparent!important
+}
+.intro-copy p{
+  color:#65758b!important;
+  font-size:1rem!important;
+  max-width:610px!important
+}
+.intro-mini{
+  color:#526c63!important;
+  background:rgba(239,248,244,.95)!important;
+  border:1px solid #dcece6!important
+}
+.intro-type{
+  color:#43556f!important;
+  font-weight:700!important
+}
+.intro-greeting-bubble{
+  background:rgba(255,255,255,.83)!important;
+  color:#52647a!important;
+  border:1px solid #e2e9f2!important;
+  box-shadow:0 5px 16px rgba(68,85,116,.05)!important
+}
+.intro-welcome-quick{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+  margin-top:14px!important
+}
+.intro-welcome-quick button{
+  min-height:104px!important;
+  padding:14px 10px!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.86)!important;
+  border:1px solid rgba(118,136,169,.11)!important;
+  box-shadow:0 10px 24px rgba(74,90,122,.07)!important;
+  color:#30405b!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:5px!important;
+  text-align:center!important
+}
+.intro-welcome-quick button:nth-child(1){background:linear-gradient(145deg,#fff8eb,#fffdf8)!important}
+.intro-welcome-quick button:nth-child(2){background:linear-gradient(145deg,#eef8ff,#f8fcff)!important}
+.intro-welcome-quick button:nth-child(3){background:linear-gradient(145deg,#f7efff,#fdf9ff)!important}
+.intro-welcome-quick button:nth-child(4){background:linear-gradient(145deg,#eef5ff,#fbfdff)!important}
+.intro-welcome-quick button:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(103,124,166,.20)!important;
+  box-shadow:0 14px 30px rgba(74,90,122,.10)!important
+}
+.intro-welcome-quick button b{
+  color:#26364f!important;
+  font:800 .76rem "Sora",sans-serif!important
+}
+.intro-welcome-quick button small{
+  color:#78869a!important;
+  font-size:.62rem!important
+}
+.intro-feature-strip{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:16px
+}
+.intro-feature-strip span{
+  padding:7px 9px;
+  border-radius:999px;
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(117,135,166,.08);
+  color:#66758a;
+  font-size:.6rem;
+  font-weight:800
+}
+.intro-actions{
+  align-items:center!important
+}
+.intro-enter{
+  flex:1 1 280px!important;
+  min-height:54px!important;
+  font-size:.84rem!important;
+  border-radius:16px!important;
+  background:linear-gradient(90deg,#2b61f3,#5b57f4 50%,#9a61e9)!important;
+  box-shadow:0 14px 30px rgba(73,82,194,.20)!important
+}
+.intro-voice,.intro-skip{
+  min-height:54px!important;
+  border-radius:16px!important
+}
+@media(max-width:900px){
+  .intro-shell{
+    grid-template-columns:1fr!important;
+    width:min(100% - 22px,680px)!important;
+    padding:18px 16px 22px!important;
+    gap:6px!important
+  }
+  .intro-character-stage{min-height:280px}
+  .kp-anime-character{width:min(68%,270px)}
+  .aura-a{width:220px;height:220px;left:50%;transform:translateX(-60%);top:24px}
+  .aura-b{width:120px;height:120px;right:12%;bottom:28px}
+  .talk-pulse{left:61%;top:32%}
+  .intro-copy{text-align:center!important}
+  .intro-copy p{margin-left:auto!important;margin-right:auto!important}
+  .intro-greeting-bubble{margin:auto!important}
+  .intro-welcome-quick{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .intro-feature-strip{justify-content:center!important}
+  .intro-actions{justify-content:center!important}
+}
+@media(max-width:520px){
+  .intro-character-stage{min-height:245px}
+  .kp-anime-character{width:min(74%,230px)}
+  .intro-welcome-quick{gap:8px!important}
+  .intro-welcome-quick button{min-height:88px!important;padding:10px 8px!important}
+  .intro-copy h1{font-size:clamp(2.35rem,11vw,3.25rem)!important}
+}
+
 </style>
 </head>
 <body>
