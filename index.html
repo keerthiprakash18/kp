@@ -2511,6 +2511,127 @@ a.detail-tile:hover{
   .cursor-data-canvas{display:none}
 }
 
+
+/* === HIGH VISIBILITY PREMIUM CURSOR FX === */
+.cursor-fx{
+  position:fixed;
+  left:0;top:0;
+  width:0;height:0;
+  pointer-events:none;
+  z-index:160;
+  opacity:0;
+  transition:opacity .18s ease;
+}
+.cursor-fx.is-active{opacity:1}
+.cursor-ring{
+  position:absolute;
+  left:0;top:0;
+  width:34px;height:34px;
+  margin:-17px 0 0 -17px;
+  border-radius:50%;
+  border:1.5px solid rgba(150,167,255,.88);
+  background:
+    radial-gradient(circle,rgba(124,145,255,.10),rgba(177,108,255,.045) 55%,transparent 72%);
+  box-shadow:
+    0 0 0 1px rgba(176,108,255,.12),
+    0 0 18px rgba(108,132,255,.46),
+    0 0 42px rgba(165,108,255,.20);
+  transform:scale(1);
+  transition:width .16s ease,height .16s ease,margin .16s ease,
+             border-color .16s ease,background .16s ease,transform .12s ease;
+}
+.cursor-dot{
+  position:absolute;
+  width:7px;height:7px;
+  margin:-3.5px 0 0 -3.5px;
+  border-radius:50%;
+  background:#dfe6ff;
+  box-shadow:
+    0 0 10px #8aa2ff,
+    0 0 22px rgba(174,108,255,.78);
+}
+.cursor-tag{
+  position:absolute;
+  left:19px;top:16px;
+  padding:4px 7px;
+  border:1px solid rgba(135,151,255,.18);
+  border-radius:999px;
+  background:rgba(7,11,24,.78);
+  backdrop-filter:blur(8px);
+  color:rgba(218,226,255,.82);
+  font:800 8px/1 "Sora",sans-serif;
+  letter-spacing:.09em;
+  white-space:nowrap;
+  opacity:.72;
+  box-shadow:0 7px 22px rgba(0,0,0,.18);
+}
+.cursor-fx.is-hovering .cursor-ring{
+  width:52px;height:52px;
+  margin:-26px 0 0 -26px;
+  border-color:rgba(180,142,255,.95);
+  background:
+    radial-gradient(circle,rgba(124,145,255,.15),rgba(177,108,255,.09) 52%,transparent 74%);
+  box-shadow:
+    0 0 0 1px rgba(176,108,255,.18),
+    0 0 24px rgba(108,132,255,.54),
+    0 0 52px rgba(165,108,255,.28);
+}
+.cursor-fx.is-hovering .cursor-tag{
+  color:#fff;
+  border-color:rgba(176,108,255,.28);
+  opacity:1;
+}
+.cursor-trail-dot{
+  position:fixed;
+  left:0;top:0;
+  width:8px;height:8px;
+  margin:-4px 0 0 -4px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:150;
+  background:radial-gradient(circle,#a8b7ff 0%,#7f8dff 40%,rgba(174,108,255,.25) 70%,transparent 100%);
+  box-shadow:0 0 12px rgba(111,137,255,.36);
+  opacity:0;
+  will-change:transform,opacity;
+}
+.cursor-click-pulse{
+  position:fixed;
+  left:0;top:0;
+  width:18px;height:18px;
+  margin:-9px 0 0 -9px;
+  border-radius:50%;
+  border:1.5px solid rgba(167,137,255,.95);
+  box-shadow:0 0 28px rgba(117,143,255,.45);
+  pointer-events:none;
+  z-index:155;
+  animation:cursorPulse .52s ease-out forwards;
+}
+@keyframes cursorPulse{
+  0%{transform:scale(.55);opacity:.9}
+  100%{transform:scale(3.8);opacity:0}
+}
+.fx-card-glow{
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  z-index:3;
+  opacity:0;
+  background:
+    radial-gradient(220px circle at var(--fx-x,50%) var(--fx-y,50%),
+      rgba(129,149,255,.13),
+      rgba(176,108,255,.055) 34%,
+      transparent 68%);
+  transition:opacity .16s ease;
+}
+.fx-hover-card:hover>.fx-card-glow{opacity:1}
+@media(max-width:900px),(pointer:coarse){
+  .cursor-fx,.cursor-trail-dot,.cursor-click-pulse{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .cursor-fx,.cursor-trail-dot,.cursor-click-pulse{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2525,7 +2646,114 @@ window.addEventListener("error",function(){
 <div id="cursorAura" class="cursor-aura" aria-hidden="true"></div>
 <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
 <canvas id="cursorDataCanvas" class="cursor-data-canvas" aria-hidden="true"></canvas>
+<div id="cursorFX" class="cursor-fx" aria-hidden="true">
+  <div class="cursor-ring"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-tag">AI • DATA</div>
+</div>
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
+
+<script>
+/* STANDALONE CURSOR FX — independent fail-safe */
+(function(){
+  try{
+    if(!window.matchMedia("(pointer:fine)").matches ||
+       window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const fx=document.getElementById("cursorFX");
+    if(!fx) return;
+
+    let mx=innerWidth*.5,my=innerHeight*.5;
+    let rx=mx,ry=my;
+    let visible=false;
+
+    const trail=Array.from({length:10},function(_,i){
+      const d=document.createElement("i");
+      d.className="cursor-trail-dot";
+      d.style.opacity=String(.34-i*.025);
+      d.style.width=d.style.height=(8-i*.45)+"px";
+      document.body.appendChild(d);
+      return {el:d,x:mx,y:my};
+    });
+
+    function frame(){
+      rx+=(mx-rx)*.30;
+      ry+=(my-ry)*.30;
+      fx.style.transform="translate3d("+rx+"px,"+ry+"px,0)";
+
+      trail[0].x+=(mx-trail[0].x)*.26;
+      trail[0].y+=(my-trail[0].y)*.26;
+      for(let i=1;i<trail.length;i++){
+        trail[i].x+=(trail[i-1].x-trail[i].x)*(.25-i*.008);
+        trail[i].y+=(trail[i-1].y-trail[i].y)*(.25-i*.008);
+      }
+      trail.forEach(function(t,i){
+        t.el.style.transform="translate3d("+t.x+"px,"+t.y+"px,0)";
+        t.el.style.opacity=visible?String(Math.max(.05,.30-i*.024)):"0";
+      });
+      requestAnimationFrame(frame);
+    }
+
+    window.addEventListener("pointermove",function(e){
+      mx=e.clientX;my=e.clientY;
+      visible=true;
+      fx.classList.add("is-active");
+    },{passive:true});
+
+    document.addEventListener("pointerover",function(e){
+      if(e.target.closest("a,button,.app-card,.project,.skill-card,.feature-card,.case-card,.detail-tile")){
+        fx.classList.add("is-hovering");
+      }
+    },{passive:true});
+
+    document.addEventListener("pointerout",function(e){
+      if(e.target.closest("a,button,.app-card,.project,.skill-card,.feature-card,.case-card,.detail-tile")){
+        fx.classList.remove("is-hovering");
+      }
+    },{passive:true});
+
+    document.addEventListener("mouseleave",function(){
+      visible=false;
+      fx.classList.remove("is-active","is-hovering");
+    });
+
+    document.addEventListener("mouseenter",function(){
+      visible=true;
+      fx.classList.add("is-active");
+    });
+
+    document.addEventListener("pointerdown",function(e){
+      const p=document.createElement("span");
+      p.className="cursor-click-pulse";
+      p.style.transform="translate3d("+e.clientX+"px,"+e.clientY+"px,0)";
+      p.style.left=e.clientX+"px";
+      p.style.top=e.clientY+"px";
+      document.body.appendChild(p);
+      setTimeout(function(){p.remove()},600);
+    });
+
+    document.querySelectorAll(".product-dock,.app-card,.project,.skill-card,.feature-card,.portrait-card,.glass,.contact,.publication").forEach(function(card){
+      card.classList.add("fx-hover-card");
+      if(getComputedStyle(card).position==="static") card.style.position="relative";
+      if(!card.querySelector(":scope > .fx-card-glow")){
+        const glow=document.createElement("span");
+        glow.className="fx-card-glow";
+        card.appendChild(glow);
+      }
+      card.addEventListener("pointermove",function(e){
+        const r=card.getBoundingClientRect();
+        card.style.setProperty("--fx-x",(e.clientX-r.left)+"px");
+        card.style.setProperty("--fx-y",(e.clientY-r.top)+"px");
+      },{passive:true});
+    });
+
+    requestAnimationFrame(frame);
+  }catch(err){
+    console.warn("Cursor FX disabled safely",err);
+  }
+})();
+</script>
+
 <header>
   <a class="brand" href="#home"><span class="mark">KP</span><span>KEERTHI PRAKASH</span></a>
   <button class="menu" id="menu" aria-label="Open menu">☰</button>
