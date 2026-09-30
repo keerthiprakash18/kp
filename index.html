@@ -4048,6 +4048,179 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   }
 }
 
+
+/* === APPROVED ANIME ARTWORK ENTRANCE === */
+.anime-approved-intro{
+  padding:24px!important;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(166,203,255,.56),transparent 30%),
+    radial-gradient(circle at 86% 16%,rgba(222,200,255,.46),transparent 28%),
+    radial-gradient(circle at 82% 88%,rgba(255,220,196,.38),transparent 26%),
+    linear-gradient(135deg,#edf6ff 0%,#f8f4ff 48%,#fff8f0 100%)!important;
+}
+.anime-approved-intro::before,
+.anime-approved-intro::after{display:none!important}
+.anime-approved-intro .intro-shell,
+.anime-approved-intro .intro-guide-stage,
+.anime-approved-intro .intro-copy{display:none!important}
+.anime-intro-shell{
+  width:min(1180px,100%);
+  margin:auto;
+  overflow:hidden;
+  border-radius:30px;
+  border:1px solid rgba(101,119,151,.14);
+  background:rgba(255,255,255,.74);
+  box-shadow:0 32px 90px rgba(66,82,112,.17),inset 0 1px rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+}
+.anime-art-wrap{
+  position:relative;
+  aspect-ratio:16/9;
+  min-height:0;
+  overflow:hidden;
+  background:#eef3fb;
+}
+.anime-approved-art{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.002);
+  transition:transform .8s cubic-bezier(.2,.75,.2,1),filter .35s ease;
+}
+.anime-approved-art.is-speaking{
+  animation:animeVoicePulse 1.8s ease-in-out infinite;
+}
+@keyframes animeVoicePulse{
+  0%,100%{filter:saturate(1) brightness(1)}
+  50%{filter:saturate(1.05) brightness(1.025)}
+}
+.anime-art-glass{
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(to top,rgba(28,40,64,.12),transparent 24%),
+    linear-gradient(90deg,rgba(255,255,255,.045),transparent 30%,rgba(255,255,255,.03));
+}
+.anime-live-badge{
+  position:absolute;left:18px;top:18px;
+  display:flex;align-items:center;gap:7px;
+  padding:8px 11px;border-radius:999px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(84,105,143,.12);
+  color:#435573;
+  backdrop-filter:blur(14px);
+  font:800 9px/1 "Sora",sans-serif;
+  letter-spacing:.08em;
+  box-shadow:0 8px 22px rgba(56,71,100,.09);
+}
+.anime-live-badge span{
+  width:7px;height:7px;border-radius:50%;
+  background:#76b59e;box-shadow:0 0 10px rgba(118,181,158,.42)
+}
+.anime-control-dock{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px 20px;
+  align-items:center;
+  padding:17px 20px 18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(248,250,255,.89));
+  border-top:1px solid rgba(91,112,148,.09);
+}
+.anime-greeting-copy{min-width:0}
+.anime-greeting-copy strong{
+  display:block;
+  color:#25354e;
+  font:800 .9rem/1.2 "Sora",sans-serif;
+}
+.anime-greeting-copy span{
+  display:block;margin-top:5px;
+  color:#6b798d;
+  font-size:.72rem;
+  line-height:1.45;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.anime-actions{
+  display:flex;align-items:center;justify-content:flex-end;gap:8px;
+}
+.anime-actions .intro-enter,
+.anime-actions .intro-voice,
+.anime-actions .intro-skip{
+  min-height:42px!important;
+  border-radius:12px!important;
+  padding:0 14px!important;
+}
+.anime-actions .intro-enter{
+  color:#fff!important;
+  border:0!important;
+  background:linear-gradient(135deg,#5576ab,#806d9f)!important;
+  box-shadow:0 10px 22px rgba(75,94,129,.20)!important;
+}
+.anime-actions .intro-voice,
+.anime-actions .intro-skip{
+  color:#5f7088!important;
+  background:#fff!important;
+  border:1px solid #dfe6ef!important;
+  box-shadow:none!important;
+}
+.anime-quick-nav{
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.anime-quick-nav button{
+  min-height:30px;
+  padding:0 10px;
+  border-radius:999px;
+  border:1px solid #e1e7ef;
+  background:#fff;
+  color:#718096;
+  cursor:pointer;
+  font:700 .6rem "Manrope",sans-serif;
+}
+.anime-quick-nav button:hover{color:#31445f;border-color:#cfd9e6;background:#f7f9fc}
+.anime-voice-status{
+  display:flex;align-items:center;justify-content:flex-end;gap:8px;
+  color:#8290a3;
+  font:800 .55rem "Sora",sans-serif;
+  letter-spacing:.07em;
+}
+.anime-voice-status .voice-wave{
+  position:static!important;
+  transform:none!important;
+  height:18px!important;
+  opacity:.55;
+}
+@media(max-width:820px){
+  .anime-approved-intro{padding:10px!important}
+  .anime-intro-shell{border-radius:22px}
+  .anime-art-wrap{aspect-ratio:16/10}
+  .anime-control-dock{
+    grid-template-columns:1fr;
+    gap:11px;
+    padding:14px;
+  }
+  .anime-greeting-copy span{white-space:normal}
+  .anime-actions{justify-content:flex-start;flex-wrap:wrap}
+  .anime-voice-status{justify-content:flex-start}
+  .anime-live-badge{left:10px;top:10px;font-size:7px;padding:7px 9px}
+}
+@media(max-width:520px){
+  .anime-art-wrap{aspect-ratio:4/3}
+  .anime-approved-art{object-position:45% center}
+  .anime-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:100%;
+  }
+  .anime-actions .intro-enter{grid-column:1/-1;order:-1;width:100%}
+  .anime-actions .intro-voice,.anime-actions .intro-skip{width:100%}
+  .anime-quick-nav{display:grid;grid-template-columns:1fr 1fr}
+  .anime-quick-nav button{width:100%}
+}
+
 </style>
 </head>
 <body>
@@ -4060,66 +4233,47 @@ window.addEventListener("error",function(){
 </script>
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<div id="aiIntro" class="ai-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
-  <div class="intro-shell">
-    <div class="intro-guide-stage" aria-hidden="true">
-      <div class="guide-blob blob-a"></div>
-      <div class="guide-blob blob-b"></div>
-      <div class="guide-shadow"></div>
-      <div class="guide-character" id="hrRobot">
-        <div class="guide-hair back"></div>
-        <div class="guide-ear left"></div>
-        <div class="guide-ear right"></div>
-        <div class="guide-head">
-          <div class="guide-hair front"></div>
-          <span class="guide-brow left"></span>
-          <span class="guide-brow right"></span>
-          <span class="guide-eye left"></span>
-          <span class="guide-eye right"></span>
-          <span class="guide-nose"></span>
-          <span class="guide-mouth"></span>
-          <span class="guide-cheek left"></span>
-          <span class="guide-cheek right"></span>
-        </div>
-        <div class="guide-neck"></div>
-        <div class="guide-body">
-          <div class="guide-shirt"></div>
-          <div class="guide-jacket left"></div>
-          <div class="guide-jacket right"></div>
-          <div class="guide-name">KP GUIDE</div>
-        </div>
-        <div class="guide-arm left"></div>
-        <div class="guide-arm right"><span class="guide-hand"></span></div>
-      </div>
-      <div class="voice-wave" id="voiceWave" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <div class="voice-state" id="voiceState">WELCOME GUIDE READY</div>
+<div id="aiIntro" class="ai-intro anime-approved-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
+  <div class="anime-intro-shell">
+    <div class="anime-art-wrap">
+      <img
+        src="assets/kp-anime-portfolio-guide.webp"
+        alt="Anime-style interactive welcome artwork for Keerthi Prakash portfolio"
+        class="anime-approved-art"
+        fetchpriority="high"
+        decoding="async"
+      >
+      <div class="anime-art-glass"></div>
+      <div class="anime-live-badge"><span></span> KEERTHI PORTFOLIO • INTERACTIVE</div>
     </div>
-    <div class="intro-copy">
-      <span class="intro-mini">YOUR PORTFOLIO GUIDE</span>
-      <h1>Hi, welcome to <span>Keerthi's Portfolio.</span></h1>
-      <p>I’m Keerthi’s portfolio guide. I’ll welcome you in, introduce his work, and help you jump to what matters most.</p>
-      <span class="intro-type" id="introType"></span>
-      <div class="intro-welcome-tools">
-        <div class="intro-greeting-bubble" id="introGreetingBubble">
-          <span class="greeting-dot"></span>
-          <span>Nice to meet you. I can show you around.</span>
-        </div>
-        <div class="intro-welcome-quick">
-          <button type="button" data-intro-go="about">About Keerthi</button>
-          <button type="button" data-intro-go="projects">View Projects</button>
-          <button type="button" data-intro-action="resume">View Resume</button>
-        </div>
+
+    <div class="anime-control-dock">
+      <div class="anime-greeting-copy">
+        <strong>Hi there 👋</strong>
+        <span id="introType">Welcome to Keerthi’s portfolio. I’m here to show you around.</span>
       </div>
-      <div class="intro-actions">
+
+      <div class="anime-actions">
+        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button>
         <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
-        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button><span class="intro-voice-hint">Natural voice • tap if autoplay is blocked</span>
-        <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
+        <button class="intro-skip" id="introSkip" type="button">Skip</button>
+      </div>
+
+      <div class="anime-quick-nav">
+        <button type="button" data-intro-go="about">About</button>
+        <button type="button" data-intro-go="projects">Projects</button>
+        <button type="button" data-intro-go="skills">Skills</button>
+        <button type="button" data-intro-action="resume">Resume</button>
+      </div>
+
+      <div class="anime-voice-status">
+        <div class="voice-wave" id="voiceWave" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <span id="voiceState">WELCOME GUIDE READY</span>
       </div>
     </div>
   </div>
-  <div class="intro-progress"></div>
 </div>
 <div id="hrAssistantWidget" class="hr-assistant-widget" aria-live="polite">
   <button id="hrAssistantFab" class="hr-assistant-fab" type="button" aria-label="Open Keerthi assistant">
@@ -4172,7 +4326,7 @@ window.addEventListener("error",function(){
     const skip=document.getElementById("introSkip");
     const voiceBtn=document.getElementById("introVoice");
     const type=document.getElementById("introType");
-    const robot=document.getElementById("hrRobot");
+    const robot=null;
     const wave=document.getElementById("voiceWave");
     const voiceState=document.getElementById("voiceState");
     if(!intro)return;
@@ -4197,7 +4351,7 @@ window.addEventListener("error",function(){
 
     function setSpeaking(on){
       speaking=on;
-      robot&&robot.classList.toggle("is-speaking",on);
+      document.querySelector(".anime-approved-art")?.classList.toggle("is-speaking",on);
       wave&&wave.classList.toggle("is-speaking",on);
       if(voiceState)voiceState.textContent=on?"WELCOME GUIDE SPEAKING":"WELCOME GUIDE READY";
       if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute":"🔊 Hear Welcome"
