@@ -5167,6 +5167,51 @@ nav a.pastel-active{
   .kp-speech-dots i{animation:none!important}
 }
 
+
+/* === CUTE AI GUIDE MASCOT ALIGNMENT 20260930 === */
+.kp-character-wrap{
+  left:50%!important;
+  bottom:18px!important;
+  width:min(94%,430px)!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  z-index:10!important;
+}
+.kp-character{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  opacity:1!important;
+  visibility:visible!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+  filter:drop-shadow(0 24px 34px rgba(57,74,111,.18))!important;
+}
+.kp-character-zone.is-speaking .kp-character{
+  filter:
+    drop-shadow(0 26px 36px rgba(57,74,111,.20))
+    drop-shadow(0 0 18px rgba(94,118,255,.28))!important;
+}
+.kp-character-zone .kp-speech-dots{
+  right:9%!important;
+  top:42%!important;
+}
+@media(max-width:900px){
+  .kp-character-wrap{
+    bottom:12px!important;
+    width:min(86%,320px)!important;
+  }
+}
+@media(max-width:520px){
+  .kp-character-wrap{
+    bottom:10px!important;
+    width:min(88%,270px)!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5190,9 +5235,9 @@ window.addEventListener("error",function(){
 
       <div class="kp-character-wrap">
         <img
-          src="assets/keerthi-anime-character.png"
+          src="assets/kp-cute-guide.webp?v=20260930-1936"
           class="kp-character"
-          alt="Keerthi Prakash anime character"
+          alt="KP portfolio guide mascot"
         />
         <div class="kp-speech-dots" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
