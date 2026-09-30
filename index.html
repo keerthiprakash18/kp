@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Keerthi Prakash T — Data Analyst, Business Analytics and AI-Assisted Developer. Explore production projects, analytics case studies, SQL/Python/Power BI skills and live apps.">
 <meta name="theme-color" content="#070a13">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Keerthi Prakash T">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Keerthi Prakash T | Data Analyst & AI-Assisted Developer">
 <meta property="og:description" content="Data Analyst portfolio featuring live products, analytics case studies, SQL/Python/Power BI and AI-assisted development.">
@@ -16,72 +18,8 @@
 <meta name="twitter:image" content="https://keerthiprakashportfolio.vercel.app/assets/profile-small.webp">
 <link rel="canonical" href="https://keerthiprakashportfolio.vercel.app/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%236687ff'/><stop offset='1' stop-color='%23a56cff'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='40' text-anchor='middle' font-size='25' font-family='Arial' font-weight='700' fill='white'>KP</text></svg>">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Keerthi Prakash T","url":"https://keerthiprakashportfolio.vercel.app/","jobTitle":"Data Analyst","sameAs":["https://github.com/keerthiprakash18","https://www.linkedin.com/in/keerthiprakasht"],"knowsAbout":["SQL","Python","Power BI","Business Analytics","PostgreSQL","AI-Assisted Development"]}
-
-/* === recruiter upgrade interactions === */
-(function(){
-  // Data Lab
-  const lab=document.querySelector(".data-lab");
-  const run=document.getElementById("runQuery");
-  if(lab&&run){
-    document.querySelectorAll(".lab-row i").forEach(function(bar){
-      bar.style.setProperty("--bar",Math.max(.08,Number(bar.dataset.value||0)/100));
-    });
-    run.addEventListener("click",function(){
-      lab.classList.remove("ran");
-      run.textContent="Running...";
-      document.getElementById("queryTime").textContent="executing";
-      setTimeout(function(){
-        lab.classList.add("ran");
-        run.textContent="✓ Query Complete";
-        document.getElementById("queryTime").textContent="42 ms";
-        document.getElementById("labInsight").textContent="Housing is the largest September expense category, accounting for roughly 39% of the selected spend. Food is the next major driver; optimizing these two categories would have the greatest impact on monthly cash flow.";
-      },420);
-    });
-  }
-
-  // Proof counters animate once
-  const counters=document.querySelectorAll(".hero-kpi b");
-  const cObs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting)return;
-      const el=e.target, raw=el.textContent.trim();
-      const m=raw.match(/([0-9]+)(.*)/);
-      if(!m)return;
-      const target=Number(m[1]),suffix=m[2],start=performance.now(),dur=800;
-      function tick(now){
-        const p=Math.min(1,(now-start)/dur);
-        el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;
-        if(p<1)requestAnimationFrame(tick);else el.textContent=raw;
-      }
-      requestAnimationFrame(tick);cObs.unobserve(el);
-    });
-  },{threshold:.6});
-  counters.forEach(function(x){cObs.observe(x)});
-
-  // Command palette Ctrl/Cmd + K
-  const back=document.getElementById("commandBackdrop");
-  const input=document.getElementById("commandInput");
-  const links=Array.from(document.querySelectorAll("#commandList a"));
-  function openCmd(){back.hidden=false;setTimeout(function(){input.focus()},20)}
-  function closeCmd(){back.hidden=true;input.value="";links.forEach(function(a){a.hidden=false})}
-  document.addEventListener("keydown",function(e){
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();back.hidden?openCmd():closeCmd()}
-    if(e.key==="Escape"&&!back.hidden)closeCmd();
-  });
-  back.addEventListener("click",function(e){if(e.target===back)closeCmd()});
-  input.addEventListener("input",function(){
-    const q=input.value.toLowerCase();
-    links.forEach(function(a){a.hidden=!a.dataset.cmd.includes(q)&&!a.textContent.toLowerCase().includes(q)});
-  });
-  links.forEach(function(a){a.addEventListener("click",closeCmd)});
-
-  // Lazy-load all non-hero images where safe
-  document.querySelectorAll("img").forEach(function(img){
-    if(!img.closest(".hero-v4")){img.loading="lazy";img.decoding="async"}
-  });
-})();
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Keerthi Prakash T","url":"https://keerthiprakashportfolio.vercel.app/","jobTitle":"Data Analyst","sameAs":["https://github.com/keerthiprakash18","https://www.linkedin.com/in/keerthiprakasht"],"knowsAbout":["SQL","Python","Power BI","Advanced Excel","Business Analytics","PostgreSQL","AI-Assisted Development"],"alumniOf":{"@type":"CollegeOrUniversity","name":"CARE College of Engineering"}}
 </script>
 <title>Keerthi Prakash T | Data Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2381,19 +2319,88 @@ a.detail-tile:hover{
 @media(max-width:1000px){.case-body{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.flow-arrow{display:none}.data-lab{grid-template-columns:1fr}.sql-panel{border-right:0;border-bottom:1px solid rgba(255,255,255,.07)}}
 @media(max-width:700px){.case-body{grid-template-columns:1fr}.workflow{grid-template-columns:1fr}.availability-strip{width:100%}.command-hint{display:none}.sql-panel,.insight-panel{padding:16px}.sql-panel pre{font-size:.72rem}.case-card summary{padding:15px}.nav-resume{display:none}}
 
+
+/* === FINAL PRODUCTION / RECRUITER POLISH === */
+:focus-visible{
+  outline:2px solid #91a6ff;
+  outline-offset:3px;
+}
+.skip-link{
+  position:fixed;
+  left:14px;
+  top:-60px;
+  z-index:300;
+  padding:9px 12px;
+  border-radius:9px;
+  background:#fff;
+  color:#080d18;
+  font-weight:800;
+  font-size:.78rem;
+  transition:top .2s
+}
+.skip-link:focus{top:12px}
+.skill-priority{
+  display:inline-flex;
+  margin:-6px 0 13px;
+  padding:5px 8px;
+  border-radius:999px;
+  font:800 .52rem/1 "Sora",sans-serif;
+  letter-spacing:.09em;
+}
+.core-skill{
+  color:#aab8ff;
+  border:1px solid rgba(118,147,255,.14);
+  background:rgba(102,135,255,.045)
+}
+.ai-skill{
+  color:#d1b1ff;
+  border:1px solid rgba(176,108,255,.16);
+  background:rgba(176,108,255,.045)
+}
+.support-skill{
+  color:#95a2b8;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.025)
+}
+.skill-card:nth-child(-n+4){
+  border-color:rgba(119,140,255,.13)
+}
+.skill-card:nth-child(-n+4) h3{color:#fff}
+.project-actions{align-items:center}
+.case-card summary:focus-visible{
+  outline:2px solid #91a6ff;
+  outline-offset:-3px
+}
+.lab-run:disabled{
+  opacity:.7;
+  cursor:wait
+}
+.contact-actions .btn.secondary:after{
+  content:"Print / Save PDF";
+  display:inline-block;
+  margin-left:8px;
+  font-size:.58rem;
+  color:#8f9bb1;
+  font-weight:600
+}
+@media(max-width:700px){
+  .contact-actions .btn.secondary:after{display:none}
+}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div id="cursorAura" class="cursor-aura" aria-hidden="true"></div>
 <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
 <header>
   <a class="brand" href="#home"><span class="mark">KP</span><span>KEERTHI PRAKASH</span></a>
   <button class="menu" id="menu" aria-label="Open menu">☰</button>
-  <nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a href="#data-lab">Data Lab</a><a class="nav-resume" href="resume.html" target="_blank">Resume</a><a class="navcta" href="#contact">Contact</a></nav>
+  <nav id="nav" aria-label="Primary navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a href="#data-lab">Data Lab</a><a class="nav-resume" href="resume.html" target="_blank">Resume ↗</a><a class="navcta" href="#contact">Contact</a></nav>
 </header>
 
-<main>
+<main id="main-content">
 <section class="wrap hero hero-v4" id="home">
   <div class="hero-top reveal">
     <div class="kicker">DATA • ANALYTICS • AI-ASSISTED BUILDING <span class="interaction-status">INTERACTIVE</span></div>
@@ -2418,7 +2425,7 @@ a.detail-tile:hover{
       <div class="intro-row">
         <div class="portrait-card">
           <div class="portrait-frame">
-            <img src="assets/profile-small.webp?v=20260927" alt="Keerthi Prakash professional portrait" width="280" height="350" decoding="async">
+            <img src="assets/profile-small.webp?v=20260927" alt="Keerthi Prakash professional portrait" width="280" height="350" decoding="async" fetchpriority="high">
           </div>
           <div class="portrait-caption">
             <span class="portrait-name">Keerthi Prakash T</span>
@@ -2545,12 +2552,12 @@ a.detail-tile:hover{
 <section class="wrap" id="skills">
   <div class="head reveal"><div class="kicker">02 / SKILLS</div><h2 class="title">Technical toolkit</h2></div>
   <div class="skills">
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DA</span><span class="skill-no">01</span></div><h3>Data Analytics</h3><div class="skilltags"><span>Data Analysis</span><span>Business Analytics</span><span>Data Cleaning</span><span>Visualization</span><span>Statistical Analysis</span><span>KPI Tracking</span></div></div>
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DB</span><span class="skill-no">02</span></div><h3>SQL & Databases</h3><div class="skilltags"><span>SQL</span><span>Querying</span><span>Data Extraction</span><span>PostgreSQL</span><span>Relational Databases</span></div></div>
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">PY</span><span class="skill-no">03</span></div><h3>Python</h3><div class="skilltags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Data Processing</span><span>Automation</span></div></div>
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">BI</span><span class="skill-no">04</span></div><h3>Excel & BI</h3><div class="skilltags"><span>Advanced Excel</span><span>Pivot Tables</span><span>VLOOKUP</span><span>Power Query</span><span>Power BI</span><span>MIS Reporting</span></div></div>
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">AI</span><span class="skill-no">05</span></div><h3>AI-Assisted Development & Vibe Coding</h3><div class="skilltags"><span>Vibe Coding</span><span>Prompt-Driven Development</span><span>Rapid Prototyping</span><span>AI Debugging</span><span>Testing</span></div></div>
-    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DEV</span><span class="skill-no">06</span></div><h3>Full Stack & Deployment</h3><div class="skilltags"><span>React</span><span>Next.js</span><span>NestJS</span><span>Django REST</span><span>Prisma</span><span>Redis</span><span>JWT</span><span>Docker</span><span>Vercel</span><span>Railway</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DA</span><span class="skill-no">01</span></div><h3>Data Analytics</h3><div class="skill-priority core-skill">CORE ANALYTICS</div><div class="skilltags"><span>Data Analysis</span><span>Business Analytics</span><span>Data Cleaning</span><span>Visualization</span><span>Statistical Analysis</span><span>KPI Tracking</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DB</span><span class="skill-no">02</span></div><h3>SQL & Databases</h3><div class="skill-priority core-skill">CORE ANALYTICS</div><div class="skilltags"><span>SQL</span><span>Querying</span><span>Data Extraction</span><span>PostgreSQL</span><span>Relational Databases</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">PY</span><span class="skill-no">03</span></div><h3>Python</h3><div class="skill-priority core-skill">CORE ANALYTICS</div><div class="skilltags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Data Processing</span><span>Automation</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">BI</span><span class="skill-no">04</span></div><h3>Excel & BI</h3><div class="skill-priority core-skill">CORE ANALYTICS</div><div class="skilltags"><span>Advanced Excel</span><span>Pivot Tables</span><span>VLOOKUP</span><span>Power Query</span><span>Power BI</span><span>MIS Reporting</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">AI</span><span class="skill-no">05</span></div><h3>AI-Assisted Development & Vibe Coding</h3><div class="skill-priority ai-skill">PRODUCT ACCELERATION</div><div class="skilltags"><span>Vibe Coding</span><span>Prompt-Driven Development</span><span>Rapid Prototyping</span><span>AI Debugging</span><span>Testing</span></div></div>
+    <div class="glass skill-card reveal"><div class="skill-head"><span class="skill-icon">DEV</span><span class="skill-no">06</span></div><h3>Full Stack & Deployment</h3><div class="skill-priority support-skill">SUPPORTING BUILD STACK</div><div class="skilltags"><span>React</span><span>Next.js</span><span>NestJS</span><span>Django REST</span><span>Prisma</span><span>Redis</span><span>JWT</span><span>Docker</span><span>Vercel</span><span>Railway</span></div></div>
   </div>
 </section>
 
@@ -2572,11 +2579,11 @@ a.detail-tile:hover{
   </div></div><ul><li>Built pipelines for Excel, CSV and database sources.</li><li>Used Python, Pandas and NumPy for preparation, transformation and analysis.</li><li>Integrated NLP summarization, KPI tracking and anomaly detection.</li><li>Added OpenAI API powered intelligent summarization and automated report generation.</li><li>Designed email and dashboard reporting workflows.</li><li>Published research in IJFMR, Volume 8, Issue 2, March–April 2026, Paper ID 72819.</li></ul></article>
     <article class="project p-arena reveal"><div><div class="project-preview"><div class="preview-top"><i></i><i></i><i></i><em>LIVE TOURNAMENT ENGINE</em></div><div class="preview-body"><div class="preview-stat"><b>20+</b><span>REAL USERS TESTED</span></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="num">PROJECT 02</div><h3>FC ARENA — Football Esports Tournament Platform</h3><div class="tags"><span class="tag">Next.js</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Redis</span><span class="tag">JWT</span></div><div class="impact">Independently built and deployed a tournament management platform validated with 20+ real users.</div><div class="project-actions">
     <a class="project-link primary-link" href="https://fcarena.in/" target="_blank" rel="noopener noreferrer">Live App · fcarena.in <span class="arrow">↗</span></a>
-    <a class="project-link" href="https://github.com/keerthiprakash18/fc-arena" target="_blank" rel="noopener noreferrer">GitHub Repo <span class="arrow">↗</span></a>
+    <a class="project-link" href="https://github.com/keerthiprakash18/fc-arena" target="_blank" rel="noopener noreferrer">GitHub Repo <span class="arrow">↗</span></a><a class="project-link" href="#case-studies">Case Study ↓</a>
   </div></div><ul><li>Developed leagues, tournaments, registrations, teams, groups, fixtures, results, standings, statistics and rankings.</li><li>Engineered Round-Robin and Home & Away fixture generation.</li><li>Built knockout progression, automated standings and player statistics.</li><li>Implemented result validation, duplicate-count prevention and role-based administration.</li><li>Deployed frontend on Vercel and backend services on VPS infrastructure.</li></ul></article>
     <article class="project p-finance reveal"><div><div class="project-preview"><div class="preview-top"><i></i><i></i><i></i><em>FINANCE ANALYTICS</em></div><div class="preview-body"><div class="preview-stat"><b>OCR</b><span>SMART EXTRACTION</span></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="num">PROJECT 03</div><h3>Smart Expense Tracker — Personal Finance Application</h3><div class="tags"><span class="tag">React</span><span class="tag">Django REST</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">OCR</span><span class="tag">PWA</span></div><div class="impact">End-to-end finance platform with OCR extraction, analytics and cloud deployment.</div><div class="project-actions">
     <a class="project-link primary-link" href="https://smart-expense-tracker-v3.vercel.app/" target="_blank" rel="noopener noreferrer">Live App · Vercel <span class="arrow">↗</span></a>
-    <a class="project-link" href="https://github.com/keerthiprakash18/smart-expense-tracker-v3" target="_blank" rel="noopener noreferrer">GitHub Repo <span class="arrow">↗</span></a>
+    <a class="project-link" href="https://github.com/keerthiprakash18/smart-expense-tracker-v3" target="_blank" rel="noopener noreferrer">GitHub Repo <span class="arrow">↗</span></a><a class="project-link" href="#case-studies">Case Study ↓</a>
   </div></div><ul><li>Built income, expense, bills, budgets, balances, borrow/lend and savings-goal features.</li><li>Developed Django REST APIs with JWT authentication.</li><li>Implemented OCR receipt processing for merchant, amount, date, category, payment method and tax fields.</li><li>Built cash-flow and category analytics, CSV export and PWA functionality.</li><li>Deployed frontend through Vercel and backend infrastructure through Railway.</li></ul></article>
   </div>
 </section>
@@ -2585,7 +2592,7 @@ a.detail-tile:hover{
   <div class="head reveal"><div class="kicker">05 / CASE STUDIES</div><h2 class="title">From problem → system → measurable proof.</h2><p class="lead">A recruiter-friendly view of how I define problems, design logic, validate edge cases and ship usable products.</p></div>
   <div class="case-grid">
     <details class="case-card reveal" open>
-      <summary><span class="case-icon fc-case">FC</span><div><b>FC Arena</b><small>Tournament platform • 20+ real-user validation</small></div><span class="case-open">+</span></summary>
+      <summary tabindex="0"><span class="case-icon fc-case">FC</span><div><b>FC Arena</b><small>Tournament platform • 20+ real-user validation</small></div><span class="case-open">+</span></summary>
       <div class="case-body">
         <div class="case-column"><span>PROBLEM</span><p>Community tournaments needed a reliable way to manage registrations, teams, fixtures, results, standings and player statistics without manual spreadsheet errors.</p></div>
         <div class="case-column"><span>MY ROLE</span><p>Product logic, full-stack implementation, fixture algorithms, result validation, testing, deployment and real-user feedback iteration.</p></div>
@@ -2594,7 +2601,7 @@ a.detail-tile:hover{
       </div>
     </details>
     <details class="case-card reveal">
-      <summary><span class="case-icon expense-case">₹</span><div><b>Smart Expense Tracker</b><small>Finance platform • OCR + analytics + PWA</small></div><span class="case-open">+</span></summary>
+      <summary tabindex="0"><span class="case-icon expense-case">₹</span><div><b>Smart Expense Tracker</b><small>Finance platform • OCR + analytics + PWA</small></div><span class="case-open">+</span></summary>
       <div class="case-body">
         <div class="case-column"><span>PROBLEM</span><p>Personal finance data is fragmented across receipts, bills and manual entries, making cash-flow analysis and budget control harder.</p></div>
         <div class="case-column"><span>MY ROLE</span><p>End-to-end application design, REST APIs, authentication, OCR workflow, analytics, frontend integration and cloud deployment.</p></div>
@@ -2603,7 +2610,7 @@ a.detail-tile:hover{
       </div>
     </details>
     <details class="case-card reveal">
-      <summary><span class="case-icon ai-case">AI</span><div><b>AI Report Automation</b><small>70%+ faster reporting • 2–3 hrs/day automated</small></div><span class="case-open">+</span></summary>
+      <summary tabindex="0"><span class="case-icon ai-case">AI</span><div><b>AI Report Automation</b><small>70%+ faster reporting • 2–3 hrs/day automated</small></div><span class="case-open">+</span></summary>
       <div class="case-body">
         <div class="case-column"><span>PROBLEM</span><p>Daily operational reporting required repetitive compilation, transformation and manual narrative preparation.</p></div>
         <div class="case-column"><span>MY ROLE</span><p>Data pipeline design, Python processing, NLP summarization, KPI logic, anomaly detection and reporting automation.</p></div>
@@ -2670,7 +2677,7 @@ a.detail-tile:hover{
 
 <section class="wrap" id="publication"><div class="kicker reveal">11 / PUBLICATION</div><div class="publication reveal" style="margin-top:24px"><h3>Smart Daily Report Automation System Using AI</h3><div class="company">International Journal for Multidisciplinary Research (IJFMR)</div><p>Research focused on AI-assisted reporting automation, Python-based data processing, NLP summarization, KPI tracking, anomaly detection and automated business reporting.</p><div class="tags"><span class="tag">Volume 8, Issue 2 | March–April 2026</span><span class="tag">Paper ID: 72819</span></div></div></section>
 
-<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">12 / CONTACT</div><h2>Let’s turn data into decisions — or ideas into products.</h2><p>Open to Data Analyst, Business Analyst, BI/reporting and analytics-focused graduate opportunities.</p><div class="contact-actions"><a class="btn primary" href="mailto:keerthiprakash.kp33@gmail.com">Start a Conversation</a><a class="btn secondary" href="resume.html" target="_blank">View Resume ↗</a></div></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
+<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">12 / CONTACT</div><h2>Let’s turn data into decisions — or ideas into products.</h2><p>Open to Data Analyst, Business Analyst, BI / Reporting and analytics-focused graduate roles. Available for full-time opportunities and high-impact data/product work.</p><div class="contact-actions"><a class="btn primary" href="mailto:keerthiprakash.kp33@gmail.com">Start a Conversation</a><a class="btn secondary" href="resume.html" target="_blank">View / Save Resume ↗</a></div></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
 </main>
 <div class="command-hint">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> for quick navigation</div>
 <div class="command-backdrop" id="commandBackdrop" hidden>
@@ -2730,7 +2737,7 @@ a.detail-tile:hover{
     }
   }
 
-  let w=0,h=0,t=0,nodes=[];
+  let w=0,h=0,t=0,nodes=[];\n  const FRAME_MS=33;\n  let lastFrame=0;
 
   function resize(){
     w = innerWidth;
@@ -2856,7 +2863,9 @@ a.detail-tile:hover{
     ctx.beginPath(); ctx.arc(cx,cy,3.1,0,Math.PI*2); ctx.fill();
   }
 
-  function frame(){
+  function frame(now){
+    if(!reduceMotion && now-lastFrame<FRAME_MS){requestAnimationFrame(frame);return;}
+    lastFrame=now||performance.now();
     ctx.clearRect(0,0,w,h);
     drawNetwork();
     drawDataWave();
@@ -3044,6 +3053,71 @@ document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
   },{passive:true});
 })();
 
+
+
+/* === recruiter upgrade interactions === */
+(function(){
+  // Data Lab
+  const lab=document.querySelector(".data-lab");
+  const run=document.getElementById("runQuery");
+  if(lab&&run){
+    document.querySelectorAll(".lab-row i").forEach(function(bar){
+      bar.style.setProperty("--bar",Math.max(.08,Number(bar.dataset.value||0)/100));
+    });
+    run.addEventListener("click",function(){
+      lab.classList.remove("ran");
+      run.disabled=true;run.textContent="Running...";
+      document.getElementById("queryTime").textContent="executing";
+      setTimeout(function(){
+        lab.classList.add("ran");
+        run.disabled=false;run.textContent="✓ Query Complete";
+        document.getElementById("queryTime").textContent="42 ms";
+        document.getElementById("labInsight").textContent="Housing is the largest September expense category, accounting for roughly 39% of the selected spend. Food is the next major driver; optimizing these two categories would have the greatest impact on monthly cash flow.";
+      },420);
+    });
+  }
+
+  // Proof counters animate once
+  const counters=document.querySelectorAll(".hero-kpi b");
+  const cObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      const el=e.target, raw=el.textContent.trim();
+      const m=raw.match(/([0-9]+)(.*)/);
+      if(!m)return;
+      const target=Number(m[1]),suffix=m[2],start=performance.now(),dur=800;
+      function tick(now){
+        const p=Math.min(1,(now-start)/dur);
+        el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;
+        if(p<1)requestAnimationFrame(tick);else el.textContent=raw;
+      }
+      requestAnimationFrame(tick);cObs.unobserve(el);
+    });
+  },{threshold:.6});
+  counters.forEach(function(x){cObs.observe(x)});
+
+  // Command palette Ctrl/Cmd + K
+  const back=document.getElementById("commandBackdrop");
+  const input=document.getElementById("commandInput");
+  const links=Array.from(document.querySelectorAll("#commandList a"));
+  function openCmd(){back.hidden=false;setTimeout(function(){input.focus()},20)}
+  function closeCmd(){back.hidden=true;input.value="";links.forEach(function(a){a.hidden=false})}
+  document.addEventListener("keydown",function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();back.hidden?openCmd():closeCmd()}
+    if(e.key==="Escape"&&!back.hidden)closeCmd();
+  });
+  back.addEventListener("click",function(e){if(e.target===back)closeCmd()});
+  input.addEventListener("input",function(){
+    const q=input.value.toLowerCase();
+    links.forEach(function(a){a.hidden=!a.dataset.cmd.includes(q)&&!a.textContent.toLowerCase().includes(q)});
+  });
+  links.forEach(function(a){a.addEventListener("click",closeCmd)});
+
+  // Lazy-load all non-hero images where safe
+  document.querySelectorAll("img").forEach(function(img){
+    if(!img.closest(".hero-v4")){img.loading="lazy";img.decoding="async"}
+  });
+})();
 </script>
 </body>
 </html>
