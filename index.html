@@ -11,12 +11,16 @@
 <meta property="og:title" content="Keerthi Prakash T | Data Analyst & AI-Assisted Developer">
 <meta property="og:description" content="Data Analyst portfolio featuring live products, analytics case studies, SQL/Python/Power BI and AI-assisted development.">
 <meta property="og:url" content="https://keerthiprakashportfolio.vercel.app/">
-<meta property="og:image" content="https://keerthiprakashportfolio.vercel.app/assets/profile-small.webp">
+<meta property="og:image" content="https://keerthiprakashportfolio.vercel.app/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Keerthi Prakash T - Data Analyst, Business Analytics, AI-Assisted Vibe Coder">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Keerthi Prakash T | Data Analyst">
 <meta name="twitter:description" content="Data • Analytics • AI-Assisted Products">
-<meta name="twitter:image" content="https://keerthiprakashportfolio.vercel.app/assets/profile-small.webp">
+<meta name="twitter:image" content="https://keerthiprakashportfolio.vercel.app/assets/social-card.png">
 <link rel="canonical" href="https://keerthiprakashportfolio.vercel.app/">
+<link rel="preload" as="image" href="assets/profile-small.webp?v=20260927" fetchpriority="high">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%236687ff'/><stop offset='1' stop-color='%23a56cff'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='40' text-anchor='middle' font-size='25' font-family='Arial' font-weight='700' fill='white'>KP</text></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Keerthi Prakash T","url":"https://keerthiprakashportfolio.vercel.app/","jobTitle":"Data Analyst","sameAs":["https://github.com/keerthiprakash18","https://www.linkedin.com/in/keerthiprakasht"],"knowsAbout":["SQL","Python","Power BI","Advanced Excel","Business Analytics","PostgreSQL","AI-Assisted Development"],"alumniOf":{"@type":"CollegeOrUniversity","name":"CARE College of Engineering"}}
@@ -2388,6 +2392,105 @@ a.detail-tile:hover{
   .contact-actions .btn.secondary:after{display:none}
 }
 
+
+/* === FINAL MOBILE + SHARE + RESUME POLISH === */
+.resume-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 18px;
+  border-radius:13px;
+  font-weight:800;
+}
+@media(max-width:900px){
+  header{
+    width:calc(100% - 20px);
+  }
+  .hero-v4{
+    padding-top:48px;
+  }
+  .hero-grid{
+    gap:28px;
+  }
+  .product-dock{
+    width:100%;
+  }
+}
+@media(max-width:700px){
+  body{
+    font-size:15px;
+  }
+  .wrap{
+    width:min(100% - 24px,var(--content));
+  }
+  section{
+    padding:58px 0;
+  }
+  .hero-top{
+    margin-bottom:22px;
+  }
+  .hero-v4 .hero-name{
+    font-size:clamp(2.6rem,12vw,3.6rem)!important;
+    line-height:.98!important;
+  }
+  .role{
+    font-size:1rem!important;
+  }
+  .summary{
+    font-size:.92rem!important;
+    line-height:1.65!important;
+  }
+  .hero-details{
+    gap:8px;
+  }
+  .detail-tile{
+    min-height:62px;
+  }
+  .hero-kpis{
+    gap:8px;
+  }
+  .hero-kpi{
+    min-height:82px;
+    padding:12px;
+  }
+  .app-card{
+    padding:14px;
+  }
+  .app-card p{
+    font-size:.74rem;
+  }
+  .project{
+    border-radius:20px;
+  }
+  .case-card summary{
+    grid-template-columns:40px 1fr auto;
+    gap:10px;
+  }
+  .sql-panel pre{
+    min-height:180px;
+  }
+}
+@media(max-width:460px){
+  .actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .actions .btn,
+  .resume-btn{
+    width:100%;
+  }
+  .hero-kpis{
+    grid-template-columns:1fr 1fr;
+  }
+  .dock-head h2{
+    font-size:1.15rem;
+  }
+  .app-title h3{
+    font-size:.96rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2463,7 +2566,7 @@ window.addEventListener("error",function(){
 
       <div class="actions">
         <a class="btn primary" href="#projects">Explore Projects</a>
-        <a class="btn secondary" href="mailto:keerthiprakash.kp33@gmail.com">Email Me</a>
+        <a class="btn secondary" href="mailto:keerthiprakash.kp33@gmail.com">Email Me</a><a class="btn resume-btn" href="assets/Keerthi_Prakash_Resume.pdf" download>Download Resume PDF ↓</a>
         <a class="btn resume-btn" href="resume.html" target="_blank" rel="noopener">Resume ↗</a>
       </div>
 
@@ -2685,7 +2788,7 @@ window.addEventListener("error",function(){
 
 <section class="wrap" id="publication"><div class="kicker reveal">11 / PUBLICATION</div><div class="publication reveal" style="margin-top:24px"><h3>Smart Daily Report Automation System Using AI</h3><div class="company">International Journal for Multidisciplinary Research (IJFMR)</div><p>Research focused on AI-assisted reporting automation, Python-based data processing, NLP summarization, KPI tracking, anomaly detection and automated business reporting.</p><div class="tags"><span class="tag">Volume 8, Issue 2 | March–April 2026</span><span class="tag">Paper ID: 72819</span></div></div></section>
 
-<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">12 / CONTACT</div><h2>Let’s turn data into decisions — or ideas into products.</h2><p>Open to Data Analyst, Business Analyst, BI / Reporting and analytics-focused graduate roles. Available for full-time opportunities and high-impact data/product work.</p><div class="contact-actions"><a class="btn primary" href="mailto:keerthiprakash.kp33@gmail.com">Start a Conversation</a><a class="btn secondary" href="resume.html" target="_blank">View / Save Resume ↗</a></div></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
+<section class="wrap" id="contact"><div class="contact reveal"><div><div class="kicker">12 / CONTACT</div><h2>Let’s turn data into decisions — or ideas into products.</h2><p>Open to Data Analyst, Business Analyst, BI / Reporting and analytics-focused graduate roles. Available for full-time opportunities and high-impact data/product work.</p><div class="contact-actions"><a class="btn primary" href="mailto:keerthiprakash.kp33@gmail.com">Start a Conversation</a><a class="btn secondary" href="resume.html" target="_blank">View Resume ↗</a><a class="btn resume-btn" href="assets/Keerthi_Prakash_Resume.pdf" download>Download PDF ↓</a></div></div><div class="links"><a href="mailto:keerthiprakash.kp33@gmail.com">keerthiprakash.kp33@gmail.com</a><a href="tel:+916381981530">+91-6381981530</a><a href="https://www.linkedin.com/in/keerthiprakasht" target="_blank">LinkedIn Profile ↗</a><a href="https://github.com/keerthiprakash18" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div></div></section>
 </main>
 <div class="command-hint">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> for quick navigation</div>
 <div class="command-backdrop" id="commandBackdrop" hidden>
@@ -2695,7 +2798,7 @@ window.addEventListener("error",function(){
       <a href="#projects" data-cmd="projects work case studies"><span>01</span>Projects<small>Selected work & live products</small></a>
       <a href="#data-lab" data-cmd="sql data lab analytics"><span>02</span>Interactive Data Lab<small>SQL → visualization → insight</small></a>
       <a href="#skills" data-cmd="skills sql python power bi"><span>03</span>Skills<small>Analytics toolkit</small></a>
-      <a href="resume.html" target="_blank" data-cmd="resume cv download"><span>04</span>Resume<small>Recruiter-ready resume</small></a>
+      <a href="assets/Keerthi_Prakash_Resume.pdf" download data-cmd="resume cv pdf download"><span>04</span>Download Resume PDF<small>ATS-friendly one-page resume</small></a><a href="resume.html" target="_blank" data-cmd="resume view print"><span>04A</span>View Resume<small>Browser / print version</small></a>
       <a href="https://github.com/keerthiprakash18" target="_blank" data-cmd="github code repositories"><span>05</span>GitHub<small>Source repositories</small></a>
       <a href="mailto:keerthiprakash.kp33@gmail.com" data-cmd="email contact hire"><span>06</span>Email Me<small>keerthiprakash.kp33@gmail.com</small></a>
     </div>
