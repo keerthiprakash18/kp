@@ -3060,6 +3060,124 @@ body.intro-lock{overflow:hidden}
   .ai-bot,.intro-orbit,.bot-arm.right,.bot-antenna,.intro-progress::after{animation:none!important}
 }
 
+
+/* === CALM PREMIUM AI INTRO PALETTE === */
+.ai-intro{
+  background:
+    radial-gradient(circle at 20% 30%,rgba(92,110,180,.10),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(126,102,168,.08),transparent 34%),
+    linear-gradient(135deg,#07101a 0%,#0b1320 52%,#081019 100%)!important;
+}
+.ai-intro::before{
+  background-image:
+    linear-gradient(rgba(139,157,188,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(139,157,188,.022) 1px,transparent 1px)!important;
+}
+.ai-intro::after{
+  background:radial-gradient(circle,rgba(91,118,166,.055),transparent 70%)!important;
+  filter:blur(24px)!important;
+}
+.intro-orbit{
+  border-color:rgba(132,151,184,.11)!important;
+}
+.intro-orbit::before{
+  background:#8fa4c8!important;
+  box-shadow:0 0 10px rgba(143,164,200,.42)!important;
+}
+.intro-orbit::after{
+  background:#9f8bb8!important;
+  box-shadow:0 0 9px rgba(159,139,184,.38)!important;
+}
+.bot-antenna{
+  background:linear-gradient(#8fa4c8,#9d8ab6)!important;
+}
+.bot-antenna::before{
+  background:#a8b6ce!important;
+  box-shadow:0 0 10px rgba(111,137,181,.42),0 0 20px rgba(132,109,157,.24)!important;
+}
+.bot-head{
+  border-color:rgba(203,214,230,.12)!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.07),transparent 30%),
+    linear-gradient(145deg,#172235,#0c1524 72%)!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 0 4px rgba(102,124,160,.025),
+    0 18px 44px rgba(0,0,0,.24)!important;
+}
+.bot-face{
+  background:
+    radial-gradient(circle at 50% 10%,rgba(107,132,174,.10),transparent 52%),
+    #07101b!important;
+  border-color:rgba(154,171,200,.10)!important;
+}
+.bot-eye{
+  background:linear-gradient(90deg,#91a7ca,#a78fb9)!important;
+  box-shadow:0 0 9px rgba(143,164,200,.40)!important;
+}
+.bot-mouth{border-color:#8ea2c2!important}
+.bot-ear,.bot-body,.bot-arm,.bot-arm::after{
+  background:linear-gradient(#182337,#0d1726)!important;
+  border-color:rgba(204,214,230,.10)!important;
+}
+.bot-body::before{
+  color:#eef3f8!important;
+  background:linear-gradient(145deg,rgba(111,137,181,.16),rgba(142,119,161,.12))!important;
+  border-color:rgba(159,177,207,.15)!important;
+  box-shadow:0 0 15px rgba(106,129,170,.10)!important;
+}
+.bot-shadow{
+  background:rgba(68,90,128,.12)!important;
+}
+.intro-mini{
+  border-color:rgba(115,169,151,.14)!important;
+  background:rgba(92,140,124,.035)!important;
+  color:#9fc9bb!important;
+}
+.intro-mini::before{
+  background:#8fc6b2!important;
+  box-shadow:0 0 8px rgba(143,198,178,.45)!important;
+}
+.intro-copy h1{
+  color:#f5f7fa!important;
+}
+.intro-copy h1 span{
+  background:linear-gradient(90deg,#b8c5da,#b8a5c7)!important;
+  -webkit-background-clip:text!important;
+  color:transparent!important;
+}
+.intro-copy p{
+  color:#a5b1c1!important;
+}
+.intro-type{
+  color:#c9d2df!important;
+}
+.intro-enter{
+  background:linear-gradient(135deg,#5f7398,#796b8d)!important;
+  box-shadow:0 14px 32px rgba(30,40,58,.34),inset 0 1px rgba(255,255,255,.12)!important;
+}
+.intro-enter:hover{
+  box-shadow:0 17px 36px rgba(30,40,58,.40)!important;
+}
+.intro-skip{
+  color:#9aa6b5!important;
+  background:rgba(255,255,255,.018)!important;
+  border-color:rgba(202,212,226,.08)!important;
+}
+.intro-progress{
+  display:none!important;
+}
+.ai-guide-chip{
+  background:rgba(8,16,27,.90)!important;
+  border-color:rgba(145,162,189,.11)!important;
+  color:#d6dde8!important;
+}
+.guide-mini-bot{
+  background:linear-gradient(145deg,#182337,#0d1726)!important;
+  color:#aebdd1!important;
+  box-shadow:0 0 12px rgba(89,111,151,.10)!important;
+}
+
 </style>
 </head>
 <body>
@@ -3173,20 +3291,10 @@ window.addEventListener("error",function(){
     enter.addEventListener("click",closeIntro);
     skip.addEventListener("click",closeIntro);
 
-    const auto=setTimeout(closeIntro,reduced?1200:5200);
-    window.addEventListener("keydown",function(e){
-      if(e.key==="Escape"){clearTimeout(auto);closeIntro()}
-      if(e.key==="Enter" && document.activeElement===document.body){clearTimeout(auto);closeIntro()}
-    });
-
+    // Stay on the welcome screen until the visitor explicitly clicks.
     setTimeout(function(){
       if(!closed) enter.focus({preventScroll:true});
     },900);
-
-    // Hard fail-safe: intro can never trap the page.
-    setTimeout(function(){
-      if(document.body.classList.contains("intro-lock")) closeIntro();
-    },7000);
   }catch(err){
     document.body.classList.remove("intro-lock");
     const intro=document.getElementById("aiIntro");
