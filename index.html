@@ -2055,9 +2055,237 @@ a.detail-tile:hover{
   object-position:center 18%!important
 }
 
+
+/* === INTERACTIVE DATA LAB EXPERIENCE === */
+:root{
+  --cursor-x:50vw;
+  --cursor-y:35vh;
+  --hero-x:50%;
+  --hero-y:50%;
+}
+.cursor-aura{
+  position:fixed;
+  left:0;top:0;
+  width:320px;height:320px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+  opacity:.5;
+  transform:translate3d(calc(var(--cursor-x) - 160px),calc(var(--cursor-y) - 160px),0);
+  background:radial-gradient(circle,
+    rgba(112,143,255,.11) 0%,
+    rgba(174,99,255,.055) 34%,
+    transparent 70%);
+  filter:blur(8px);
+  transition:opacity .2s ease
+}
+.hero-top{position:relative;isolation:isolate}
+.hero-v4 .hero-name{
+  position:relative;
+  z-index:2;
+  background:
+    radial-gradient(480px circle at var(--hero-x) var(--hero-y),
+      #ffffff 0%,
+      #e7ebff 28%,
+      #b9c7ff 56%,
+      #c78dff 76%,
+      #ffffff 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  transition:filter .18s ease
+}
+.hero-v4 .hero-name:hover{
+  filter:drop-shadow(0 18px 42px rgba(108,121,255,.22))
+}
+
+/* floating AI data core */
+.interactive-core{
+  position:absolute;
+  right:1.5%;
+  top:50%;
+  width:132px;height:132px;
+  transform:translateY(-38%);
+  pointer-events:none;
+  z-index:1;
+  opacity:.72;
+  filter:drop-shadow(0 18px 36px rgba(72,86,215,.24));
+  transition:transform .16s ease-out,opacity .2s ease
+}
+.core-ring{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(132,149,255,.18)
+}
+.ring-one{animation:coreSpin 12s linear infinite}
+.ring-two{
+  inset:14px;
+  border-style:dashed;
+  border-color:rgba(176,108,255,.23);
+  animation:coreSpinReverse 9s linear infinite
+}
+.ring-three{
+  inset:30px;
+  border-color:rgba(99,232,155,.18);
+  animation:corePulse 3.2s ease-in-out infinite
+}
+.core-center{
+  position:absolute;
+  inset:39px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,255,255,.14),transparent 34%),
+    linear-gradient(145deg,rgba(92,118,255,.25),rgba(154,88,255,.18));
+  box-shadow:
+    0 0 34px rgba(102,135,255,.18),
+    inset 0 1px rgba(255,255,255,.12)
+}
+.core-center span{
+  font-family:"Sora",sans-serif;
+  font-size:1rem;
+  line-height:1;
+  font-weight:800;
+  color:#fff
+}
+.core-center small{
+  margin-top:4px;
+  font-family:"Sora",sans-serif;
+  font-size:.31rem;
+  letter-spacing:.09em;
+  color:#aebaff
+}
+.core-dot{
+  position:absolute;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#829bff;
+  box-shadow:0 0 14px rgba(130,155,255,.8)
+}
+.dot-a{left:3px;top:50%;animation:dotFloat 3.4s ease-in-out infinite}
+.dot-b{right:14px;top:12px;background:#b16fff;animation:dotFloat 4s ease-in-out infinite reverse}
+.dot-c{right:8px;bottom:20px;background:#63e89b;animation:dotFloat 3.7s ease-in-out infinite}
+@keyframes coreSpin{to{transform:rotate(360deg)}}
+@keyframes coreSpinReverse{to{transform:rotate(-360deg)}}
+@keyframes corePulse{50%{transform:scale(1.09);opacity:.55}}
+@keyframes dotFloat{50%{transform:translateY(-7px) scale(1.2)}}
+
+/* 3D interactive surfaces */
+.tilt-ready{
+  transform-style:preserve-3d;
+  will-change:transform;
+  transition:transform .16s ease-out,border-color .2s ease,box-shadow .2s ease
+}
+.tilt-ready > *{transform:translateZ(0)}
+.tilt-ready.is-tilting{
+  border-color:rgba(137,151,255,.26)!important;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.28),
+    0 0 0 1px rgba(113,132,255,.035),
+    inset 0 1px rgba(255,255,255,.05)!important
+}
+.interactive-shine{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  opacity:0;
+  z-index:4;
+  background:radial-gradient(
+    260px circle at var(--shine-x,50%) var(--shine-y,50%),
+    rgba(255,255,255,.105),
+    rgba(119,137,255,.055) 28%,
+    transparent 66%
+  );
+  transition:opacity .18s ease
+}
+.tilt-ready.is-tilting > .interactive-shine{opacity:1}
+
+/* portrait reacts separately */
+.portrait-card.tilt-ready .portrait-frame img{
+  transition:transform .2s ease,filter .2s ease!important
+}
+.portrait-card.tilt-ready.is-tilting .portrait-frame img{
+  transform:scale(1.035)!important;
+  filter:brightness(1.07) contrast(1.04)!important
+}
+
+/* magnetic buttons */
+.magnetic{
+  will-change:transform;
+  transition:transform .16s ease-out,box-shadow .2s ease,background .2s ease,border-color .2s ease
+}
+.magnetic:hover{
+  box-shadow:0 12px 30px rgba(91,105,235,.20)
+}
+
+/* data chips react */
+.identity-chip,.skilltags span,.dock-footer span{
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease
+}
+.identity-chip:hover,.skilltags span:hover,.dock-footer span:hover{
+  transform:translateY(-2px) scale(1.015);
+  color:#fff;
+  border-color:rgba(133,149,255,.26)
+}
+
+/* subtle scroll depth */
+[data-depth]{
+  will-change:transform;
+  transform:translate3d(0,var(--depth-y,0px),0)
+}
+
+/* interactive status pill */
+.interaction-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-left:8px;
+  padding:6px 9px;
+  border-radius:999px;
+  border:1px solid rgba(99,232,155,.12);
+  background:rgba(99,232,155,.035);
+  color:#8adfac;
+  font-size:.58rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  vertical-align:middle
+}
+.interaction-status:before{
+  content:"";
+  width:5px;height:5px;border-radius:50%;
+  background:#63e89b;
+  box-shadow:0 0 10px rgba(99,232,155,.7)
+}
+
+@media(max-width:1180px){
+  .interactive-core{
+    width:108px;height:108px;
+    right:0;
+    opacity:.5
+  }
+  .core-center{inset:32px}
+}
+@media(max-width:900px){
+  .interactive-core{display:none}
+  .cursor-aura{display:none}
+}
+@media(pointer:coarse){
+  .interactive-core,.cursor-aura{display:none}
+  .tilt-ready,.magnetic{transform:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .interactive-core,.cursor-aura{display:none}
+  .tilt-ready,.magnetic,[data-depth]{transform:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
+<div id="cursorAura" class="cursor-aura" aria-hidden="true"></div>
 <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
 <header>
@@ -2069,9 +2297,21 @@ a.detail-tile:hover{
 <main>
 <section class="wrap hero hero-v4" id="home">
   <div class="hero-top reveal">
-    <div class="kicker">DATA • ANALYTICS • AI-ASSISTED BUILDING</div>
+    <div class="kicker">DATA • ANALYTICS • AI-ASSISTED BUILDING <span class="interaction-status">INTERACTIVE</span></div>
     <h1 class="hero-name">KEERTHI PRAKASH T</h1>
     <div class="hero-rule"></div>
+    <div class="interactive-core" aria-hidden="true">
+      <div class="core-ring ring-one"></div>
+      <div class="core-ring ring-two"></div>
+      <div class="core-ring ring-three"></div>
+      <div class="core-center">
+        <span>AI</span>
+        <small>DATA CORE</small>
+      </div>
+      <i class="core-dot dot-a"></i>
+      <i class="core-dot dot-b"></i>
+      <i class="core-dot dot-c"></i>
+    </div>
   </div>
 
   <div class="hero-grid">
@@ -2489,6 +2729,129 @@ document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
     });
   },{rootMargin:"-35% 0px -55% 0px",threshold:0});
   map.forEach(function(_,el){activeObserver.observe(el)});
+})();
+
+
+
+/* === interactive cursor / tilt / magnetic / parallax system === */
+(function(){
+  const fine = window.matchMedia("(pointer:fine)").matches;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!fine || reduce) return;
+
+  const root = document.documentElement;
+  const aura = document.getElementById("cursorAura");
+  const hero = document.querySelector(".hero-top");
+  const core = document.querySelector(".interactive-core");
+
+  let px = innerWidth * .5, py = innerHeight * .35;
+  let tx = px, ty = py;
+  let raf = 0;
+
+  function animatePointer(){
+    px += (tx-px)*.14;
+    py += (ty-py)*.14;
+    root.style.setProperty("--cursor-x", px+"px");
+    root.style.setProperty("--cursor-y", py+"px");
+    raf = requestAnimationFrame(animatePointer);
+  }
+  raf = requestAnimationFrame(animatePointer);
+
+  window.addEventListener("pointermove",function(e){
+    tx=e.clientX; ty=e.clientY;
+
+    if(hero){
+      const r=hero.getBoundingClientRect();
+      const hx=Math.max(0,Math.min(100,((e.clientX-r.left)/r.width)*100));
+      const hy=Math.max(0,Math.min(100,((e.clientY-r.top)/r.height)*100));
+      root.style.setProperty("--hero-x",hx+"%");
+      root.style.setProperty("--hero-y",hy+"%");
+
+      if(core){
+        const dx=(e.clientX-(r.left+r.width*.82))/r.width;
+        const dy=(e.clientY-(r.top+r.height*.5))/r.height;
+        core.style.transform="translate("+(dx*18)+"px,calc(-38% + "+(dy*14)+"px)) rotate("+(dx*4)+"deg)";
+      }
+    }
+  },{passive:true});
+
+  document.addEventListener("mouseleave",function(){
+    if(aura) aura.style.opacity=".18";
+  });
+  document.addEventListener("mouseenter",function(){
+    if(aura) aura.style.opacity=".5";
+  });
+
+  // 3D tilt + moving highlight
+  const tiltSelectors=[
+    ".portrait-card",
+    ".product-dock",
+    ".app-card",
+    ".project",
+    ".skill-card",
+    ".feature-card"
+  ];
+  const tiltEls=document.querySelectorAll(tiltSelectors.join(","));
+  tiltEls.forEach(function(el){
+    el.classList.add("tilt-ready");
+    if(getComputedStyle(el).position==="static") el.style.position="relative";
+
+    const shine=document.createElement("span");
+    shine.className="interactive-shine";
+    el.appendChild(shine);
+
+    el.addEventListener("pointermove",function(e){
+      const r=el.getBoundingClientRect();
+      const nx=(e.clientX-r.left)/r.width;
+      const ny=(e.clientY-r.top)/r.height;
+      const rx=(.5-ny)*5;
+      const ry=(nx-.5)*6;
+      el.style.setProperty("--shine-x",(nx*100)+"%");
+      el.style.setProperty("--shine-y",(ny*100)+"%");
+      el.style.transform="perspective(900px) rotateX("+rx+"deg) rotateY("+ry+"deg) translateY(-2px)";
+      el.classList.add("is-tilting");
+    },{passive:true});
+
+    el.addEventListener("pointerleave",function(){
+      el.style.transform="";
+      el.classList.remove("is-tilting");
+    });
+  });
+
+  // Magnetic CTA buttons
+  document.querySelectorAll(".btn,.app-btn,.project-link,.navcta").forEach(function(btn){
+    btn.classList.add("magnetic");
+    btn.addEventListener("pointermove",function(e){
+      const r=btn.getBoundingClientRect();
+      const dx=e.clientX-(r.left+r.width/2);
+      const dy=e.clientY-(r.top+r.height/2);
+      btn.style.transform="translate("+(dx*.10)+"px,"+(dy*.14)+"px)";
+    },{passive:true});
+    btn.addEventListener("pointerleave",function(){
+      btn.style.transform="";
+    });
+  });
+
+  // Scroll depth for key hero objects
+  const depthItems=[
+    [document.querySelector(".portrait-card"),-.035],
+    [document.querySelector(".product-dock"),-.022],
+    [document.querySelector(".hero-kpis"),-.014]
+  ].filter(function(x){return x[0]});
+  depthItems.forEach(function(x){x[0].setAttribute("data-depth","")});
+
+  let scrollTick=false;
+  window.addEventListener("scroll",function(){
+    if(scrollTick) return;
+    scrollTick=true;
+    requestAnimationFrame(function(){
+      const y=window.scrollY;
+      depthItems.forEach(function(item){
+        item[0].style.setProperty("--depth-y",(y*item[1])+"px");
+      });
+      scrollTick=false;
+    });
+  },{passive:true});
 })();
 
 </script>
