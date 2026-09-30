@@ -3408,7 +3408,7 @@ body.intro-lock{overflow:hidden}
 }
 
 
-/* === INTERACTIVE HR ROBOT + PORTFOLIO ASSISTANT === */
+/* === INTERACTIVE PORTFOLIO ROBOT ASSISTANT === */
 .intro-holo-stage,.ai-guide-chip{display:none!important}
 .intro-hr-stage{
   position:relative;
@@ -3631,7 +3631,7 @@ window.addEventListener("error",function(){
         <div class="hr-body">
           <div class="hr-shirt"></div>
           <div class="hr-tie"></div>
-          <div class="hr-badge">HR</div>
+          <div class="hr-badge">KP</div>
           <div class="hr-core">KP <span>AI</span></div>
         </div>
         <div class="hr-arm left"></div>
@@ -3640,21 +3640,21 @@ window.addEventListener("error",function(){
       <div class="voice-wave" id="voiceWave" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
-      <div class="voice-state" id="voiceState">HR ASSISTANT READY</div>
+      <div class="voice-state" id="voiceState">KEERTHI ASSISTANT READY</div>
     </div>
         <div class="intro-copy">
-      <span class="intro-mini">KEERTHI HR ASSISTANT ONLINE</span>
-      <h1>Meet <span>Keerthi's HR Assistant.</span></h1>
-      <p>Ask about Keerthi’s skills, projects, experience, education or resume. I can answer and guide you directly to the right section.</p>
+      <span class="intro-mini">KEERTHI ASSISTANT ONLINE</span>
+      <h1>Welcome to <span>Keerthi's Portfolio.</span></h1>
+      <p>Hi! I’m Keerthi’s portfolio assistant. Ask me about his profile, skills, projects, experience, education or resume — I’ll answer and guide you to the right section.</p>
       <span class="intro-type" id="introType"></span>
       <div class="intro-hr-ask">
         <div class="intro-ask-row">
-          <input id="introHrInput" type="text" autocomplete="off" placeholder="Ask: Why should we hire Keerthi?">
+          <input id="introHrInput" type="text" autocomplete="off" placeholder="Ask me anything about Keerthi...">
           <button id="introHrMic" class="intro-mic" type="button" aria-label="Ask by voice">🎙</button>
           <button id="introHrSend" class="intro-send" type="button">ASK HR →</button>
         </div>
         <div class="intro-quick">
-          <button type="button" data-hrq="Why should we hire Keerthi?">Why hire?</button>
+          <button type="button" data-hrq="Tell me about Keerthi">About Keerthi</button>
           <button type="button" data-hrq="Show me his projects">Projects</button>
           <button type="button" data-hrq="What are his strongest skills?">Top skills</button>
           <button type="button" data-hrq="Tell me about FC Arena">FC Arena</button>
@@ -3670,25 +3670,25 @@ window.addEventListener("error",function(){
   <div class="intro-progress"></div>
 </div>
 <div id="hrAssistantWidget" class="hr-assistant-widget" aria-live="polite">
-  <button id="hrAssistantFab" class="hr-assistant-fab" type="button" aria-label="Open HR assistant">
+  <button id="hrAssistantFab" class="hr-assistant-fab" type="button" aria-label="Open Keerthi assistant">
     <span class="mini-hr-robot">
-      <i class="mini-eye l"></i><i class="mini-eye r"></i><b>HR</b>
+      <i class="mini-eye l"></i><i class="mini-eye r"></i><b>KP</b>
     </span>
-    <span class="fab-label">Ask HR</span>
+    <span class="fab-label">Ask Me</span>
   </button>
-  <section id="hrAssistantPanel" class="hr-assistant-panel" aria-label="Keerthi HR assistant" hidden>
+  <section id="hrAssistantPanel" class="hr-assistant-panel" aria-label="Keerthi portfolio assistant" hidden>
     <header class="hr-panel-head">
       <div class="hr-panel-avatar">
-        <span class="mini-hr-robot"><i class="mini-eye l"></i><i class="mini-eye r"></i><b>HR</b></span>
+        <span class="mini-hr-robot"><i class="mini-eye l"></i><i class="mini-eye r"></i><b>KP</b></span>
       </div>
-      <div><b>Keerthi HR Assistant</b><small>Portfolio guide • Local knowledge</small></div>
+      <div><b>Keerthi Assistant</b><small>Portfolio guide • Interactive assistant</small></div>
       <button id="hrAssistantClose" type="button" aria-label="Close assistant">×</button>
     </header>
     <div id="hrChat" class="hr-chat">
-      <div class="hr-msg bot">Hi! Ask me about Keerthi’s skills, projects, experience, education, availability or resume. I can also take you to the right section.</div>
+      <div class="hr-msg bot">Hi! Welcome to Keerthi’s portfolio. Ask me about his profile, skills, projects, experience, education, availability or resume. I can also guide you to the right section.</div>
     </div>
     <div class="hr-quick-actions">
-      <button type="button" data-hrq="Why should we hire Keerthi?">Why hire?</button>
+      <button type="button" data-hrq="Tell me about Keerthi">About Keerthi</button>
       <button type="button" data-hrq="Show projects">Projects</button>
       <button type="button" data-hrq="Show skills">Skills</button>
       <button type="button" data-hrq="Open resume">Resume</button>
@@ -3698,7 +3698,7 @@ window.addEventListener("error",function(){
       <button id="hrAssistantMic" type="button" aria-label="Voice question">🎙</button>
       <button id="hrAssistantSend" type="button">Send</button>
     </div>
-    <div class="hr-panel-foot"><button id="hrVoiceToggle" type="button">🔊 Voice on</button><span>Try “Tell me about FC Arena”</span></div>
+    <div class="hr-panel-foot"><button id="hrVoiceToggle" type="button">🔊 Voice on</button><span>Try “Tell me about Keerthi”</span></div>
   </section>
 </div>
 
@@ -3730,8 +3730,8 @@ window.addEventListener("error",function(){
     if(seen&&!force){intro.remove();return;}
 
     document.body.classList.add("intro-lock");
-    const message="Hi, I'm Keerthi's HR assistant. Ask me anything about his portfolio.";
-    const spokenText="Welcome. I'm Keerthi Prakash's HR portfolio assistant. You can ask me about his skills, projects, experience, education, or resume. I can also guide you directly to the relevant section.";
+    const message="Hi, I’m Keerthi’s assistant. Welcome to his portfolio — ask me anything about his profile.";
+    const spokenText="Welcome to Keerthi Prakash’s portfolio. I’m Keerthi’s personal portfolio assistant. You can ask me about his profile, skills, projects, experience, education or resume, and I’ll guide you to the relevant section.";
     let i=0,muted=false,closed=false;
     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
     if(reduced) type.textContent=message;
@@ -3743,7 +3743,7 @@ window.addEventListener("error",function(){
       robot&&robot.classList.toggle("is-speaking",on);
       wave&&wave.classList.toggle("is-speaking",on);
       voiceState&&voiceState.classList.toggle("speaking",on);
-      if(voiceState)voiceState.textContent=on?"HR ASSISTANT SPEAKING":"HR ASSISTANT READY";
+      if(voiceState)voiceState.textContent=on?"KEERTHI ASSISTANT SPEAKING":"KEERTHI ASSISTANT READY";
       if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute Voice":"🔊 Play Voice";
     }
     function chooseVoice(){
@@ -4788,6 +4788,8 @@ setTimeout(function(){
 
     let voiceOn=true;
     const knowledge=[
+      {keys:["hello","hi","hey","welcome","greetings"],answer:"Hi! Welcome to Keerthi Prakash’s portfolio. I can introduce his profile, show projects, explain skills and experience, open the resume, or guide you to any section.",target:"about"},
+      {keys:["profile","tell me about keerthi","who is keerthi","about keerthi"],answer:"Keerthi Prakash T is a 2026 Artificial Intelligence & Data Science graduate focused on Data Analytics, Business Analytics and AI-assisted product development. His portfolio combines measurable analytics outcomes with live deployed products.",target:"about"},
       {keys:["why hire","why should","hire keerthi","strength","best candidate"],answer:"Keerthi combines core analytics skills with product execution. His strongest evidence is SQL, Python, Power BI, Advanced Excel, a 70%+ reporting turnaround reduction, 2–3 hours of daily reporting automated, and two deployed products. He can move from analysis to a working solution.",target:"about"},
       {keys:["skill","sql","python","power bi","excel","analytics","technical"],answer:"His core analytics stack is SQL, Python, Pandas, NumPy, Advanced Excel, Power Query, Power BI, PostgreSQL, KPI reporting and business analytics. He also uses AI-assisted development and full-stack tools to ship working products.",target:"skills"},
       {keys:["project","portfolio project","work"],answer:"The three highlighted projects are AI Report Automation, FC Arena, and Smart Expense Tracker. FC Arena and Smart Expense Tracker are deployed live products, while the reporting system achieved measurable automation impact.",target:"projects"},
@@ -4808,7 +4810,7 @@ setTimeout(function(){
     function resolve(q){
       const n=norm(q);let best=null,score=0;
       knowledge.forEach(k=>{let s=0;k.keys.forEach(key=>{if(n.includes(key))s+=key.split(" ").length+1});if(s>score){score=s;best=k}});
-      return best||{answer:"I can help with Keerthi’s skills, projects, FC Arena, Smart Expense Tracker, experience, education, publication, availability, contact details or resume. Try asking one of those.",target:null};
+      return best||{answer:"I’m Keerthi’s portfolio assistant. You can ask me about his profile, skills, projects, FC Arena, Smart Expense Tracker, experience, education, publication, availability, contact details or resume.",target:null};
     }
     function addMsg(text,who,target,action){
       const d=document.createElement("div");d.className="hr-msg "+who;d.textContent=text;
