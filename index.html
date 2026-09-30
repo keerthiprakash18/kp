@@ -3956,6 +3956,98 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   .guide-character,.guide-arm.right,.guide-eye{animation:none!important}
 }
 
+
+/* === WELCOME UI FINAL POLISH === */
+.ai-intro{
+  background:
+    radial-gradient(circle at 12% 12%,rgba(169,204,255,.54),transparent 31%),
+    radial-gradient(circle at 88% 18%,rgba(219,198,255,.43),transparent 29%),
+    radial-gradient(circle at 78% 88%,rgba(255,221,199,.36),transparent 27%),
+    linear-gradient(135deg,#edf6ff 0%,#f7f4ff 48%,#fff8f1 100%)!important;
+}
+.intro-shell{
+  max-width:1030px!important;
+  padding:38px 46px!important;
+  border:1px solid rgba(103,122,155,.12)!important;
+  border-radius:36px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:
+    0 30px 80px rgba(70,87,119,.13),
+    0 2px 10px rgba(80,95,120,.04),
+    inset 0 1px rgba(255,255,255,.96)!important;
+}
+.intro-copy{padding:4px 0!important}
+.intro-copy h1{
+  max-width:620px!important;
+  color:#26354b!important;
+  text-wrap:balance;
+}
+.intro-copy p{
+  color:#69788d!important;
+  max-width:560px!important;
+}
+.intro-mini{
+  color:#58766b!important;
+  background:#edf7f3!important;
+  border:1px solid #dceee7!important;
+  box-shadow:none!important;
+}
+.intro-type{
+  color:#43546b!important;
+  font-weight:700!important;
+}
+.intro-greeting-bubble{
+  color:#52647c!important;
+  background:#f8fbff!important;
+  border:1px solid #e3eaf3!important;
+  box-shadow:0 5px 16px rgba(71,89,121,.045)!important;
+}
+.intro-welcome-quick button,
+.intro-voice,.intro-skip{
+  background:#fff!important;
+  color:#62738a!important;
+  border:1px solid #dee6ef!important;
+  box-shadow:0 4px 12px rgba(69,87,118,.045)!important;
+}
+.intro-welcome-quick button:hover,
+.intro-voice:hover,.intro-skip:hover{
+  background:#f6f9fd!important;
+  color:#31445f!important;
+  border-color:#cbd7e5!important;
+  transform:translateY(-1px);
+}
+.intro-enter{
+  border:0!important;
+  background:linear-gradient(135deg,#58749f,#7b6b95)!important;
+  box-shadow:0 12px 28px rgba(76,93,127,.20)!important;
+}
+.intro-enter:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 16px 34px rgba(76,93,127,.24)!important;
+}
+.intro-voice-hint{
+  align-self:center;
+  color:#8996a7;
+  font-size:.58rem;
+  line-height:1.3;
+  max-width:145px;
+}
+.voice-state{
+  color:#6f7e92!important;
+  font-weight:800!important;
+}
+@media(max-width:760px){
+  .intro-shell{
+    width:min(100% - 20px,560px)!important;
+    padding:20px 16px 23px!important;
+    border-radius:26px!important;
+  }
+  .intro-copy h1{margin-top:13px!important}
+  .intro-voice-hint{
+    width:100%;max-width:none;text-align:center;order:4;margin-top:-2px
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4002,7 +4094,7 @@ window.addEventListener("error",function(){
       <div class="voice-wave" id="voiceWave" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
-      <div class="voice-state" id="voiceState">KEERTHI ASSISTANT READY</div>
+      <div class="voice-state" id="voiceState">WELCOME GUIDE READY</div>
     </div>
     <div class="intro-copy">
       <span class="intro-mini">YOUR PORTFOLIO GUIDE</span>
@@ -4022,7 +4114,7 @@ window.addEventListener("error",function(){
       </div>
       <div class="intro-actions">
         <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
-        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button>
+        <button class="intro-voice" id="introVoice" type="button" aria-pressed="false">🔊 Hear Welcome</button><span class="intro-voice-hint">Natural voice • tap if autoplay is blocked</span>
         <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
       </div>
     </div>
@@ -4091,7 +4183,7 @@ window.addEventListener("error",function(){
     document.body.classList.add("intro-lock");
 
     const typed="Hi! Welcome — I’m Keerthi’s assistant. It’s nice to meet you.";
-    const greeting="Hi, welcome to Keerthi Prakash's portfolio. I'm Keerthi's personal assistant. It's nice to meet you. You can explore his profile, projects, skills, experience, and resume. Click Enter Portfolio whenever you're ready.";
+    const greeting="Hi there. Welcome to Keerthi Prakash's portfolio. I'm here to show you around. You can explore his projects, skills, experience, and resume. Take your time, and enter whenever you're ready.";
     let i=0,closed=false,muted=false,greeted=false,speaking=false;
     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -4107,7 +4199,7 @@ window.addEventListener("error",function(){
       speaking=on;
       robot&&robot.classList.toggle("is-speaking",on);
       wave&&wave.classList.toggle("is-speaking",on);
-      if(voiceState)voiceState.textContent=on?"KEERTHI ASSISTANT SPEAKING":"KEERTHI ASSISTANT READY";
+      if(voiceState)voiceState.textContent=on?"WELCOME GUIDE SPEAKING":"WELCOME GUIDE READY";
       if(voiceBtn)voiceBtn.textContent=on?"🔇 Mute":"🔊 Hear Welcome"
     }
 
@@ -4115,8 +4207,8 @@ window.addEventListener("error",function(){
       if(!("speechSynthesis" in window))return null;
       const voices=speechSynthesis.getVoices();
       const preferred=[
-        /Sonia/i,/Samantha/i,/Zira/i,/Neerja/i,/Heera/i,/Veena/i,/Karen/i,/Moira/i,
-        /Female/i,/Jenny/i,/Aria/i,/Natasha/i,/Libby/i,/Susan/i,/Hazel/i
+        /Natural/i,/Neural/i,/Sonia/i,/Samantha/i,/Zira/i,/Neerja/i,/Heera/i,/Veena/i,
+        /Jenny/i,/Aria/i,/Natasha/i,/Libby/i,/Susan/i,/Hazel/i,/Karen/i,/Moira/i,/Female/i
       ];
       for(const rx of preferred){
         const v=voices.find(x=>rx.test(x.name)&&/^en/i.test(x.lang));
@@ -4135,9 +4227,9 @@ window.addEventListener("error",function(){
       const v=chooseFemaleVoice();
       if(v)u.voice=v;
       u.lang=v?.lang||"en-GB";
-      u.rate=.96;
-      u.pitch=1.08;
-      u.volume=.78;
+      u.rate=.91;
+      u.pitch=1.02;
+      u.volume=.84;
       u.onstart=function(){greeted=true;setSpeaking(true)};
       u.onend=function(){setSpeaking(false)};
       u.onerror=function(){setSpeaking(false)};
@@ -4147,7 +4239,7 @@ window.addEventListener("error",function(){
       if(!("speechSynthesis" in window)||muted)return;
       speechSynthesis.cancel();
       const u=new SpeechSynthesisUtterance(text),v=chooseFemaleVoice();
-      if(v)u.voice=v;u.lang=v?.lang||"en-GB";u.rate=.97;u.pitch=1.07;u.volume=.78;
+      if(v)u.voice=v;u.lang=v?.lang||"en-GB";u.rate=.92;u.pitch=1.02;u.volume=.84;
       u.onstart=()=>setSpeaking(true);u.onend=()=>setSpeaking(false);u.onerror=()=>setSpeaking(false);
       speechSynthesis.speak(u)
     };
