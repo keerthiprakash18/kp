@@ -5045,6 +5045,58 @@ nav a.pastel-active{
   #main-content section::before{transition:none!important}
 }
 
+
+/* === INTRO CHARACTER VISIBILITY + PROFESSIONAL TYPE === */
+.kp-character-wrap{
+  width:min(90%,380px)!important;
+  margin-bottom:42px!important;
+}
+.kp-character{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  width:100%!important;
+  max-height:480px!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  position:relative!important;
+  z-index:4!important;
+}
+.kp-welcome-card h1{
+  max-width:700px!important;
+  margin:16px 0 14px!important;
+  font-family:"Sora",sans-serif!important;
+  font-size:clamp(2.65rem,4.6vw,4.25rem)!important;
+  font-weight:750!important;
+  line-height:1.01!important;
+  letter-spacing:-.045em!important;
+  text-wrap:balance!important;
+}
+.kp-welcome-card h1 span{
+  font-weight:750!important;
+  background:linear-gradient(90deg,#3568f4 0%,#655cf3 48%,#925dd3 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  color:transparent!important;
+}
+.kp-welcome-card>p{
+  max-width:610px!important;
+  font-size:.92rem!important;
+  line-height:1.66!important;
+}
+.kp-type-line{
+  margin-top:11px!important;
+  font-size:.76rem!important;
+  line-height:1.5!important;
+}
+@media(max-width:900px){
+  .kp-character-wrap{width:min(70%,280px)!important}
+  .kp-welcome-card h1{
+    font-size:clamp(2.3rem,9vw,3.5rem)!important;
+    letter-spacing:-.04em!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5068,7 +5120,7 @@ window.addEventListener("error",function(){
 
       <div class="kp-character-wrap">
         <img
-          src="assets/kp-anime-character.webp"
+          src="assets/kp-character-v2.webp?v=20260930-1519"
           alt=""
           class="kp-character"
           fetchpriority="high"
