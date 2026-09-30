@@ -4406,9 +4406,20 @@ window.addEventListener("error",function(){
   const img=document.querySelector(".anime-approved-art[data-anime-chunked]");
   if(!img) return;
 
-  const parts=Array.from({length:9},(_,i)=>
-    "assets/kp-anime55-parts/"+String(i).padStart(2,"0")+".txt"
-  );
+  const parts=[
+    "assets/kp-anime55-parts/00.txt",
+    "assets/kp-anime55-parts/01.txt",
+    "assets/kp-anime55-parts/02.txt",
+    "assets/kp-anime55-parts/03.txt",
+    "assets/kp-anime55-parts/04.txt",
+    "assets/kp-anime55-parts/05.txt",
+    "assets/kp-anime55-parts/06.txt",
+    "assets/kp-anime55-parts/07a.txt",
+    "assets/kp-anime55-parts/07b.txt",
+    "assets/kp-anime55-parts/07c.txt",
+    "assets/kp-anime55-parts/07d.txt",
+    "assets/kp-anime55-parts/08.txt"
+  ];
 
   Promise.all(parts.map(function(path){
     return fetch(path,{cache:"force-cache"}).then(function(r){
