@@ -3741,6 +3741,221 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   .intro-welcome-quick,.intro-actions{justify-content:center}
 }
 
+
+/* === BRIGHT FRIENDLY MALE GUIDE ENTRANCE === */
+.intro-hr-stage,.hr-robot,.hr-orbit,.hr-floor-glow{display:none!important}
+.ai-intro{
+  background:
+    radial-gradient(circle at 14% 18%,rgba(175,205,255,.48),transparent 28%),
+    radial-gradient(circle at 82% 22%,rgba(221,196,255,.38),transparent 30%),
+    radial-gradient(circle at 78% 82%,rgba(255,219,195,.34),transparent 26%),
+    linear-gradient(135deg,#eef5ff 0%,#f8f5ff 45%,#fff9f3 100%)!important;
+}
+.ai-intro::before{
+  opacity:.35!important;
+  background-image:
+    radial-gradient(circle,rgba(91,112,149,.10) 1px,transparent 1px)!important;
+  background-size:28px 28px!important;
+  transform:none!important;
+  inset:0!important;
+  mask-image:linear-gradient(to bottom,#000,transparent 92%)!important;
+  animation:none!important;
+}
+.ai-intro::after{
+  background:radial-gradient(circle,rgba(127,151,198,.11),transparent 68%)!important;
+  filter:blur(34px)!important
+}
+.intro-shell{
+  width:min(1040px,calc(100% - 42px))!important;
+  grid-template-columns:360px minmax(0,1fr)!important;
+  gap:54px!important;
+  padding:34px 42px!important;
+  border-radius:34px!important;
+  border:1px solid rgba(110,125,156,.13)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,255,255,.62))!important;
+  box-shadow:0 28px 80px rgba(69,85,115,.14),inset 0 1px rgba(255,255,255,.92)!important;
+  backdrop-filter:blur(18px)!important
+}
+.intro-guide-stage{
+  position:relative;
+  min-height:410px;
+  display:grid;
+  place-items:center;
+  isolation:isolate
+}
+.guide-blob{
+  position:absolute;border-radius:50%;filter:blur(2px);z-index:-1
+}
+.blob-a{
+  width:285px;height:285px;
+  background:linear-gradient(145deg,rgba(168,201,255,.58),rgba(195,183,255,.44));
+  top:44px;left:30px
+}
+.blob-b{
+  width:150px;height:150px;
+  background:linear-gradient(145deg,rgba(255,215,190,.46),rgba(255,237,202,.40));
+  right:10px;bottom:54px
+}
+.guide-shadow{
+  position:absolute;left:50%;bottom:38px;width:170px;height:24px;transform:translateX(-50%);
+  border-radius:50%;background:rgba(78,95,126,.15);filter:blur(13px)
+}
+.guide-character{
+  position:relative;width:230px;height:315px;
+  animation:guideFloat 3.4s ease-in-out infinite;
+  filter:drop-shadow(0 20px 24px rgba(85,96,120,.14))
+}
+@keyframes guideFloat{50%{transform:translateY(-8px)}}
+.guide-head{
+  position:absolute;left:50%;top:38px;width:138px;height:148px;transform:translateX(-50%);
+  border-radius:48% 48% 46% 46%;
+  background:linear-gradient(160deg,#f2c7a6,#e9b893);
+  border:1px solid rgba(143,100,76,.10);
+  box-shadow:inset 0 8px 14px rgba(255,255,255,.20)
+}
+.guide-hair.back{
+  position:absolute;left:50%;top:24px;width:154px;height:90px;transform:translateX(-50%);
+  border-radius:52% 52% 38% 38%;
+  background:linear-gradient(145deg,#2e3444,#202634);
+  z-index:0
+}
+.guide-hair.front{
+  position:absolute;left:-3px;top:-12px;width:144px;height:57px;
+  border-radius:52% 54% 38% 30%;
+  background:
+    radial-gradient(circle at 30% 60%,#2f3545 0 26%,transparent 27%),
+    linear-gradient(145deg,#343a4b,#222837);
+  clip-path:polygon(0 0,100% 0,97% 64%,82% 48%,70% 65%,56% 46%,42% 64%,26% 49%,10% 72%,0 60%)
+}
+.guide-ear{
+  position:absolute;top:92px;width:22px;height:31px;border-radius:50%;background:#e8b58f;z-index:1
+}
+.guide-ear.left{left:35px}.guide-ear.right{right:35px}
+.guide-brow{
+  position:absolute;top:58px;width:28px;height:4px;border-radius:99px;background:#5c493e;opacity:.85
+}
+.guide-brow.left{left:25px;transform:rotate(-5deg)}.guide-brow.right{right:25px;transform:rotate(5deg)}
+.guide-eye{
+  position:absolute;top:72px;width:13px;height:13px;border-radius:50%;background:#2d3443;
+  box-shadow:inset 0 0 0 4px #fafafa
+}
+.guide-eye.left{left:32px}.guide-eye.right{right:32px}
+.guide-eye:after{
+  content:"";position:absolute;width:3px;height:3px;right:1px;top:1px;border-radius:50%;background:#fff
+}
+.guide-character .guide-eye{animation:guideBlink 4.7s infinite}
+@keyframes guideBlink{0%,45%,49%,100%{transform:scaleY(1)}47%{transform:scaleY(.12)}}
+.guide-nose{
+  position:absolute;left:50%;top:86px;width:10px;height:17px;transform:translateX(-50%);
+  border-right:2px solid rgba(137,92,70,.24);border-bottom:2px solid rgba(137,92,70,.18);border-radius:0 0 8px 0
+}
+.guide-mouth{
+  position:absolute;left:50%;top:111px;width:28px;height:11px;transform:translateX(-50%);
+  border-bottom:3px solid #995f58;border-radius:0 0 24px 24px;
+  transition:.15s ease
+}
+.guide-character.is-speaking .guide-mouth{
+  width:18px;height:17px;top:108px;border:2px solid #995f58;border-radius:50%;
+  background:rgba(140,69,72,.12);animation:guideTalk .22s ease-in-out infinite alternate
+}
+@keyframes guideTalk{from{transform:translateX(-50%) scaleY(.7)}to{transform:translateX(-50%) scaleY(1.15)}}
+.guide-cheek{
+  position:absolute;top:98px;width:18px;height:9px;border-radius:50%;background:rgba(221,111,107,.15);filter:blur(1px)
+}
+.guide-cheek.left{left:18px}.guide-cheek.right{right:18px}
+.guide-neck{
+  position:absolute;left:50%;top:177px;width:38px;height:29px;transform:translateX(-50%);
+  border-radius:0 0 14px 14px;background:#e8b58f
+}
+.guide-body{
+  position:absolute;left:50%;top:194px;width:154px;height:105px;transform:translateX(-50%);
+  border-radius:36px 36px 25px 25px;
+  background:linear-gradient(145deg,#526a91,#435a7d);
+  box-shadow:inset 0 1px rgba(255,255,255,.22)
+}
+.guide-shirt{
+  position:absolute;left:50%;top:0;width:58px;height:80px;transform:translateX(-50%);
+  background:linear-gradient(#fbfcff,#e6edf6);
+  clip-path:polygon(0 0,100% 0,76% 100%,24% 100%)
+}
+.guide-jacket{
+  position:absolute;top:0;width:55px;height:104px;background:linear-gradient(160deg,#6079a2,#40577b)
+}
+.guide-jacket.left{left:0;border-radius:36px 0 12px 24px;clip-path:polygon(0 0,100% 0,70% 100%,0 100%)}
+.guide-jacket.right{right:0;border-radius:0 36px 24px 12px;clip-path:polygon(0 0,100% 0,100% 100%,30% 100%)}
+.guide-name{
+  position:absolute;right:12px;top:16px;padding:5px 6px;border-radius:8px;
+  background:#f7fbff;border:1px solid rgba(74,99,137,.10);color:#526786;
+  font:800 7px/1 "Sora",sans-serif;letter-spacing:.08em
+}
+.guide-arm{
+  position:absolute;top:205px;width:24px;height:92px;border-radius:16px;
+  background:linear-gradient(#5c759e,#435b80);transform-origin:50% 10px
+}
+.guide-arm.left{left:25px;transform:rotate(9deg)}
+.guide-arm.right{
+  right:18px;transform:rotate(-34deg);animation:guideWave 1.15s ease-in-out 1s 3
+}
+@keyframes guideWave{50%{transform:rotate(-61deg)}}
+.guide-hand{
+  position:absolute;left:50%;bottom:-12px;width:27px;height:27px;transform:translateX(-50%);
+  border-radius:50%;background:#e9b893;border:1px solid rgba(143,100,76,.08)
+}
+.intro-guide-stage .voice-wave{bottom:20px!important}
+.intro-guide-stage .voice-state{
+  bottom:-6px!important;color:#65748a!important;letter-spacing:.11em!important
+}
+.voice-wave i{background:#637b9e!important}
+.intro-copy{color:#233147!important}
+.intro-mini{
+  color:#5f7b70!important;background:#eef7f3!important;border-color:#d9ebe4!important
+}
+.intro-mini::before{background:#79ab98!important;box-shadow:0 0 7px rgba(121,171,152,.28)!important}
+.intro-copy h1{color:#233147!important}
+.intro-copy h1 span{
+  background:linear-gradient(90deg,#5c7397,#8a6f9d)!important;
+  -webkit-background-clip:text!important;color:transparent!important
+}
+.intro-copy p{color:#68778c!important}
+.intro-type{color:#45566f!important}
+.intro-greeting-bubble{
+  color:#56667b!important;background:#f7f9fd!important;border-color:#e6ebf2!important
+}
+.greeting-dot{background:#7fa895!important;box-shadow:0 0 7px rgba(127,168,149,.24)!important}
+.intro-welcome-quick button{
+  background:#fff!important;color:#68778c!important;border-color:#e3e8f0!important;
+  box-shadow:0 3px 10px rgba(66,82,110,.04)
+}
+.intro-welcome-quick button:hover{
+  color:#34455f!important;background:#f5f8fc!important;border-color:#cfd8e5!important
+}
+.intro-enter{
+  color:#fff!important;background:linear-gradient(135deg,#5c7398,#7a698e)!important;
+  box-shadow:0 12px 26px rgba(83,99,130,.20)!important
+}
+.intro-voice,.intro-skip{
+  color:#64748a!important;background:#fff!important;border-color:#e1e7ef!important;
+  box-shadow:0 3px 10px rgba(66,82,110,.04)!important
+}
+.intro-voice:hover,.intro-skip:hover{
+  color:#34455f!important;background:#f6f8fb!important
+}
+@media(max-width:760px){
+  .intro-shell{
+    grid-template-columns:1fr!important;
+    padding:20px 17px 24px!important;
+    gap:2px!important;
+    background:rgba(255,255,255,.86)!important
+  }
+  .intro-guide-stage{min-height:285px}
+  .guide-character{transform:scale(.78)}
+  .blob-a{width:215px;height:215px;left:50%;transform:translateX(-50%);top:28px}
+  .blob-b{width:105px;height:105px;right:8%;bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  .guide-character,.guide-arm.right,.guide-eye{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -3755,39 +3970,44 @@ window.addEventListener("error",function(){
 
 <div id="aiIntro" class="ai-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
   <div class="intro-shell">
-    <div class="intro-hr-stage" aria-hidden="true">
-      <div class="hr-orbit orbit-one"></div>
-      <div class="hr-orbit orbit-two"></div>
-      <div class="hr-floor-glow"></div>
-      <div class="hr-robot" id="hrRobot">
-        <div class="hr-antenna"></div>
-        <div class="hr-head">
-          <div class="hr-face">
-            <span class="hr-eye left"></span>
-            <span class="hr-eye right"></span>
-            <span class="hr-mouth"></span>
-          </div>
-          <span class="hr-ear left"></span>
-          <span class="hr-ear right"></span>
+    <div class="intro-guide-stage" aria-hidden="true">
+      <div class="guide-blob blob-a"></div>
+      <div class="guide-blob blob-b"></div>
+      <div class="guide-shadow"></div>
+      <div class="guide-character" id="hrRobot">
+        <div class="guide-hair back"></div>
+        <div class="guide-ear left"></div>
+        <div class="guide-ear right"></div>
+        <div class="guide-head">
+          <div class="guide-hair front"></div>
+          <span class="guide-brow left"></span>
+          <span class="guide-brow right"></span>
+          <span class="guide-eye left"></span>
+          <span class="guide-eye right"></span>
+          <span class="guide-nose"></span>
+          <span class="guide-mouth"></span>
+          <span class="guide-cheek left"></span>
+          <span class="guide-cheek right"></span>
         </div>
-        <div class="hr-neck"></div>
-        <div class="hr-body">
-          <div class="assistant-chest-panel"></div>
-          <div class="hr-badge">ASSIST</div>
-          <div class="hr-core">KP <span>AI</span></div>
+        <div class="guide-neck"></div>
+        <div class="guide-body">
+          <div class="guide-shirt"></div>
+          <div class="guide-jacket left"></div>
+          <div class="guide-jacket right"></div>
+          <div class="guide-name">KP GUIDE</div>
         </div>
-        <div class="hr-arm left"></div>
-        <div class="hr-arm right"></div>
+        <div class="guide-arm left"></div>
+        <div class="guide-arm right"><span class="guide-hand"></span></div>
       </div>
       <div class="voice-wave" id="voiceWave" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
       <div class="voice-state" id="voiceState">KEERTHI ASSISTANT READY</div>
     </div>
-        <div class="intro-copy">
-      <span class="intro-mini">KP PORTFOLIO ASSISTANT</span>
+    <div class="intro-copy">
+      <span class="intro-mini">YOUR PORTFOLIO GUIDE</span>
       <h1>Hi, welcome to <span>Keerthi's Portfolio.</span></h1>
-      <p>I’m Keerthi’s personal portfolio assistant. I’ll introduce his work and help you explore the most relevant sections.</p>
+      <p>I’m Keerthi’s portfolio guide. I’ll welcome you in, introduce his work, and help you jump to what matters most.</p>
       <span class="intro-type" id="introType"></span>
       <div class="intro-welcome-tools">
         <div class="intro-greeting-bubble" id="introGreetingBubble">
