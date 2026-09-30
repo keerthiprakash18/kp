@@ -5647,6 +5647,248 @@ nav a.pastel-active{
   }
 }
 
+
+/* === MOBILE EXPERIENCE FIX 20260930 === */
+@media(max-width:900px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body.intro-lock{overflow:hidden!important}
+
+  .ai-intro{
+    display:block!important;
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100svh!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-y!important;
+    padding:
+      max(10px,env(safe-area-inset-top))
+      10px
+      calc(22px + env(safe-area-inset-bottom))!important;
+  }
+
+  .kp-intro-shell{
+    width:100%!important;
+    max-width:680px!important;
+    min-height:auto!important;
+    margin:0 auto 20px!important;
+    padding:13px!important;
+    gap:12px!important;
+    grid-template-columns:1fr!important;
+    border-radius:24px!important;
+  }
+
+  .kp-character-zone{
+    width:100%!important;
+    min-height:310px!important;
+    height:310px!important;
+    border-radius:20px!important;
+  }
+
+  .kp-css-robot-wrap{
+    left:50%!important;
+    bottom:22px!important;
+    width:320px!important;
+    height:292px!important;
+    transform:translateX(-50%)!important;
+  }
+  .kp-css-robot{
+    --mobile-robot-scale:.70;
+    bottom:-58px!important;
+    transform:translateX(-50%) scale(var(--mobile-robot-scale))!important;
+    transform-origin:50% 100%!important;
+    animation:kpRobotFloatMobile 3.4s ease-in-out infinite!important;
+  }
+  @keyframes kpRobotFloatMobile{
+    0%,100%{transform:translateX(-50%) translateY(0) scale(var(--mobile-robot-scale))}
+    50%{transform:translateX(-50%) translateY(-7px) scale(calc(var(--mobile-robot-scale) * 1.01))}
+  }
+  .kp-character-zone.is-speaking .kp-css-robot{
+    animation:kpRobotSpeakMobile .72s ease-in-out infinite!important;
+  }
+  @keyframes kpRobotSpeakMobile{
+    0%,100%{transform:translateX(-50%) translateY(0) scale(var(--mobile-robot-scale))}
+    50%{transform:translateX(-50%) translateY(-4px) scale(calc(var(--mobile-robot-scale) * 1.02))}
+  }
+  .kp-robot-arm.left{animation:kpWave 2.8s ease-in-out infinite!important}
+  .kp-robot-antenna::before{animation:kpMobileAntenna 2.1s ease-in-out infinite alternate!important}
+  @keyframes kpMobileAntenna{
+    from{transform:translateX(-50%) scale(.94);filter:brightness(1)}
+    to{transform:translateX(-50%) scale(1.05);filter:brightness(1.18)}
+  }
+  .kp-character-zone.is-speaking .kp-robot-antenna::before{
+    animation:kpAntennaPulse .62s ease-in-out infinite alternate!important;
+  }
+
+  .kp-character-greeting{
+    top:10px!important;
+    left:10px!important;
+    font-size:.58rem!important;
+    padding:7px 9px!important;
+  }
+  .kp-character-voice{
+    bottom:8px!important;
+    max-width:88%!important;
+    white-space:nowrap;
+  }
+
+  .kp-welcome-card{
+    padding:8px 3px 4px!important;
+    text-align:center!important;
+  }
+  .kp-welcome-badge{margin:0 auto!important}
+  .kp-welcome-card h1{
+    margin:14px auto 10px!important;
+    max-width:560px!important;
+    font-size:clamp(2.15rem,9.5vw,3.35rem)!important;
+    line-height:1.01!important;
+    letter-spacing:-.04em!important;
+  }
+  .kp-welcome-card>p{
+    margin:0 auto!important;
+    max-width:560px!important;
+    font-size:.86rem!important;
+    line-height:1.58!important;
+  }
+  .kp-type-line{
+    margin:9px auto 0!important;
+    min-height:auto!important;
+    max-width:560px!important;
+    font-size:.70rem!important;
+    line-height:1.5!important;
+  }
+
+  .kp-voice-card{
+    width:100%!important;
+    min-height:66px!important;
+    margin-top:13px!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    gap:10px!important;
+    padding:9px 11px!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .kp-play-icon{width:40px!important;height:40px!important}
+  .kp-voice-copy b{font-size:.69rem!important}
+  .kp-voice-copy small{font-size:.58rem!important}
+  .kp-mini-wave{display:flex!important;transform:scale(.86)}
+
+  .kp-quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+    margin-top:10px!important;
+  }
+  .kp-quick-grid button{
+    min-height:84px!important;
+    padding:9px 7px!important;
+    border-radius:15px!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .kp-quick-grid b{font-size:.68rem!important}
+  .kp-quick-grid small{font-size:.56rem!important}
+
+  .kp-feature-strip{
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    margin-top:10px!important;
+    padding:2px 1px 5px!important;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .kp-feature-strip::-webkit-scrollbar{display:none}
+  .kp-feature-strip span{flex:0 0 auto!important}
+
+  .kp-enter-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:8px!important;
+    margin-top:12px!important;
+  }
+  .kp-enter-row .intro-enter,
+  .kp-enter-row .intro-skip{
+    min-height:50px!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .kp-enter-row .intro-skip{
+    min-width:92px!important;
+    width:auto!important;
+  }
+
+  .kp-welcome-card button.touch-active,
+  .kp-welcome-card button:active{
+    transform:scale(.975)!important;
+    transition:transform .08s ease!important;
+  }
+
+  /* Main portfolio: touch-friendly interaction without desktop cursor/tilt effects. */
+  .btn,.app-btn,.project-link,.navcta,.links a,.menu{
+    min-height:44px;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .project:active,.skill-card:active,.feature-card:active,.app-card:active{
+    transform:scale(.992)!important;
+    transition:transform .1s ease!important;
+  }
+
+  /* Assistant becomes a proper bottom-sheet on mobile. */
+  .hr-assistant-widget{
+    right:10px!important;
+    bottom:calc(10px + env(safe-area-inset-bottom))!important;
+  }
+  .hr-assistant-fab{min-height:50px!important}
+  .hr-assistant-panel{
+    position:fixed!important;
+    left:10px!important;
+    right:10px!important;
+    bottom:calc(72px + env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    height:min(68dvh,560px)!important;
+    max-height:calc(100dvh - 100px)!important;
+    border-radius:20px!important;
+  }
+}
+
+@media(max-width:520px){
+  .ai-intro{padding-left:7px!important;padding-right:7px!important}
+  .kp-intro-shell{padding:10px!important;border-radius:20px!important}
+  .kp-character-zone{height:270px!important;min-height:270px!important}
+  .kp-css-robot-wrap{
+    width:275px!important;
+    height:255px!important;
+    bottom:14px!important;
+  }
+  .kp-css-robot{
+    --mobile-robot-scale:.61;
+    bottom:-75px!important;
+  }
+  .kp-welcome-card h1{
+    font-size:clamp(2rem,10.8vw,2.8rem)!important;
+  }
+  .kp-welcome-card>p{font-size:.80rem!important}
+  .kp-type-line{font-size:.66rem!important}
+  .kp-mini-wave{display:flex!important}
+  .kp-enter-row{grid-template-columns:1fr!important}
+  .kp-enter-row .intro-skip{width:100%!important}
+  .fab-label{display:none}
+  .hr-assistant-fab{padding:5px!important;border-radius:16px!important}
+}
+
+/* Keep motion when touch device is capable; only honor the user's actual reduced-motion setting. */
+@media(max-width:900px) and (prefers-reduced-motion:no-preference){
+  .kp-orbit.orbit-a{animation:kpOrbit 18s linear infinite!important}
+  .kp-orbit.orbit-b{animation:kpOrbitRev 14s linear infinite!important}
+  .kp-mini-wave i{animation:kpMiniWave .7s ease-in-out infinite alternate!important}
+  .animations-ready .reveal{
+    transition:opacity .55s ease,transform .55s cubic-bezier(.2,.75,.2,1)!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5829,7 +6071,7 @@ window.addEventListener("error",function(){
 </div>
 
 <script>
-/* KEERTHI WELCOME INTRO — character + natural female voice */
+/* KEERTHI WELCOME INTRO — mobile-safe voice + touch interactions */
 (function(){
   try{
     const intro=document.getElementById("aiIntro");
@@ -5842,18 +6084,36 @@ window.addEventListener("error",function(){
     const voiceState=document.getElementById("voiceState");
     if(!intro)return;
 
+    const coarse=matchMedia("(pointer:coarse)").matches;
+    const small=matchMedia("(max-width:900px)").matches;
+    const mobile=coarse||small;
     const force=new URLSearchParams(location.search).get("intro")==="1";
     const seen=sessionStorage.getItem("kp_ai_intro_seen")==="1";
     if(seen&&!force){intro.remove();return}
+
     document.body.classList.add("intro-lock");
+    document.documentElement.classList.toggle("mobile-touch-ui",mobile);
 
     const typed="Hi! Welcome — I’m Keerthi’s assistant. It’s nice to meet you.";
     const greeting="Hi there. Welcome to Keerthi Prakash's portfolio. It's nice to meet you. You can explore his projects, skills, experience, data work, and resume. Take your time, and enter whenever you're ready.";
-    let i=0,closed=false,muted=false,greeted=false,speaking=false;
+    let i=0,closed=false,muted=false,greeted=false,speaking=false,voiceTimer=0;
     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const synth=("speechSynthesis" in window)?window.speechSynthesis:null;
+    let voices=[];
 
-    if(reduced) type.textContent=typed;
-    else{
+    function refreshVoices(){
+      if(!synth)return;
+      try{voices=synth.getVoices()||[]}catch(e){voices=[]}
+    }
+    refreshVoices();
+    if(synth){
+      if(typeof synth.addEventListener==="function") synth.addEventListener("voiceschanged",refreshVoices);
+      else synth.onvoiceschanged=refreshVoices;
+    }
+
+    if(reduced||mobile){
+      type.textContent=typed;
+    }else{
       type.textContent="";
       const timer=setInterval(function(){
         type.textContent=typed.slice(0,++i);
@@ -5868,105 +6128,143 @@ window.addEventListener("error",function(){
       if(voiceState)voiceState.textContent=on?"WELCOME GUIDE SPEAKING":"WELCOME GUIDE READY";
       if(voiceBtn){
         voiceBtn.classList.toggle("is-speaking",on);
+        voiceBtn.setAttribute("aria-pressed",on?"true":"false");
         const b=voiceBtn.querySelector("b");
         const s=voiceBtn.querySelector("small");
         if(on){
           if(b)b.textContent="Speaking...";
-          if(s)s.textContent="Tap again to mute";
+          if(s)s.textContent="Tap again to stop";
         }else{
-          if(b)b.textContent="Want to hear a quick welcome?";
-          if(s)s.textContent="Tap to hear a natural voice greeting";
+          if(b)b.textContent=mobile?"Tap to hear my welcome":"Want to hear a quick welcome?";
+          if(s)s.textContent=mobile?"Audio starts after your tap":"Tap to hear a natural voice greeting";
         }
       }
     }
 
     function chooseFemaleVoice(){
-      if(!("speechSynthesis" in window))return null;
-      const voices=speechSynthesis.getVoices();
+      refreshVoices();
+      const list=voices;
+      if(!list.length)return null;
       const preferred=[
         /Natural/i,/Neural/i,/Sonia/i,/Samantha/i,/Zira/i,/Neerja/i,/Heera/i,/Veena/i,
         /Jenny/i,/Aria/i,/Natasha/i,/Libby/i,/Susan/i,/Hazel/i,/Karen/i,/Moira/i,/Female/i
       ];
       for(const rx of preferred){
-        const v=voices.find(x=>rx.test(x.name)&&/^en/i.test(x.lang));
+        const v=list.find(x=>rx.test(x.name)&&/^en/i.test(x.lang));
         if(v)return v;
       }
-      return voices.find(x=>/en-IN/i.test(x.lang))||
-             voices.find(x=>/en-GB/i.test(x.lang))||
-             voices.find(x=>/en-US/i.test(x.lang))||
-             voices.find(x=>/^en/i.test(x.lang))||
-             voices[0]||null;
+      return list.find(x=>/en-IN/i.test(x.lang))||
+             list.find(x=>/en-GB/i.test(x.lang))||
+             list.find(x=>/en-US/i.test(x.lang))||
+             list.find(x=>/^en/i.test(x.lang))||
+             list[0]||null;
     }
 
-    function speakText(text){
-      if(closed||muted||!("speechSynthesis" in window))return;
-      speechSynthesis.cancel();
-      const u=new SpeechSynthesisUtterance(text);
-      const v=chooseFemaleVoice();
-      if(v)u.voice=v;
-      u.lang=v?.lang||"en-GB";
-      u.rate=.92;
-      u.pitch=1.02;
-      u.volume=.84;
-      u.onstart=function(){greeted=true;setSpeaking(true)};
-      u.onend=function(){setSpeaking(false)};
-      u.onerror=function(){setSpeaking(false)};
-      speechSynthesis.speak(u);
+    function stopVoice(){
+      if(voiceTimer){clearTimeout(voiceTimer);voiceTimer=0}
+      if(synth){
+        try{synth.cancel()}catch(e){}
+      }
+      setSpeaking(false);
     }
 
-    function speakWelcome(){speakText(greeting)}
-    window.KPHRIntroSpeak=speakText;
+    function speakText(text,userInitiated){
+      if(closed||muted||!synth)return false;
+      try{
+        synth.cancel();
+        if(typeof synth.resume==="function")synth.resume();
+
+        const u=new SpeechSynthesisUtterance(text);
+        const v=chooseFemaleVoice();
+        if(v)u.voice=v;
+        u.lang=(v&&v.lang)||"en-IN";
+        u.rate=.92;
+        u.pitch=1.02;
+        u.volume=.86;
+
+        u.onstart=function(){
+          greeted=true;
+          setSpeaking(true);
+        };
+        u.onend=function(){setSpeaking(false)};
+        u.onerror=function(){setSpeaking(false)};
+
+        // Mobile browsers require speechSynthesis.speak() directly inside a user gesture.
+        if(userInitiated||!mobile){
+          setSpeaking(true);
+          synth.speak(u);
+          voiceTimer=setTimeout(function(){
+            if(!synth.speaking&&!synth.pending)setSpeaking(false);
+          },1200);
+          return true;
+        }
+      }catch(e){
+        setSpeaking(false);
+      }
+      return false;
+    }
+
+    function speakWelcome(userInitiated){return speakText(greeting,!!userInitiated)}
+    window.KPHRIntroSpeak=function(text){return speakText(text,true)};
 
     function closeIntro(){
       if(closed)return;
       closed=true;
-      if("speechSynthesis" in window)speechSynthesis.cancel();
-      setSpeaking(false);
+      stopVoice();
       sessionStorage.setItem("kp_ai_intro_seen","1");
       intro.classList.add("is-leaving");
       document.body.classList.remove("intro-lock");
-      setTimeout(()=>intro.remove(),650);
+      setTimeout(()=>intro.remove(),480);
     }
 
-    enter.addEventListener("click",closeIntro);
-    skip.addEventListener("click",closeIntro);
+    enter&&enter.addEventListener("click",closeIntro);
+    skip&&skip.addEventListener("click",closeIntro);
 
-    voiceBtn&&voiceBtn.addEventListener("click",function(e){
-      e.stopPropagation();
-      if("speechSynthesis" in window&&speechSynthesis.speaking){
-        muted=true;
-        speechSynthesis.cancel();
-        setSpeaking(false);
-      }else{
-        muted=false;
-        speakWelcome();
-      }
-    });
-
-    // Try once; if blocked, first non-exit visitor gesture can start the greeting.
-    setTimeout(speakWelcome,850);
-    function firstGesture(e){
-      if(closed||greeted||speaking)return;
-      if(e.target.closest("#introEnter,#introSkip"))return;
-      speakWelcome();
+    if(voiceBtn){
+      voiceBtn.addEventListener("click",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        if(speaking||(synth&&synth.speaking)){
+          muted=true;
+          stopVoice();
+          setTimeout(()=>{muted=false},120);
+        }else{
+          muted=false;
+          speakWelcome(true);
+        }
+      });
     }
-    intro.addEventListener("pointerdown",firstGesture,{passive:true});
+
+    // Desktop can attempt a welcome automatically. Mobile waits for an explicit tap.
+    if(!mobile)setTimeout(()=>speakWelcome(false),850);
 
     document.querySelectorAll("[data-intro-go]").forEach(function(b){
       b.addEventListener("click",function(){
         const target=b.dataset.introGo;
         closeIntro();
-        setTimeout(()=>document.getElementById(target)?.scrollIntoView({behavior:"smooth",block:"start"}),760);
+        setTimeout(function(){
+          const el=document.getElementById(target);
+          if(el)el.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"});
+        },520);
       });
     });
 
     document.querySelectorAll("[data-intro-action='resume']").forEach(function(b){
       b.addEventListener("click",function(){
-        window.open("resume.html","_blank");
+        const w=window.open("resume.html","_blank","noopener");
+        if(!w)location.href="resume.html";
       });
     });
 
-    setTimeout(()=>{if(!closed)enter.focus({preventScroll:true})},800);
+    // Tap feedback for touch devices.
+    if(mobile){
+      intro.querySelectorAll("button").forEach(function(btn){
+        btn.addEventListener("touchstart",()=>btn.classList.add("touch-active"),{passive:true});
+        ["touchend","touchcancel"].forEach(evt=>btn.addEventListener(evt,()=>btn.classList.remove("touch-active"),{passive:true}));
+      });
+    }
+
+    setTimeout(()=>{if(!closed&&!mobile&&enter)enter.focus({preventScroll:true})},800);
   }catch(e){
     document.body.classList.remove("intro-lock");
     document.getElementById("aiIntro")?.remove();
