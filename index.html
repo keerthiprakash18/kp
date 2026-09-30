@@ -4954,6 +4954,97 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   .kp-character-wrap,.kp-orbit,.kp-mini-wave i{animation:none!important}
 }
 
+
+/* === PASTEL SCROLL POLISH + CHARACTER INTERACTION === */
+.kp-character{
+  transform:translate3d(var(--char-x,0px),var(--char-y,0px),0) rotate(var(--char-r,0deg));
+  transition:transform .22s ease,filter .22s ease;
+}
+.kp-character-zone:hover .kp-character{
+  filter:drop-shadow(0 26px 34px rgba(73,90,128,.24));
+}
+.kp-character-greeting{
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.kp-character-zone:hover .kp-character-greeting{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(70,85,113,.11);
+}
+
+.portfolio-pastel-wash{
+  position:fixed;
+  inset:-14vh -10vw;
+  z-index:0;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    radial-gradient(circle at 10% 22%,rgba(103,145,255,.10),transparent 26%),
+    radial-gradient(circle at 88% 38%,rgba(164,103,226,.085),transparent 28%),
+    radial-gradient(circle at 26% 82%,rgba(255,177,126,.055),transparent 25%);
+  filter:blur(24px);
+  transform:translate3d(0,var(--pastel-shift,0px),0);
+  transition:opacity .4s ease;
+}
+body.intro-lock .portfolio-pastel-wash{opacity:0}
+
+#main-content{
+  position:relative;
+  z-index:1;
+}
+#main-content section{
+  position:relative;
+  isolation:isolate;
+}
+#main-content section::before{
+  content:"";
+  position:absolute;
+  inset:9% -5%;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:48px;
+  opacity:0;
+  transform:translateY(18px) scale(.985);
+  transition:opacity .65s ease,transform .65s ease;
+  background:
+    radial-gradient(circle at 14% 30%,rgba(84,126,235,.060),transparent 34%),
+    radial-gradient(circle at 83% 58%,rgba(139,91,202,.052),transparent 34%),
+    radial-gradient(circle at 58% 100%,rgba(234,155,112,.032),transparent 30%);
+}
+#main-content section.pastel-inview::before{
+  opacity:1;
+  transform:none;
+}
+
+nav a.pastel-active{
+  color:#fff!important;
+  background:linear-gradient(135deg,rgba(90,119,211,.15),rgba(139,91,202,.12))!important;
+  border-color:rgba(132,148,216,.16)!important;
+}
+
+.project,.skill-card,.feature-card,.case-card,.app-card{
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+.project:hover,.skill-card:hover,.feature-card:hover,.case-card:hover,.app-card:hover{
+  border-color:rgba(130,145,220,.18)!important;
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.22),
+    0 0 0 1px rgba(119,136,219,.035),
+    0 0 34px rgba(121,94,202,.045)!important;
+}
+
+@media(max-width:900px),(pointer:coarse){
+  .kp-character{transform:none!important}
+  .portfolio-pastel-wash{opacity:.30}
+}
+@media(prefers-reduced-motion:reduce){
+  .portfolio-pastel-wash{transform:none!important}
+  #main-content section::before{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -5352,7 +5443,7 @@ window.addEventListener("error",function(){
   <nav id="nav" aria-label="Primary navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#publication">Publication</a><a href="#data-lab">Data Lab</a><a class="nav-resume" href="resume.html" target="_blank">Resume ↗</a><a class="navcta" href="#contact">Contact</a></nav>
 </header>
 
-<main id="main-content">
+<div id="portfolioPastelWash" class="portfolio-pastel-wash" aria-hidden="true"></div>\n<main id="main-content">
 <section class="wrap hero hero-v4" id="home">
   <div class="hero-top reveal">
     <div class="kicker">DATA • ANALYTICS • AI-ASSISTED BUILDING <span class="interaction-status">INTERACTIVE</span></div>
@@ -6339,5 +6430,61 @@ setTimeout(function(){
   }catch(e){console.warn("HR assistant disabled safely",e)}
 })();
 </script>
-</body>
+<script>
+/* === character parallax + pastel scroll observer === */
+(function(){
+  try{
+    const zone=document.querySelector(".kp-character-zone");
+    const character=zone&&zone.querySelector(".kp-character");
+    const fine=matchMedia("(pointer:fine)").matches;
+    const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if(zone&&character&&fine&&!reduced){
+      zone.addEventListener("pointermove",function(e){
+        const r=zone.getBoundingClientRect();
+        const nx=(e.clientX-r.left)/r.width-.5;
+        const ny=(e.clientY-r.top)/r.height-.5;
+        character.style.setProperty("--char-x",(nx*9).toFixed(1)+"px");
+        character.style.setProperty("--char-y",(ny*6).toFixed(1)+"px");
+        character.style.setProperty("--char-r",(nx*1.2).toFixed(2)+"deg");
+      },{passive:true});
+      zone.addEventListener("pointerleave",function(){
+        character.style.setProperty("--char-x","0px");
+        character.style.setProperty("--char-y","0px");
+        character.style.setProperty("--char-r","0deg");
+      });
+    }
+
+    const sections=[...document.querySelectorAll("#main-content section[id]")];
+    const navLinks=[...document.querySelectorAll('nav a[href^="#"]')];
+
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("pastel-inview");
+          const id=entry.target.id;
+          navLinks.forEach(function(a){
+            a.classList.toggle("pastel-active",a.getAttribute("href")==="#"+id);
+          });
+        }
+      });
+    },{rootMargin:"-28% 0px -52% 0px",threshold:0});
+
+    sections.forEach(function(s){io.observe(s)});
+
+    let ticking=false;
+    window.addEventListener("scroll",function(){
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(function(){
+        const shift=Math.max(-42,Math.min(42,scrollY*.018));
+        document.documentElement.style.setProperty("--pastel-shift",shift+"px");
+        ticking=false;
+      });
+    },{passive:true});
+  }catch(e){
+    console.warn("Pastel interaction disabled safely",e);
+  }
+})();
+</script>\n</body>
 </html>
