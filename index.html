@@ -4323,6 +4323,28 @@ body.intro-lock .hr-assistant-widget{opacity:0;pointer-events:none}
   .intro-art-badge{left:10px;bottom:10px}
 }
 
+
+/* === ANIME ART LOAD STATES === */
+.anime-approved-art{
+  transition:opacity .55s ease,filter .55s ease,transform .8s cubic-bezier(.2,.75,.2,1)!important;
+}
+.anime-approved-art.anime-loading{
+  opacity:.74;
+  filter:blur(8px) saturate(.86);
+  transform:scale(1.025);
+}
+.anime-approved-art.anime-loaded{
+  opacity:1;
+  filter:none;
+  transform:scale(1.002);
+}
+.anime-approved-art.anime-fallback{
+  opacity:1;
+  filter:none;
+  object-fit:cover;
+  object-position:center 18%;
+}
+
 </style>
 </head>
 <body>
@@ -4339,9 +4361,9 @@ window.addEventListener("error",function(){
   <div class="anime-intro-shell">
     <div class="anime-art-wrap">
       <img
-        src="assets/kp-anime-portfolio-guide.webp"
+        src="assets/profile-small.webp?v=20260927" data-anime-chunked="1"
         alt="Anime-style interactive welcome artwork for Keerthi Prakash portfolio"
-        class="anime-approved-art"
+        class="anime-approved-art anime-loading"
         fetchpriority="high"
         decoding="async"
       >
@@ -4377,6 +4399,39 @@ window.addEventListener("error",function(){
     </div>
   </div>
 </div>
+
+<script>
+/* === ANIME ARTWORK CHUNK LOADER === */
+(function(){
+  const img=document.querySelector(".anime-approved-art[data-anime-chunked]");
+  if(!img) return;
+
+  const parts=Array.from({length:9},(_,i)=>
+    "assets/kp-anime55-parts/"+String(i).padStart(2,"0")+".txt"
+  );
+
+  Promise.all(parts.map(function(path){
+    return fetch(path,{cache:"force-cache"}).then(function(r){
+      if(!r.ok) throw new Error("Failed to load "+path);
+      return r.text();
+    }).then(function(s){ return s.trim(); });
+  })).then(function(chunks){
+    const b64=chunks.join("");
+    if(b64.length!==68160) throw new Error("Anime artwork is incomplete");
+    img.onload=function(){
+      img.classList.remove("anime-loading","anime-fallback");
+      img.classList.add("anime-loaded");
+    };
+    img.src="data:image/webp;base64,"+b64;
+  }).catch(function(err){
+    console.warn("Anime artwork fallback used",err);
+    img.classList.remove("anime-loading");
+    img.classList.add("anime-fallback");
+    img.src="assets/profile-small.webp?v=20260927";
+  });
+})();
+</script>
+
 <div id="hrAssistantWidget" class="hr-assistant-widget" aria-live="polite">
   <button id="hrAssistantFab" class="hr-assistant-fab" type="button" aria-label="Open Keerthi assistant">
     <span class="mini-hr-robot">
