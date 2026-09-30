@@ -5212,6 +5212,441 @@ nav a.pastel-active{
   }
 }
 
+
+/* === CSS AI GUIDE ROBOT — ZERO IMAGE DEPENDENCY === */
+.kp-css-robot-wrap{
+  position:absolute;
+  left:50%;
+  bottom:54px;
+  width:min(84%,370px);
+  height:430px;
+  transform:translateX(-50%);
+  z-index:10;
+  pointer-events:none;
+}
+.kp-robot-shadow{
+  position:absolute;
+  left:50%;
+  bottom:4px;
+  width:78%;
+  height:34px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:rgba(73,91,130,.15);
+  filter:blur(15px);
+}
+.kp-css-robot{
+  position:absolute;
+  left:50%;
+  bottom:20px;
+  width:270px;
+  height:370px;
+  transform:translateX(-50%);
+  transform-origin:50% 88%;
+  animation:kpRobotFloat 3.6s ease-in-out infinite;
+}
+@keyframes kpRobotFloat{
+  0%,100%{transform:translateX(-50%) translateY(0) rotate(0deg)}
+  50%{transform:translateX(-50%) translateY(-8px) rotate(.35deg)}
+}
+
+/* antenna */
+.kp-robot-antenna{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:7px;
+  height:44px;
+  transform:translateX(-50%);
+  border-radius:99px;
+  background:linear-gradient(#7287d8,#dfe7ff);
+  z-index:8;
+}
+.kp-robot-antenna::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-12px;
+  width:26px;
+  height:26px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 38% 35%,#fff 0 8%,#8df4ff 9% 23%,#3f78ff 24% 58%,#725af2 59% 100%);
+  box-shadow:0 0 18px rgba(74,123,255,.48),0 0 36px rgba(110,91,242,.26);
+}
+.kp-robot-antenna::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:35px;
+  width:36px;
+  height:10px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:rgba(102,128,211,.15);
+  filter:blur(5px);
+}
+
+/* head */
+.kp-robot-head{
+  position:absolute;
+  left:50%;
+  top:38px;
+  width:205px;
+  height:158px;
+  transform:translateX(-50%);
+  border-radius:52% 52% 46% 46% / 48% 48% 42% 42%;
+  background:
+    linear-gradient(145deg,#ffffff 0%,#edf2ff 52%,#d6ddf4 100%);
+  border:1px solid rgba(93,111,158,.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 16px 28px rgba(59,76,111,.16);
+  z-index:7;
+}
+.kp-robot-head::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:14px;
+  width:72%;
+  height:16px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,rgba(124,146,255,.16),transparent);
+}
+.kp-robot-face{
+  position:absolute;
+  inset:20px 18px 18px;
+  border-radius:45% 45% 42% 42% / 46% 46% 42% 42%;
+  background:
+    radial-gradient(circle at 50% 115%,rgba(94,89,230,.32),transparent 40%),
+    linear-gradient(180deg,#171d3a 0%,#090e24 100%);
+  border:2px solid rgba(93,133,255,.28);
+  box-shadow:
+    inset 0 0 28px rgba(80,116,255,.14),
+    0 0 0 5px rgba(255,255,255,.48);
+}
+.kp-robot-ear{
+  position:absolute;
+  top:54px;
+  width:38px;
+  height:60px;
+  border-radius:18px;
+  background:linear-gradient(180deg,#f7f9ff,#d9e1f7);
+  border:1px solid rgba(87,108,157,.14);
+  z-index:-1;
+}
+.kp-robot-ear.left{left:-24px}
+.kp-robot-ear.right{right:-24px}
+.kp-robot-ear i{
+  position:absolute;
+  inset:9px 8px;
+  border-radius:13px;
+  background:linear-gradient(180deg,#5b6cf4,#3fd6ff);
+  box-shadow:0 0 14px rgba(65,166,255,.45);
+}
+.kp-robot-eye{
+  position:absolute;
+  top:45px;
+  width:42px;
+  height:26px;
+  border:7px solid #78ecff;
+  border-left-color:transparent;
+  border-right-color:transparent;
+  border-bottom-color:transparent;
+  border-radius:50%;
+  filter:drop-shadow(0 0 6px rgba(76,216,255,.70));
+}
+.kp-robot-eye.left{left:28px;transform:rotate(-7deg)}
+.kp-robot-eye.right{right:28px;transform:rotate(7deg)}
+.kp-robot-mouth{
+  position:absolute;
+  left:50%;
+  bottom:26px;
+  width:33px;
+  height:17px;
+  transform:translateX(-50%);
+  border:5px solid #79f0ff;
+  border-left-color:transparent;
+  border-right-color:transparent;
+  border-top-color:transparent;
+  border-radius:0 0 50% 50%;
+  filter:drop-shadow(0 0 6px rgba(72,219,255,.58));
+}
+.kp-robot-cheek{
+  position:absolute;
+  bottom:28px;
+  width:17px;
+  height:9px;
+  border-radius:50%;
+  background:#ff8eb4;
+  opacity:.78;
+  filter:blur(.3px) drop-shadow(0 0 6px rgba(255,106,166,.45));
+}
+.kp-robot-cheek.left{left:22px}.kp-robot-cheek.right{right:22px}
+
+/* neck + body */
+.kp-robot-neck{
+  position:absolute;
+  left:50%;
+  top:187px;
+  width:45px;
+  height:28px;
+  transform:translateX(-50%);
+  border-radius:12px;
+  background:linear-gradient(180deg,#232c50,#6976a8);
+  z-index:4;
+}
+.kp-robot-body{
+  position:absolute;
+  left:50%;
+  top:203px;
+  width:142px;
+  height:114px;
+  transform:translateX(-50%);
+  border-radius:42px 42px 50px 50px;
+  background:
+    linear-gradient(145deg,#fff 0%,#edf2ff 55%,#d8e0f5 100%);
+  border:1px solid rgba(89,109,159,.16);
+  box-shadow:0 14px 24px rgba(58,75,110,.14);
+  z-index:5;
+}
+.kp-robot-logo{
+  position:absolute;
+  left:50%;
+  top:29px;
+  transform:translateX(-50%);
+  font:900 1.55rem "Sora",sans-serif;
+  letter-spacing:-.09em;
+  background:linear-gradient(135deg,#2f67ff,#7957f2);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.kp-robot-core{
+  position:absolute;
+  left:50%;
+  bottom:17px;
+  width:34px;
+  height:7px;
+  transform:translateX(-50%);
+  border-radius:99px;
+  background:linear-gradient(90deg,#57dcff,#705cff);
+  box-shadow:0 0 11px rgba(84,131,255,.42);
+}
+
+/* arms */
+.kp-robot-arm{
+  position:absolute;
+  top:214px;
+  width:50px;
+  height:108px;
+  z-index:4;
+}
+.kp-robot-arm::before,
+.kp-robot-forearm{
+  content:"";
+  position:absolute;
+  width:38px;
+  height:66px;
+  border-radius:22px;
+  background:linear-gradient(160deg,#fff,#dbe4fa);
+  border:1px solid rgba(85,105,155,.14);
+}
+.kp-robot-arm.left{
+  left:32px;
+  transform:rotate(-36deg);
+  transform-origin:70% 10%;
+  animation:kpWave 2.8s ease-in-out infinite;
+}
+.kp-robot-arm.right{
+  right:30px;
+  transform:rotate(24deg);
+}
+.kp-robot-arm.left .kp-robot-forearm{
+  top:34px;
+  left:-10px;
+  transform:rotate(-34deg);
+}
+.kp-robot-arm.right .kp-robot-forearm{
+  top:33px;
+  right:-9px;
+  transform:rotate(31deg);
+}
+@keyframes kpWave{
+  0%,100%{transform:rotate(-36deg)}
+  45%{transform:rotate(-51deg)}
+  58%{transform:rotate(-28deg)}
+  72%{transform:rotate(-46deg)}
+}
+.kp-robot-hand{
+  position:absolute;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#1d274d,#070d26);
+  box-shadow:0 0 0 4px #dfe7fb;
+}
+.kp-robot-arm.left .kp-robot-hand{
+  left:-19px;
+  top:88px;
+}
+.kp-robot-arm.right .kp-robot-hand{
+  right:-20px;
+  top:88px;
+}
+.kp-robot-arm.left .kp-robot-hand i{
+  position:absolute;
+  top:-16px;
+  width:7px;
+  height:21px;
+  border-radius:8px;
+  background:#111936;
+  transform-origin:50% 100%;
+}
+.kp-robot-arm.left .kp-robot-hand i:nth-child(1){left:5px;transform:rotate(-20deg)}
+.kp-robot-arm.left .kp-robot-hand i:nth-child(2){left:14px;top:-20px}
+.kp-robot-arm.left .kp-robot-hand i:nth-child(3){right:5px;transform:rotate(20deg)}
+
+/* laptop */
+.kp-robot-laptop{
+  position:absolute;
+  left:50%;
+  top:275px;
+  z-index:12;
+  width:150px;
+  height:92px;
+  transform:translateX(-40%) rotate(-3deg);
+  border-radius:10px 10px 5px 5px;
+  background:linear-gradient(150deg,#8d93ad,#555c78);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 14px 24px rgba(45,55,88,.18);
+}
+.kp-robot-laptop::after{
+  content:"";
+  position:absolute;
+  left:-12px;
+  bottom:-8px;
+  width:172px;
+  height:10px;
+  border-radius:3px 3px 10px 10px;
+  background:#464e69;
+}
+.kp-robot-laptop span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  font:900 1.25rem "Sora",sans-serif;
+  letter-spacing:-.08em;
+  text-shadow:0 0 10px rgba(126,151,255,.55);
+}
+
+/* legs */
+.kp-robot-leg{
+  position:absolute;
+  top:306px;
+  width:72px;
+  height:55px;
+  border-radius:30px;
+  background:linear-gradient(160deg,#f8faff,#cfdaf5);
+  border:1px solid rgba(85,105,155,.15);
+  box-shadow:inset 0 -8px 0 rgba(93,116,185,.08);
+  z-index:3;
+}
+.kp-robot-leg.left{left:38px;transform:rotate(9deg)}
+.kp-robot-leg.right{right:32px;transform:rotate(-9deg)}
+.kp-robot-leg i{
+  position:absolute;
+  bottom:-8px;
+  width:58px;
+  height:24px;
+  border-radius:18px;
+  background:#18213f;
+  border:3px solid #58a9ff;
+  box-shadow:0 0 10px rgba(66,160,255,.32);
+}
+.kp-robot-leg.left i{left:-9px}.kp-robot-leg.right i{right:-9px}
+
+/* voice reaction */
+.kp-character-zone.is-speaking .kp-css-robot{
+  animation:kpRobotSpeak .72s ease-in-out infinite;
+}
+.kp-character-zone.is-speaking .kp-robot-antenna::before{
+  animation:kpAntennaPulse .62s ease-in-out infinite alternate;
+}
+.kp-character-zone.is-speaking .kp-robot-eye{
+  filter:drop-shadow(0 0 10px rgba(76,216,255,.95));
+}
+.kp-character-zone.is-speaking .kp-robot-core{
+  box-shadow:0 0 18px rgba(84,131,255,.72);
+}
+@keyframes kpRobotSpeak{
+  0%,100%{transform:translateX(-50%) translateY(0) scale(1)}
+  50%{transform:translateX(-50%) translateY(-4px) scale(1.012)}
+}
+@keyframes kpAntennaPulse{
+  from{transform:translateX(-50%) scale(.92);filter:brightness(1)}
+  to{transform:translateX(-50%) scale(1.08);filter:brightness(1.28)}
+}
+
+/* speech dots beside robot */
+.kp-css-robot-wrap .kp-speech-dots{
+  position:absolute!important;
+  right:1%!important;
+  top:41%!important;
+  z-index:20!important;
+}
+.kp-character-zone.is-speaking .kp-css-robot-wrap .kp-speech-dots{opacity:1!important}
+
+/* remove all old image character visuals */
+.kp-character-wrap,
+.kp-character-zone::after{
+  display:none!important;
+  content:none!important;
+  background:none!important;
+}
+
+@media(max-width:900px){
+  .kp-css-robot-wrap{
+    bottom:30px;
+    width:min(86%,320px);
+    height:300px;
+  }
+  .kp-css-robot{
+    transform:translateX(-50%) scale(.72);
+    transform-origin:50% 100%;
+    bottom:-55px;
+  }
+  .kp-character-zone.is-speaking .kp-css-robot{
+    animation:none;
+    transform:translateX(-50%) scale(.72);
+  }
+}
+@media(max-width:520px){
+  .kp-css-robot-wrap{
+    bottom:20px;
+    width:min(90%,280px);
+    height:270px;
+  }
+  .kp-css-robot{
+    transform:translateX(-50%) scale(.63);
+    bottom:-68px;
+  }
+  .kp-character-zone.is-speaking .kp-css-robot{
+    transform:translateX(-50%) scale(.63);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .kp-css-robot,
+  .kp-robot-arm.left,
+  .kp-robot-antenna::before{
+    animation:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5233,12 +5668,52 @@ window.addEventListener("error",function(){
       <div class="kp-aura aura-blue"></div>
       <div class="kp-aura aura-peach"></div>
 
-      <div class="kp-character-wrap">
-        <img
-          src="assets/kp-cute-guide.webp?v=20260930-1936"
-          class="kp-character"
-          alt="KP portfolio guide mascot"
-        />
+      <div class="kp-css-robot-wrap" aria-hidden="true">
+        <div class="kp-robot-shadow"></div>
+
+        <div class="kp-css-robot">
+          <div class="kp-robot-antenna"><span></span></div>
+
+          <div class="kp-robot-head">
+            <div class="kp-robot-ear left"><i></i></div>
+            <div class="kp-robot-ear right"><i></i></div>
+
+            <div class="kp-robot-face">
+              <div class="kp-robot-eye left"></div>
+              <div class="kp-robot-eye right"></div>
+              <div class="kp-robot-cheek left"></div>
+              <div class="kp-robot-cheek right"></div>
+              <div class="kp-robot-mouth"></div>
+            </div>
+          </div>
+
+          <div class="kp-robot-neck"></div>
+
+          <div class="kp-robot-body">
+            <div class="kp-robot-logo">KP</div>
+            <div class="kp-robot-core"></div>
+          </div>
+
+          <div class="kp-robot-arm left">
+            <div class="kp-robot-forearm"></div>
+            <div class="kp-robot-hand">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+
+          <div class="kp-robot-arm right">
+            <div class="kp-robot-forearm"></div>
+            <div class="kp-robot-hand"></div>
+          </div>
+
+          <div class="kp-robot-laptop">
+            <span>KP</span>
+          </div>
+
+          <div class="kp-robot-leg left"><i></i></div>
+          <div class="kp-robot-leg right"><i></i></div>
+        </div>
+
         <div class="kp-speech-dots" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
 
