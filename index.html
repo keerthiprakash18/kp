@@ -2632,6 +2632,434 @@ a.detail-tile:hover{
   .cursor-fx,.cursor-trail-dot,.cursor-click-pulse{display:none!important}
 }
 
+
+/* === KEERTHI AI ENTRANCE GUIDE === */
+body.intro-lock{overflow:hidden}
+.ai-intro{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 22% 32%,rgba(94,119,255,.16),transparent 28%),
+    radial-gradient(circle at 76% 68%,rgba(167,94,255,.12),transparent 32%),
+    linear-gradient(135deg,#050816 0%,#090d1c 52%,#070a14 100%);
+  transition:opacity .72s ease,visibility .72s ease,transform .72s ease;
+}
+.ai-intro::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background-image:
+    linear-gradient(rgba(129,148,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(129,148,255,.035) 1px,transparent 1px);
+  background-size:54px 54px;
+  transform:perspective(700px) rotateX(62deg) translateY(23%);
+  transform-origin:center bottom;
+  animation:introGrid 9s linear infinite;
+  mask-image:linear-gradient(to bottom,transparent 2%,#000 42%,#000 88%,transparent);
+}
+.ai-intro::after{
+  content:"";
+  position:absolute;
+  width:540px;height:540px;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(109,131,255,.09),transparent 68%);
+  filter:blur(18px);
+  animation:introAura 3.2s ease-in-out infinite;
+}
+.ai-intro.is-leaving{
+  opacity:0;
+  visibility:hidden;
+  transform:scale(1.025);
+}
+@keyframes introGrid{
+  to{background-position:0 54px,54px 0}
+}
+@keyframes introAura{
+  50%{transform:translate(-50%,-50%) scale(1.12);opacity:.65}
+}
+.intro-shell{
+  position:relative;
+  z-index:2;
+  width:min(960px,calc(100% - 36px));
+  display:grid;
+  grid-template-columns:330px minmax(0,1fr);
+  align-items:center;
+  gap:50px;
+}
+.intro-bot-stage{
+  position:relative;
+  min-height:390px;
+  display:grid;
+  place-items:center;
+  animation:botArrive .9s cubic-bezier(.18,.88,.3,1.18) both;
+}
+@keyframes botArrive{
+  from{opacity:0;transform:translateX(-90px) translateY(20px) scale(.82)}
+  to{opacity:1;transform:none}
+}
+.intro-orbit{
+  position:absolute;
+  width:292px;height:292px;
+  border-radius:50%;
+  border:1px solid rgba(130,149,255,.16);
+  animation:orbitSpin 13s linear infinite;
+}
+.intro-orbit::before,.intro-orbit::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+.intro-orbit::before{
+  width:8px;height:8px;
+  left:30px;top:33px;
+  background:#8fa4ff;
+  box-shadow:0 0 18px rgba(143,164,255,.9)
+}
+.intro-orbit::after{
+  width:6px;height:6px;
+  right:19px;bottom:52px;
+  background:#b56fff;
+  box-shadow:0 0 16px rgba(181,111,255,.8)
+}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+
+.ai-bot{
+  position:relative;
+  width:190px;height:236px;
+  animation:botFloat 3s ease-in-out infinite;
+  filter:drop-shadow(0 24px 34px rgba(0,0,0,.32));
+}
+@keyframes botFloat{
+  50%{transform:translateY(-10px)}
+}
+.bot-antenna{
+  position:absolute;
+  left:50%;top:2px;
+  width:3px;height:28px;
+  margin-left:-1.5px;
+  background:linear-gradient(#8aa0ff,#a96dff);
+  border-radius:99px;
+  transform-origin:bottom;
+  animation:antennaNod 2.2s ease-in-out infinite;
+}
+.bot-antenna::before{
+  content:"";
+  position:absolute;
+  left:50%;top:-8px;
+  width:12px;height:12px;
+  margin-left:-6px;
+  border-radius:50%;
+  background:#a9b7ff;
+  box-shadow:0 0 18px #718cff,0 0 34px rgba(176,108,255,.55);
+}
+@keyframes antennaNod{50%{transform:rotate(8deg)}}
+.bot-head{
+  position:absolute;
+  left:27px;top:29px;
+  width:136px;height:100px;
+  border-radius:34px 34px 29px 29px;
+  border:1px solid rgba(255,255,255,.16);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.12),transparent 30%),
+    linear-gradient(145deg,#151d39,#0a1024 70%);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.12),
+    0 0 0 5px rgba(101,121,255,.035),
+    0 18px 45px rgba(0,0,0,.26);
+  animation:headLook 5s ease-in-out infinite;
+}
+@keyframes headLook{
+  0%,35%,100%{transform:rotate(0)}
+  48%{transform:rotate(3deg)}
+  62%{transform:rotate(-2deg)}
+}
+.bot-face{
+  position:absolute;
+  inset:18px 14px;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(121,144,255,.18),transparent 50%),
+    #050916;
+  border:1px solid rgba(133,151,255,.13);
+  overflow:hidden;
+}
+.bot-eye{
+  position:absolute;
+  top:29px;
+  width:26px;height:12px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#88a1ff,#c17cff);
+  box-shadow:0 0 14px rgba(133,157,255,.62);
+  animation:botBlink 4.5s infinite;
+}
+.bot-eye.left{left:22px}
+.bot-eye.right{right:22px}
+@keyframes botBlink{
+  0%,43%,47%,100%{transform:scaleY(1)}
+  45%{transform:scaleY(.12)}
+}
+.bot-mouth{
+  position:absolute;
+  left:50%;bottom:13px;
+  width:24px;height:7px;
+  margin-left:-12px;
+  border:2px solid #8ea4ff;
+  border-top:0;
+  border-radius:0 0 20px 20px;
+  opacity:.9;
+}
+.bot-ear{
+  position:absolute;
+  top:64px;
+  width:13px;height:30px;
+  border-radius:10px;
+  background:#151d38;
+  border:1px solid rgba(255,255,255,.11);
+}
+.bot-ear.left{left:14px}
+.bot-ear.right{right:14px}
+.bot-body{
+  position:absolute;
+  left:43px;top:137px;
+  width:104px;height:84px;
+  border-radius:30px 30px 38px 38px;
+  background:linear-gradient(145deg,#182141,#0b1127);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 1px rgba(255,255,255,.09);
+}
+.bot-body::before{
+  content:"AI";
+  position:absolute;
+  left:50%;top:18px;
+  transform:translateX(-50%);
+  width:43px;height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  font:800 14px/1 "Sora",sans-serif;
+  color:#e9edff;
+  background:linear-gradient(145deg,rgba(104,132,255,.22),rgba(176,108,255,.18));
+  border:1px solid rgba(141,154,255,.22);
+  box-shadow:0 0 24px rgba(110,130,255,.16);
+}
+.bot-arm{
+  position:absolute;
+  top:144px;
+  width:18px;height:78px;
+  border-radius:15px;
+  background:linear-gradient(#18213f,#0b1127);
+  border:1px solid rgba(255,255,255,.12);
+  transform-origin:50% 9px;
+}
+.bot-arm.left{left:22px;transform:rotate(15deg)}
+.bot-arm.right{
+  right:19px;
+  transform:rotate(-38deg);
+  animation:botWave 1.15s ease-in-out 1.05s 3;
+}
+.bot-arm::after{
+  content:"";
+  position:absolute;
+  left:50%;bottom:-8px;
+  width:23px;height:23px;
+  margin-left:-11.5px;
+  border-radius:50%;
+  background:#121a33;
+  border:1px solid rgba(255,255,255,.13);
+}
+@keyframes botWave{
+  0%,100%{transform:rotate(-38deg)}
+  50%{transform:rotate(-67deg)}
+}
+.bot-shadow{
+  position:absolute;
+  left:50%;bottom:45px;
+  width:120px;height:20px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:rgba(72,89,205,.18);
+  filter:blur(10px);
+  animation:shadowPulse 3s ease-in-out infinite;
+}
+@keyframes shadowPulse{50%{width:95px;opacity:.55}}
+
+.intro-copy{
+  opacity:0;
+  animation:introCopyIn .7s ease .55s forwards;
+}
+@keyframes introCopyIn{
+  to{opacity:1;transform:none}
+  from{opacity:0;transform:translateY(22px)}
+}
+.intro-mini{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(99,232,155,.12);
+  background:rgba(99,232,155,.035);
+  color:#8fe6b3;
+  font:800 .62rem/1 "Sora",sans-serif;
+  letter-spacing:.08em;
+}
+.intro-mini::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:#63e89b;
+  box-shadow:0 0 12px rgba(99,232,155,.8);
+}
+.intro-copy h1{
+  margin:18px 0 12px;
+  font-family:"Sora",sans-serif;
+  font-size:clamp(2.4rem,5vw,4.35rem);
+  line-height:.98;
+  letter-spacing:-.055em;
+  color:#fff;
+}
+.intro-copy h1 span{
+  background:linear-gradient(90deg,#9fb1ff,#c07cff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.intro-copy p{
+  max-width:570px;
+  margin:0;
+  color:#aeb9ce;
+  font-size:1rem;
+  line-height:1.72;
+}
+.intro-type{
+  display:block;
+  min-height:1.6em;
+  margin-top:12px;
+  color:#dce3f5;
+  font-family:"Sora",sans-serif;
+  font-size:.84rem;
+}
+.intro-caret{
+  display:inline-block;
+  width:7px;height:1.1em;
+  margin-left:4px;
+  vertical-align:-2px;
+  background:#8199ff;
+  animation:caretBlink .8s steps(1) infinite;
+}
+@keyframes caretBlink{50%{opacity:0}}
+.intro-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.intro-enter{
+  min-height:50px;
+  padding:0 20px;
+  border:0;
+  border-radius:14px;
+  cursor:pointer;
+  color:#fff;
+  font:800 .78rem/1 "Sora",sans-serif;
+  letter-spacing:.025em;
+  background:linear-gradient(135deg,#718cff,#a85fff);
+  box-shadow:0 16px 38px rgba(95,105,235,.30),inset 0 1px rgba(255,255,255,.22);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.intro-enter:hover{transform:translateY(-2px);box-shadow:0 20px 46px rgba(95,105,235,.38)}
+.intro-skip{
+  min-height:50px;
+  padding:0 15px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  cursor:pointer;
+  color:#9ba7bc;
+  background:rgba(255,255,255,.025);
+  font:700 .72rem/1 "Sora",sans-serif;
+}
+.intro-progress{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:2px;
+  background:rgba(255,255,255,.04);
+}
+.intro-progress::after{
+  content:"";
+  display:block;
+  width:0;height:100%;
+  background:linear-gradient(90deg,#718cff,#b36cff);
+  box-shadow:0 0 14px rgba(118,140,255,.55);
+  animation:introProgress 5.2s linear forwards;
+}
+@keyframes introProgress{to{width:100%}}
+
+.ai-guide-chip{
+  position:fixed;
+  right:20px;
+  bottom:22px;
+  z-index:90;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:280px;
+  padding:10px 12px 10px 10px;
+  border-radius:16px;
+  border:1px solid rgba(133,151,255,.15);
+  background:rgba(8,12,26,.88);
+  backdrop-filter:blur(16px);
+  box-shadow:0 20px 50px rgba(0,0,0,.28);
+  color:#dfe5f4;
+  opacity:0;
+  transform:translateY(18px) scale(.96);
+  pointer-events:none;
+}
+.ai-guide-chip.show{
+  animation:guideChip 5.8s ease forwards;
+}
+@keyframes guideChip{
+  0%{opacity:0;transform:translateY(18px) scale(.96)}
+  10%,76%{opacity:1;transform:none}
+  100%{opacity:0;transform:translateY(8px) scale(.98)}
+}
+.guide-mini-bot{
+  width:34px;height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:linear-gradient(145deg,#1a2345,#0b1127);
+  border:1px solid rgba(255,255,255,.12);
+  color:#aebcff;
+  font:800 11px "Sora",sans-serif;
+  box-shadow:0 0 18px rgba(107,130,255,.13);
+}
+.ai-guide-chip span{
+  font-size:.72rem;
+  line-height:1.35;
+}
+.ai-guide-chip b{color:#fff}
+
+@media(max-width:760px){
+  .intro-shell{
+    grid-template-columns:1fr;
+    gap:10px;
+    text-align:center;
+  }
+  .intro-bot-stage{min-height:285px}
+  .intro-orbit{width:224px;height:224px}
+  .ai-bot{transform:scale(.78);margin-top:-25px}
+  .intro-copy h1{font-size:clamp(2.25rem,11vw,3.4rem)}
+  .intro-copy p{font-size:.9rem}
+  .intro-actions{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-bot,.intro-orbit,.bot-arm.right,.bot-antenna,.intro-progress::after{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2643,6 +3071,46 @@ window.addEventListener("error",function(){
 });
 </script>
 <a class="skip-link" href="#main-content">Skip to content</a>
+
+<div id="aiIntro" class="ai-intro" role="dialog" aria-modal="true" aria-label="Welcome to Keerthi Prakash portfolio">
+  <div class="intro-shell">
+    <div class="intro-bot-stage" aria-hidden="true">
+      <div class="intro-orbit"></div>
+      <div class="bot-shadow"></div>
+      <div class="ai-bot">
+        <div class="bot-antenna"></div>
+        <div class="bot-ear left"></div>
+        <div class="bot-ear right"></div>
+        <div class="bot-head">
+          <div class="bot-face">
+            <span class="bot-eye left"></span>
+            <span class="bot-eye right"></span>
+            <span class="bot-mouth"></span>
+          </div>
+        </div>
+        <div class="bot-arm left"></div>
+        <div class="bot-arm right"></div>
+        <div class="bot-body"></div>
+      </div>
+    </div>
+    <div class="intro-copy">
+      <span class="intro-mini">KEERTHI AI GUIDE ONLINE</span>
+      <h1>Welcome to <span>Keerthi's Data Lab.</span></h1>
+      <p>Data, analytics, AI-assisted development and real products — all in one interactive portfolio.</p>
+      <span class="intro-type" id="introType"></span>
+      <div class="intro-actions">
+        <button class="intro-enter" id="introEnter" type="button">ENTER PORTFOLIO →</button>
+        <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
+      </div>
+    </div>
+  </div>
+  <div class="intro-progress"></div>
+</div>
+<div id="aiGuideChip" class="ai-guide-chip" aria-hidden="true">
+  <div class="guide-mini-bot">AI</div>
+  <span><b>You're in.</b><br>Start with Featured Products & Projects ↓</span>
+</div>
+
 <div id="cursorAura" class="cursor-aura" aria-hidden="true"></div>
 <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
 <canvas id="cursorDataCanvas" class="cursor-data-canvas" aria-hidden="true"></canvas>
@@ -2651,6 +3119,82 @@ window.addEventListener("error",function(){
   <div class="cursor-dot"></div>
   <div class="cursor-tag">AI • DATA</div>
 </div>
+
+<script>
+/* KEERTHI AI INTRO — isolated and fail-safe */
+(function(){
+  try{
+    const intro=document.getElementById("aiIntro");
+    const enter=document.getElementById("introEnter");
+    const skip=document.getElementById("introSkip");
+    const type=document.getElementById("introType");
+    const chip=document.getElementById("aiGuideChip");
+    if(!intro) return;
+
+    const force=new URLSearchParams(location.search).get("intro")==="1";
+    const seen=sessionStorage.getItem("kp_ai_intro_seen")==="1";
+
+    if(seen && !force){
+      intro.remove();
+      return;
+    }
+
+    document.body.classList.add("intro-lock");
+
+    const message="Hi, I'm your AI guide. Let me show you what Keerthi builds.";
+    let i=0;
+    const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if(reduced){
+      type.textContent=message;
+    }else{
+      const typer=setInterval(function(){
+        type.textContent=message.slice(0,++i);
+        if(i>=message.length) clearInterval(typer);
+      },34);
+    }
+
+    let closed=false;
+    function closeIntro(){
+      if(closed) return;
+      closed=true;
+      sessionStorage.setItem("kp_ai_intro_seen","1");
+      intro.classList.add("is-leaving");
+      document.body.classList.remove("intro-lock");
+      setTimeout(function(){
+        intro.remove();
+        if(chip){
+          chip.classList.add("show");
+          setTimeout(function(){chip.remove()},6200);
+        }
+      },720);
+    }
+
+    enter.addEventListener("click",closeIntro);
+    skip.addEventListener("click",closeIntro);
+
+    const auto=setTimeout(closeIntro,reduced?1200:5200);
+    window.addEventListener("keydown",function(e){
+      if(e.key==="Escape"){clearTimeout(auto);closeIntro()}
+      if(e.key==="Enter" && document.activeElement===document.body){clearTimeout(auto);closeIntro()}
+    });
+
+    setTimeout(function(){
+      if(!closed) enter.focus({preventScroll:true});
+    },900);
+
+    // Hard fail-safe: intro can never trap the page.
+    setTimeout(function(){
+      if(document.body.classList.contains("intro-lock")) closeIntro();
+    },7000);
+  }catch(err){
+    document.body.classList.remove("intro-lock");
+    const intro=document.getElementById("aiIntro");
+    if(intro) intro.remove();
+  }
+})();
+</script>
+
 <div id="ambientCode" class="ambient-code" aria-hidden="true"></div>
 
 <script>
