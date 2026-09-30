@@ -513,8 +513,9 @@ footer{
   font-size:.78rem
 }
 
-.reveal{opacity:0;transform:translateY(18px);transition:.6s}
-.reveal.show{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:.6s}
+.animations-ready .reveal{opacity:0;transform:translateY(18px)}
+.animations-ready .reveal.show{opacity:1;transform:none}
 
 @media(max-width:980px){
   section{padding:78px 0}
